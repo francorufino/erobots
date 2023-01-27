@@ -1,4 +1,23 @@
-.App {
+
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+ul, li{
+  text-decoration: none;
+  list-style-type: none;
+}
+
+.container{
+  max-width: 1200px;
+}
+
+
+
+
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +54,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */
