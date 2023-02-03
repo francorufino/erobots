@@ -1,0 +1,41 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "AI Humanoid Intelligent Robots Restaurant Waitress Food delivery Robot (Red)",
+      "description": "Food Delivery Deliver the meal to the guest's designated table, then explain the restaurant information, the waiter or the guest touches the robot's screen and the robot goes to the next table or returns to the starting point to charging.Multi-point Delivery Robot can deliver the food to one table, can also deliver the good to three different tables in one order",
+      "price": 7588,
+      "type": "business",
+      "stock": 5,
+      "image": "https://m.media-amazon.com/images/I/812FhdqYTaL._SX466_.jpg"
+    },
+    {
+      "id": 2,
+      "name": "aAnki Anki Cozmo Robot with 3 Cubes",
+      "description": "Meet Cozmo, a gifted little guy who has got a mind of his own and a few tricks up his sleeve. He is the sweet spot where supercomputer meets loyal sidekick. Curiously smart and a little mischievous. You see, Cozmo is a real-life robot like you have only seen in movies, with a one-of-a-kind personality that evolves the more you hang out. He'll nudge you to play and keep you constantly surprised. Cozmo is your accomplice in a crazy amount of fun. Code Lab.Cozmo is big brain and even bigger personality are operated by impressive technology. Besides all the games and smarts he comes with out of the box, you have access to a visual programming language that is STEM-ready for beginners. Program Cozmo to do anything from performing a victory dance, sneezing, or playing hot potato with his Cubes. Simply use the drag and drop coding blocks on the Cozmo app to build a new combination of blocks, and you will see Cozmo act out your creation. There are no limits to what you can create. All it takes is imagination.",
+      "price": 599.99,
+      "type": "house",
+      "stock": 2,
+      "image": "https://m.media-amazon.com/images/I/61brcXskzjL._SX679_.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Segway Ninebot LOOMO Advanced Personal Robot and Personal Transporter, Black",
+      "description": "Mobile robot sidekick goes where you go. Powerful motors & Large volume battery enable speeds of up to 11 mph, up to a distance of 22 miles on one charge. 11-Inch anti-slip tires allow for smooth riding on uneven roads. Telepresence Avatar: With its advanced computer vision, LOOMO can follow you autonomously, shoot stabilized video, and more. And you can speak, explore, interact, and experience as if you are LOOMO via the LOOMO app. Powerful AI that incorporates Intel RealSense: Equipped with Intel RealSense ZR300 camera, which enables 3D perception, robot mapping and obstacle avoidance. 1080p HD-camera with 30Hz streaming, 2 infrared distance sensors help LOOMO more smart. Platform designed for endless integration possibilities. You can use LOOMO Android SDK to directly access LOOMO is full range mobility and AI capabilities to build a range of playful features or practical solutions. Max Payload-220 pounds
+      New Skills Unlock Over-the-Air (OTA): LOOMO will continuously update its software and app to include new features to impress and surprise you. Simple drag-and-drop interface will be released-users without programming experience can teach new tricks!",
+      "price": 2299.99,
+      "type": "house",
+      "stock": 5,
+      "image": "https://m.media-amazon.com/images/I/61IyBHTrxlL._AC_SY450_.jpg"
+    },
+    {
+      "id": 4,
+      "name": "valor",
+      "description": "descricao do produto",
+      "price": 0.0,
+      "type": "house",
+      "stock": 5,
+      "image": "caminho image"
+    }
+  ]
+}

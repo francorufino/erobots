@@ -1,0 +1,40 @@
+.addtocart{
+  display: flex;
+  flex-wrap: wrap;
+  background:#f3994c;
+  padding: 7px 18px;
+  color: #000;
+  font-weight: 13px;
+  font-size: 18px;
+  margin-top: 13px;
+  border-radius: 18px;
+  font-weight: 500;
+  justify-content: center;
+  align-items: flex-start;
+  border: none;
+}
+
+.qtdeToAddToCart{
+  font-size: 0.5rem;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.qtdeToAddToCart button{
+  height: 20px;
+  width: 20px;
+  border-radius: 5px;
+  border: none;
+  margin: 2px;
+}
+
+.inStockTextNumber{
+  font-size: 10px;
+}
+
+.textUnderAddToCartBtn{
+text-align: center;
+margin-top: -10px;
+
+}
+
