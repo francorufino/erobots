@@ -7,21 +7,28 @@ function BtnAddToCart({ detailStock }) {
 
   function addToWantToBuy() {
     if (stock >= 1) {
-      setStock(stock - 1);
       setWantToBuy(wantToBuy + 1);
+      setStock(stock - 1);
     }
   }
 
   function removeFromWantToBuy() {
-    if (wantToBuy >= 1) {
-      setStock(stock + 1);
+    if (wantToBuy >= 0) {
       setWantToBuy(wantToBuy - 1);
+      setStock(stock + 1);
     }
   }
 
   function addToCartFn() {
-    setWantToBuy(0);
+    setWantToBuy(1);
+    if (stock >= 1) {
+      setStock(stock - 1);
+    }
     if (stock === 0) {
+      setWantToBuy(0);
+    }
+    if (stock !== 0) {
+      alert('Product(s) added to your cart');
     }
   }
 
@@ -30,7 +37,7 @@ function BtnAddToCart({ detailStock }) {
       <div>
         <div className="btnAddToCart">
           <button onClick={addToCartFn} className="addtocart">
-            Add to cart
+            Add to Cart
           </button>
           <div className="qtdeToAddToCart">
             <span>Qtde: </span>

@@ -126,21 +126,20 @@
 }
 
 .robot-footer{
-  padding: 12px 25px;
+  display: flex;
+  justify-content: center;
 }
 
-.robot-footer ul{
-  display: flex;
+/* .robot-footer ul{
+  justify-content: left;
   align-items: center;
-  justify-content: space-between;
 }
 
 .robot-footer ul li span{
   color: #001d38;
   font-size: 13px;
   font-weight: 400;
-  margin-left: 5px;
-}
+} */
 
 .mark span, .robot-content h3, .robot-tag, .amount, .robot-footer ul li span{
   font-family: "Poppins", sans-serif;
@@ -177,4 +176,14 @@ color: white;
   justify-content: center;
   gap: 8px;
   
+}
+
+.freeReturnsText{
+  font-size: .6rem;
+  margin-left: 5px;
+}
+
+.checkMark{
+  color: green;
+  font-size: .6rem;
 }

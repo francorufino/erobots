@@ -6,6 +6,7 @@ import BtnAddToCart from '../btn/BtnAddToCart';
 import '../btn/BtnAddToCart.css';
 import BtnSeeDetails from '../btn/BtnSeeDetails';
 import '../btn/BtnSeeDetails.css';
+import { FaCheck } from 'react-icons/fa';
 
 const CardComponent = () => {
   const [detail, setDetail] = useState(itemDetail);
@@ -20,10 +21,12 @@ const CardComponent = () => {
                 <div className="single-robot">
                   <div className="card">
                     <div className="robot-thumb">
-                      <div className="robot-tag">U$ {detail.price}</div>
+                      <BtnSeeDetails
+                        detailDetails={detail.description}
+                        className="robot-tag"
+                      />
                       <img className="img" src={detail.image} alt="" />
                     </div>
-
                     <div className="robot-content">
                       <h3>{detail.name}</h3>
                       <div className="mark">
@@ -32,7 +35,7 @@ const CardComponent = () => {
                       </div>
                       <div className="containerBtns">
                         <div>
-                          <BtnSeeDetails description={detail.description} />
+                          <div>U$ {detail.price}</div>
                         </div>
                         <div>
                           <BtnAddToCart detailStock={detail.stock} />
@@ -40,21 +43,34 @@ const CardComponent = () => {
                       </div>
                     </div>
                     <div className="robot-footer">
-                      <ul>
-                        <li>
-                          <img src={detail.type} alt=""></img>
-                          <span>
-                            {detail.type === 'business' && <ImgBusiness />}
-                          </span>
-                        </li>
-                        <li>
-                          Same day delivery
-                          <span>Product Ref: {detail.id}</span>
-                        </li>
-                        <li>
-                          <span>Free returns</span>
-                        </li>
-                      </ul>
+                      <div>
+                        <span>
+                          {detail.type === 'business' && <ImgBusiness />}
+                        </span>
+                      </div>
+                      <div>
+                        <img src={detail.type} alt=""></img>
+
+                        <ul className="priceAndFreeReturnText">
+                          <li>Product Ref: {detail.id}</li>
+                          <li>
+                            <span>
+                              <FaCheck className="checkMark" />
+                            </span>
+                            <span className="freeReturnsText">
+                              Same Day Delivery
+                            </span>
+                          </li>
+                          <li>
+                            <span>
+                              <FaCheck className="checkMark" />
+                            </span>
+                            <span className="freeReturnsText">
+                              Free returns
+                            </span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </div>

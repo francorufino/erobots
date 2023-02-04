@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const BtnSeeDetails = () => {
+const BtnSeeDetails = (detailDetails) => {
+  const [description, setDescription] = useState(detailDetails);
   function seeDetail() {
-    alert('Clicou no see detail');
+    alert(description);
   }
   return (
     <div>
