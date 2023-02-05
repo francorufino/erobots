@@ -40,13 +40,11 @@
 .robot-thumb img{
   position: relative;
   overflow: hidden;
+  width: 350px;
   vertical-align: middle;
   transition: .3s;
   padding: 12px;
-  max-height: 23vw;
-  min-height: 23vw;
-  max-width:23vw;
-  min-width: 23vw;
+  height: 350px;
 }
 
 .single-robot:hover .robot-thumb img{
