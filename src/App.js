@@ -5,7 +5,6 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
       <ItemListContainer greeting={'Hello world of Robots!'} />
     </div>
   );

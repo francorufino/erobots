@@ -6,7 +6,13 @@ import BtnAddToCart from '../btn/BtnAddToCart';
 import '../btn/BtnAddToCart.css';
 import BtnSeeDetails from '../btn/BtnSeeDetails';
 import '../btn/BtnSeeDetails.css';
-import { FaCheck } from 'react-icons/fa';
+import {
+  FaCheck,
+  FaClipboard,
+  FaHome,
+  FaDog,
+  FaIndustry,
+} from 'react-icons/fa';
 
 const CardComponent = () => {
   const [detail, setDetail] = useState(itemDetail);
@@ -21,39 +27,44 @@ const CardComponent = () => {
                 <div className="single-robot">
                   <div className="card">
                     <div className="robot-thumb">
+                      <img className="img" src={detail.image} alt="" />
                       <BtnSeeDetails
                         detailDetails={detail.description}
                         className="robot-tag"
                       />
-                      <img className="img" src={detail.image} alt="" />
                     </div>
                     <div className="robot-content">
                       <h3>{detail.name}</h3>
                       <div className="mark">
-                        <i class="fa-solid fa-location-dot"></i>
                         <span>{detail.description}</span>
                       </div>
                       <div className="containerBtns">
-                        <div>
-                          <div>U$ {detail.price}</div>
-                        </div>
+                        <div className="containerPrice"> U$ {detail.price}</div>
                         <div>
                           <BtnAddToCart detailStock={detail.stock} />
                         </div>
                       </div>
                     </div>
+
                     <div className="robot-footer">
-                      <div>
+                      <div className="footerImg">
                         <span>
                           {detail.type === 'business' && <ImgBusiness />}
                         </span>
+                        <span>
+                          {detail.type === 'house' && (
+                            <FaHome className="icon" />
+                          )}
+                        </span>
+                        <span>
+                          {detail.type === 'companion' && (
+                            <FaDog className="icon" />
+                          )}
+                        </span>
                       </div>
-                      <div>
-                        <img src={detail.type} alt=""></img>
-
-                        <ul className="priceAndFreeReturnText">
-                          <li>Product Ref: {detail.id}</li>
-                          <li>
+                      <div className="footerRight">
+                        <ul>
+                          <li className="footerTexts">
                             <span>
                               <FaCheck className="checkMark" />
                             </span>
@@ -61,12 +72,20 @@ const CardComponent = () => {
                               Same Day Delivery
                             </span>
                           </li>
-                          <li>
+                          <li className="footerTexts">
                             <span>
                               <FaCheck className="checkMark" />
                             </span>
                             <span className="freeReturnsText">
                               Free returns
+                            </span>
+                          </li>
+                          <li className="footerTexts">
+                            <span>
+                              <FaClipboard className="clipboard" />
+                            </span>
+                            <span className="freeReturnsText">
+                              Product Ref: {detail.id}
                             </span>
                           </li>
                         </ul>

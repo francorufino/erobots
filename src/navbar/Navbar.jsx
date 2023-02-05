@@ -12,7 +12,9 @@ function Navbarr() {
     <>
       <Navbar bg="dark" variant="dark">
         <Container>
-          <Navbar.Brand href="#home">e-robots</Navbar.Brand>
+          <Navbar.Brand href="#home" id="brand">
+            e-robots
+          </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="#robots">Robots</Nav.Link>
             <Nav.Link href="#about">About</Nav.Link>

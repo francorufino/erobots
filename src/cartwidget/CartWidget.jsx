@@ -1,5 +1,4 @@
 import React from 'react';
-import ItemCount from '../itemCount/ItemCount';
 import './CartWidget.css';
 
 const CartWidget = () => {

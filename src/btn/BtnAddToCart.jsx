@@ -17,6 +17,9 @@ function BtnAddToCart({ detailStock }) {
       setWantToBuy(wantToBuy - 1);
       setStock(stock + 1);
     }
+    if (wantToBuy === 0) {
+      setWantToBuy(1);
+    }
   }
 
   function addToCartFn() {
@@ -27,7 +30,7 @@ function BtnAddToCart({ detailStock }) {
     if (stock === 0) {
       setWantToBuy(0);
     }
-    if (stock !== 0) {
+    if (stock !== 0 && wantToBuy !== 0) {
       alert('Product(s) added to your cart');
     }
   }
@@ -36,8 +39,17 @@ function BtnAddToCart({ detailStock }) {
     <div>
       <div>
         <div className="btnAddToCart">
-          <button onClick={addToCartFn} className="addtocart">
-            Add to Cart
+          <button
+            onClick={addToCartFn}
+            className="addtocart"
+            disabled={stock === 0 && wantToBuy === 0}
+            style={
+              stock === 0 && wantToBuy === 0
+                ? { backgroundColor: 'gray', color: '#1a1a1d' }
+                : { backgroundColor: '#e9974a', color: '#1a1a1d' }
+            }
+          >
+            {wantToBuy === 0 && stock === 0 ? 'Out of stock' : 'Add to cart'}
           </button>
           <div className="qtdeToAddToCart">
             <span>Qtde: </span>
@@ -52,7 +64,12 @@ function BtnAddToCart({ detailStock }) {
         </div>
       </div>
       <div className="textUnderAddToCartBtn">
-        <span className="inStockTextNumber">Only {stock} left in stock </span>
+        <span
+          className="inStockTextNumber"
+          style={stock < 5 ? { color: '#e9974a' } : { color: '#d3cfcd' }}
+        >
+          Only {stock} left in stock{' '}
+        </span>
       </div>
     </div>
   );

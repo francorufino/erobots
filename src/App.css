@@ -3,6 +3,9 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+  font-family: 'Poppins', sans-serif;
   
 }
 
@@ -14,6 +17,8 @@ ul, li{
 a{
   text-decoration: none;
 }
+
+
 
 .container{
   max-width: 1200px;

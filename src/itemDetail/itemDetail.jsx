@@ -19,14 +19,15 @@ const itemDetail = [
     price: 599,
     type: 'house',
     stock: 5,
-    image: 'https://m.media-amazon.com/images/I/81yWGmbGHhL._AC_SL1500_.jpg',
+    image:
+      'https://m.media-amazon.com/images/I/81JhrvAHCyL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
   },
   {
     id: 3,
     name: 'Segway Ninebot LOOMO Advanced Personal Robot and Personal Transporter, Black',
     description:
       'Keep home closer - Meet Astro, the household robot for home monitoring, with Alexa.Introducing Intelligent Motion - Amazon Astro uses advanced navigation technology to find its way around your home and go where you need it. ',
-    price: 2299.99,
+    price: 2299,
     type: 'house',
     stock: 12,
     image: 'https://m.media-amazon.com/images/I/61IyBHTrxlL._AC_SL1500_.jpg',
@@ -36,7 +37,7 @@ const itemDetail = [
     name: 'Amazon Astro, Household Robot for Home Monitoring, with Alexa, Includes 6-month Free Trial of Ring Protect Pro',
     description:
       "Food Delivery Deliver the meal to the guest's designated table, then explain the restaurant information, the waiter or the guest touches the robot's screen and the robot goes to the next table or returns to the starting point to charging.Multi-point Delivery Robot can deliver the food to one table, can also deliver the good to three different tables in one order",
-    price: 999.99,
+    price: 999,
     type: 'house',
     stock: 9,
     image: 'https://m.media-amazon.com/images/I/41JCI-X0b5L._AC_SL1000_.jpg',
@@ -47,7 +48,7 @@ const itemDetail = [
     description:
       'UNITREE GO1 Pro Robot Dog Toy Artificial Intelligence accompanying Technology Dog, UNITREE GO1 Pro Robot Dog Toy Artificial Intelligence accompanying Technology Dog',
     price: 5899,
-    type: 'conpanion',
+    type: 'companion',
     stock: 3,
     image: 'https://m.media-amazon.com/images/I/41iYUZFHXOL._AC_.jpg',
   },
@@ -60,7 +61,7 @@ const itemDetail = [
     type: 'business',
     stock: 16,
     image:
-      'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_921,h_504/https://www.intellspot.com/wp-content/uploads/2020/04/Starship-Delivery-Robot.png',
+      'https://mobilerobotguide.com/wp-content/uploads/2022/01/featured-web-starship.jpg',
   },
   {
     id: 7,
@@ -71,7 +72,7 @@ const itemDetail = [
     type: 'business',
     stock: 10,
     image:
-      'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_947,h_583/https://www.intellspot.com/wp-content/uploads/2020/04/Pepper-Robot.png',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXJM6BR3XjzYac70qBeduXUBfaFAwrkRYkDw&usqp=CAU',
   },
   {
     id: 8,
@@ -82,29 +83,29 @@ const itemDetail = [
     type: 'business',
     stock: 9,
     image:
-      'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_950,h_472/https://www.intellspot.com/wp-content/uploads/2020/04/Penny-Restaurant-Robot.png',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQScOatHyVV_iCCC6YEbBmT9F17d0ZNCzvyow&usqp=CAU',
   },
   {
     id: 9,
-    name: 'Starship Delivery Robots',
+    name: 'Little Sophia',
     description:
-      'Robotic delivery is a hot trending area and some of the most popular delivery robots are those provided by Starship Technologies company.Starship robots can carry items within a 4-mile (6km) radius, navigate streets autonomously, and provide package delivery for consumers and businesses.The robots are equipped with sensors, AI, and mapping system to understand their location and the world around them. They have a pedestrian speed and weigh no more than 100 pounds.With partnerships with many stores and restaurants, the robots make local delivery faster and more cost-efficient.Parcels and food are directly delivered from stores, on customer requests via a mobile app. Once ordered the robots’ location and path can be monitored on a smartphone.',
-    price: 5899,
-    type: 'business',
+      'Literally walking in the footsteps of her older sister, little sophia can talk, sing, play games and, tell jokes. her main objective however, is to teach kids—especially girls—between the ages of seven and 13 about STEM, coding and AI. with little sophias software, and included tutorials through hansons AI academy, she is a unique programmable, educational companion for kids, inspiring children to learn through a safe, interactive, human-robot experience',
+    price: 10999,
+    type: 'companion',
     stock: 20,
     image:
-      'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_921,h_504/https://www.intellspot.com/wp-content/uploads/2020/04/Starship-Delivery-Robot.png',
+      'https://static.designboom.com/wp-content/uploads/2019/01/sophia-the-robot-sister-little-sophia-6.jpg',
   },
   {
     id: 10,
-    name: 'Starship Delivery Robots',
+    name: 'Sophia',
     description:
-      'Robotic delivery is a hot trending area and some of the most popular delivery robots are those provided by Starship Technologies company.Starship robots can carry items within a 4-mile (6km) radius, navigate streets autonomously, and provide package delivery for consumers and businesses.The robots are equipped with sensors, AI, and mapping system to understand their location and the world around them. They have a pedestrian speed and weigh no more than 100 pounds.With partnerships with many stores and restaurants, the robots make local delivery faster and more cost-efficient.Parcels and food are directly delivered from stores, on customer requests via a mobile app. Once ordered the robots’ location and path can be monitored on a smartphone.',
-    price: 5899,
-    type: 'business',
-    stock: 11,
+      'Hanson Robotics most advanced human-like robot, Sophia, personifies our dreams for the future of AI. As a unique combination of science, engineering, and artistry, Sophia is simultaneously a human-crafted science fiction character depicting the future of AI and robotics, and a platform for advanced robotics and AI research',
+    price: 20999,
+    type: 'companion',
+    stock: 35,
     image:
-      'https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_921,h_504/https://www.intellspot.com/wp-content/uploads/2020/04/Starship-Delivery-Robot.png',
+      'https://robots.ieee.org/robots/sophia/Photos/SD/sophia-photo1-full.jpg',
   },
 ];
 

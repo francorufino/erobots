@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './BtnSeeDetails.css';
+import '../cardComponent/CardComponent.css';
 
 const BtnSeeDetails = (detailDetails) => {
   const [description, setDescription] = useState(detailDetails);
@@ -6,9 +8,9 @@ const BtnSeeDetails = (detailDetails) => {
     alert(description);
   }
   return (
-    <div>
-      <button onClick={seeDetail} className="detail">
-        Detail
+    <div className="robot-tag">
+      <button className=" detail" onClick={seeDetail}>
+        See more
       </button>
     </div>
   );

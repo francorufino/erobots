@@ -1,9 +1,8 @@
 import React, { Fragment } from 'react';
 import CardComponent from '../cardComponent/CardComponent';
 import FilterTypeComponent from '../filterTypeComponent/FilterTypeComponent';
-import HeaderComponent from '../headerComponent/HeaderComponent';
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
   // const getData=()=>{
   //   fetch('data.json'
   //   ,{
@@ -28,7 +27,6 @@ const ItemListContainer = ({ greeting }) => {
   return (
     <Fragment>
       <FilterTypeComponent />
-      <HeaderComponent />
       <CardComponent />
     </Fragment>
   );
