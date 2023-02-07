@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import itemDetail from '../itemDetail/itemDetail';
-import './CardComponent.css';
+import './ItemList.css';
 import ImgBusiness from '../images/ImgBusiness';
 import BtnAddToCart from '../btn/BtnAddToCart';
 import '../btn/BtnAddToCart.css';
@@ -14,7 +14,7 @@ import {
   FaIndustry,
 } from 'react-icons/fa';
 
-const CardComponent = () => {
+const ItemList = () => {
   const [detail, setDetail] = useState(itemDetail);
 
   return (
@@ -107,4 +107,4 @@ const CardComponent = () => {
   );
 };
 
-export default CardComponent;
+export default ItemList;

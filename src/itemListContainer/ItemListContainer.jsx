@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import CardComponent from '../cardComponent/CardComponent';
+import ItemList from '../itemList/ItemList';
 import FilterTypeComponent from '../filterTypeComponent/FilterTypeComponent';
 
 const ItemListContainer = () => {
@@ -27,7 +27,7 @@ const ItemListContainer = () => {
   return (
     <Fragment>
       <FilterTypeComponent />
-      <CardComponent />
+      <ItemList />
     </Fragment>
   );
 };

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './BtnSeeDetails.css';
-import '../cardComponent/CardComponent.css';
+import '../itemList/ItemList.css';
 
 const BtnSeeDetails = (detailDetails) => {
   const [description, setDescription] = useState(detailDetails);
