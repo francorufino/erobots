@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartWidget.css';
 
-const CartWidget = () => {
+const CartWidget = (props) => {
   return (
     <div className="cart-container">
       <image className="cart">
@@ -11,7 +11,7 @@ const CartWidget = () => {
           alt=""
         />
       </image>
-      <span className="cart-number">0</span>
+      <span className="cart-number">{props.number}</span>
     </div>
   );
 };

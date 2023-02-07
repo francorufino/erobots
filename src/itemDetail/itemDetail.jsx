@@ -8,7 +8,7 @@ const itemDetail = [
       "Food Delivery Deliver the meal to the guest's designated table, then explain the restaurant information, the waiter or the guest touches the robot's screen and the robot goes to the next table or returns to the starting point to charging.Multi-point Delivery Robot can deliver the food to one table, can also deliver the good to three different tables in one order",
     price: 7588,
     type: 'business',
-    stock: 14,
+    stock: 0,
     image: 'https://m.media-amazon.com/images/I/316V1EKO3EL.jpg',
   },
   {
