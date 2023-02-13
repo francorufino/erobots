@@ -1,11 +1,25 @@
 import React, { useState } from 'react';
 import './BtnAddToCart.css';
-import CartWidget from '../cartwidget/CartWidget';
 
 function BtnAddToCart({ detailStock }) {
   const [stock, setStock] = useState(detailStock);
   const [wantToBuy, setWantToBuy] = useState(0);
-  const [cart, setCart] = useState([]);
+
+  const promiseStock = new Promise((resolve, reject) => {
+    if (detailStock.length > 0) {
+      setTimeout(() => {
+        resolve(detailStock);
+      }, 2000);
+    }
+    promiseStock
+      .then((data) => {
+        setStock(data);
+      })
+      .catch((rej) => {
+        alert('Oh oh, something went wrong, try again later');
+        console.error('Error at promiseStock: ' + rej);
+      });
+  });
 
   function addToWantToBuy() {
     if (stock >= 1) {
@@ -31,6 +45,7 @@ function BtnAddToCart({ detailStock }) {
     } else if (wantToBuy >= 1 && stock >= 1) {
       setStock(stock - wantToBuy);
       setWantToBuy(0);
+      //fazer a logica de salvar o item clicado no add to cart no localstorage ou firebase passando o item inteiro e recuperar esses dados no componente CartPage
     }
   }
 
@@ -49,7 +64,6 @@ function BtnAddToCart({ detailStock }) {
           >
             {wantToBuy === 0 && stock === 0 ? 'Out of stock' : 'Add to cart'}
           </button>
-          <CartWidget number={cart} />
           <div className="qtdeToAddToCart">
             <span>Qtde: </span>
             <button onClick={removeFromWantToBuy} disabled={wantToBuy === 0}>

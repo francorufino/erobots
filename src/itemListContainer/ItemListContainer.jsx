@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import ItemList from '../itemList/ItemList';
 import FilterTypeComponent from '../filterTypeComponent/FilterTypeComponent';
+import Item from '../item/Item';
 
 const ItemListContainer = () => {
   // const getData=()=>{
@@ -27,7 +28,7 @@ const ItemListContainer = () => {
   return (
     <Fragment>
       <FilterTypeComponent />
-      <ItemList />
+      <ItemList item={Item} />
     </Fragment>
   );
 };

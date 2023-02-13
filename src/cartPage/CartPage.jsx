@@ -1,11 +1,9 @@
 import React from 'react';
-import Navbar from '../navbar/Navbar';
 import './CartPage.css';
 
-const CartPage = () => {
+const CartPage = ({itemCart}) => {
   return (
     <div>
-      <Navbar />
       <div className="container">
         <h2 className="headerCart">Shopping Cart</h2>
         <span className="priceCart">Price</span>

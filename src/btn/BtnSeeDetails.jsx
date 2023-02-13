@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import './BtnSeeDetails.css';
 import '../itemList/ItemList.css';
+import {Link} from 'react-router-dom'
 
-const BtnSeeDetails = (detailDetails) => {
-  const [description, setDescription] = useState(detailDetails);
+const BtnSeeDetails = ({detail}) => {
+  const [string, setString] = useState(detail);
+  const [path, setPath] = useState("")
   function seeDetail() {
-    alert(description);
+    alert(detail.id);
+    
   }
   return (
     <div className="robot-tag">
-      <button className=" detail" onClick={seeDetail}>
+      <Link to={`/detail/${detail.id}`}><button className="detail" onClick={seeDetail}>
         See more
       </button>
+      </Link>
     </div>
   );
 };
 
 export default BtnSeeDetails;
+
+
+

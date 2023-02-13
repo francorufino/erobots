@@ -1,6 +1,7 @@
 import React from 'react';
 import './FilterTypeComponent.css';
 
+
 const FilterTypeComponent = () => {
   return (
     <div id="divFilterContanier" className="menu-filter">
@@ -15,3 +16,8 @@ const FilterTypeComponent = () => {
 };
 
 export default FilterTypeComponent;
+
+
+// <Nav.Link as={Link} to="/category/mouse">
+//             Mouse
+//           </Nav.Link>

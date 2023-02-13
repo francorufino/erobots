@@ -1,5 +1,4 @@
-import React, { Fragment, useState } from 'react';
-import itemDetail from '../itemDetail/itemDetail';
+import React, { Fragment } from 'react';
 import './ItemList.css';
 import ImgBusiness from '../images/ImgBusiness';
 import BtnAddToCart from '../btn/BtnAddToCart';
@@ -13,35 +12,31 @@ import {
   FaDog,
   FaIndustry,
 } from 'react-icons/fa';
+import BtnGlow from '../btn/BtnGlow';
 
-const ItemList = () => {
-  const [detail, setDetail] = useState(itemDetail);
-
+const ItemList = ({ item }) => {
   return (
     <Fragment>
       <section className="robot">
         <div className="row">
-          {detail.map((detail) => {
+          {item.map((item) => {
             return (
               <div className="column">
                 <div className="single-robot">
                   <div className="card">
                     <div className="robot-thumb">
-                      <img className="img" src={detail.image} alt="" />
-                      <BtnSeeDetails
-                        detailDetails={detail.description}
-                        className="robot-tag"
-                      />
+                      <img className="img" src={item.image} alt="" />
+                      <BtnSeeDetails detail={item} className="robot-tag" />
                     </div>
                     <div className="robot-content">
-                      <h3>{detail.name}</h3>
+                      <h3>{item.name}</h3>
                       <div className="mark">
-                        <span>{detail.description}</span>
+                        <span>{item.description}</span>
                       </div>
                       <div className="containerBtns">
-                        <div className="containerPrice"> U$ {detail.price}</div>
+                        <div className="containerPrice"> U$ {item.price}</div>
                         <div>
-                          <BtnAddToCart detailStock={detail.stock} />
+                          <BtnAddToCart detailStock={item.stock} />
                         </div>
                       </div>
                     </div>
@@ -49,15 +44,13 @@ const ItemList = () => {
                     <div className="robot-footer">
                       <div className="footerImg">
                         <span>
-                          {detail.type === 'business' && <ImgBusiness />}
+                          {item.type === 'business' && <ImgBusiness />}
                         </span>
                         <span>
-                          {detail.type === 'house' && (
-                            <FaHome className="icon" />
-                          )}
+                          {item.type === 'house' && <FaHome className="icon" />}
                         </span>
                         <span>
-                          {detail.type === 'companion' && (
+                          {item.type === 'companion' && (
                             <FaDog className="icon" />
                           )}
                         </span>
@@ -85,7 +78,7 @@ const ItemList = () => {
                               <FaClipboard className="clipboard" />
                             </span>
                             <span className="freeReturnsText">
-                              Product Ref: {detail.id}
+                              Product Ref: {item.id}
                             </span>
                           </li>
                         </ul>
