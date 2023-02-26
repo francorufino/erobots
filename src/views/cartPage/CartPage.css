@@ -1,0 +1,52 @@
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.titleShoppingCart{
+  font-size: 2rem;
+}
+
+.titlePrice{
+  display: flex;
+  font-size: 1.3rem;
+  align-items: flex-end;
+}
+
+.bodyCart{
+  display: flex;
+  justify-content: space-between;
+}
+
+.sumaryProduct{
+  flex-grow: 2;
+  margin-left: 22px ;
+}
+
+.btnQtdeItem{
+  background-color: #cecece;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+}
+
+.btnQtdeItem button{
+  border: none;
+  background-color: transparent;
+  padding: 0 6px;
+}
+
+.btnsQty{
+  margin-left: 4px;
+}
+
+.qtdeEditItem{
+  padding: 0 8px;
+}
+
+.totalCart{
+  display: flex;
+  justify-content: right;
+}
+

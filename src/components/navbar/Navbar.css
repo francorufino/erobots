@@ -1,0 +1,21 @@
+.cart-img{
+  height: 50px;
+  width: 50px;
+}
+
+#brand{
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+}
+
+.navbarNames{
+  color: #14FFCE;
+  margin: 0 5px;
+}
+
+.navbarNames:hover{
+  color: #ea58f9;
+}
+
+
+
