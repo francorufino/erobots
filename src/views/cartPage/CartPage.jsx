@@ -1,16 +1,17 @@
 import React, { useEffect, useState, useContext } from 'react';
 import Navbarr from '../../components/navbar/Navbar';
-import CartContext from '../../contexts/CartContextProvider';
 import './CartPage.css';
+import { CartContext } from '../../contexts/CartContext';
 
 const CartPage = () => {
-  const userCart = useContext(CartContext);
+  const { fruits, veggies } = useContext(CartContext);
   const [productsInCart, setProductsInCart] = useState([]);
+  console.log(fruits);
 
   useEffect(() => {
     new Promise((resolve, reject) => {
       setTimeout(() => {
-        resolve(userCart);
+        // resolve(userCart);
       }, 1000);
     }).then((data) => {
       setProductsInCart(data);

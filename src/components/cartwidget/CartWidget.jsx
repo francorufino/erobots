@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './CartWidget.css';
 
 const CartWidget = () => {
-  const totalItemsInCart = useContext(CartContext);
+  // const totalItemsInCart = useContext(CartContext);
   return (
     <div className="cart-container">
       <Link to="/cart">
@@ -13,7 +13,7 @@ const CartWidget = () => {
             src={require('../../assets/images/robotarm.png')}
             alt=""
           />
-          <span className="cart-number ">{totalItemsInCart.length}</span>
+          {/* <span className="cart-number ">{totalItemsInCart.length}</span> */}
         </div>
       </Link>
     </div>

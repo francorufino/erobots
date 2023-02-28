@@ -12,7 +12,6 @@ import {
   FaDog,
   FaIndustry,
 } from 'react-icons/fa';
-import CartContext from '../../contexts/CartContextProvider';
 
 const ItemList = ({ item }) => {
   return (
