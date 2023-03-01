@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import './ItemList.css';
 import ImgBusiness from '../../assets/images/ImgBusiness';
 import BtnAddToCart from '../../components/btn/BtnAddToCart';
@@ -15,83 +15,125 @@ import {
 
 const ItemList = ({ item }) => {
   return (
-    <Fragment>
-      <section className="robot">
-        <div className="row">
-          return (
-          <div className="column">
-            <div className="single-robot">
-              <div className="card">
-                <div className="robot-thumb">
-                  <img className="img" src={item.image} alt="" />
-                  <BtnSeeDetails item={item} className="robot-tag" />
-                </div>
-                <div className="robot-content">
-                  <h3>{item.name}</h3>
-                  <div className="mark">
-                    <span>{item.description}</span>
-                  </div>
-                  <div className="containerBtns">
-                    <div className="containerPrice"> U$ {item.price}</div>
-                    <div>
-                      <BtnAddToCart item={item} />
-                    </div>
-                  </div>
-                </div>
-
-                <div className="robot-footer">
-                  <div className="footerImg">
-                    <span>
-                      {item.category === 'business' && <ImgBusiness />}
-                    </span>
-                    <span>
-                      {item.category === 'house' && <FaHome className="icon" />}
-                    </span>
-                    <span>
-                      {item.category === 'companion' && (
-                        <FaDog className="icon" />
-                      )}
-                    </span>
-                  </div>
-                  <div className="footerRight">
-                    <ul>
-                      <li className="footerTexts">
-                        <span>
-                          <FaCheck className="checkMark" />
-                        </span>
-                        <span className="freeReturnsText">
-                          Same Day Delivery
-                        </span>
-                      </li>
-                      <li className="footerTexts">
-                        <span>
-                          <FaCheck className="checkMark" />
-                        </span>
-                        <span className="freeReturnsText">Free returns</span>
-                      </li>
-                      <li className="footerTexts">
-                        <span>
-                          <FaClipboard className="clipboard" />
-                        </span>
-                        <span className="freeReturnsText">
-                          Product Ref: {item.id}
-                        </span>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+    <article className="outterContainer">
+      <div className="containerCard">
+        <header>
+          <img className="img" src={item.image} alt={item.name} />
+          <BtnSeeDetails item={item} className="robot-tag" />
+        </header>
+        <main>
+          <p className="productTitle">{item.name}</p>
+          <p className="productDescription">{item.description}</p>
+          <div className="containerPriceEAddToCartBtn">
+            <div>U$ {item.price}</div>
+            <div>
+              <BtnAddToCart item={item} />
             </div>
           </div>
-          );
-        </div>
-        <div className="more-robot">
-          <a className="robot-btn" href="#">
-            More Robots
-          </a>
-        </div>
-      </section>
-    </Fragment>
+          <hr />
+        </main>
+        <footer className="footerContainer">
+          <div>
+            <span className="categoryImage">
+              {item.category === 'business' && <ImgBusiness className="test" />}
+            </span>{' '}
+            <span>
+              {item.category === 'house' && <FaHome className="icon" />}{' '}
+            </span>{' '}
+            <span>
+              {item.category === 'companion' && <FaDog className="icon" />}{' '}
+            </span>
+          </div>
+          <div>
+            <ul>
+              {' '}
+              <li className="footerTexts">
+                {' '}
+                <span>
+                  <FaCheck className="checkMark" />{' '}
+                </span>
+                <span className="freeReturnsText">Same Day Delivery</span>{' '}
+              </li>{' '}
+              <li className="footerTexts">
+                {' '}
+                <span>
+                  <FaCheck className="checkMark" />{' '}
+                </span>
+                <span className="freeReturnsText">Free returns</span>{' '}
+              </li>{' '}
+              <li className="footerTexts">
+                {' '}
+                <span>
+                  <FaClipboard className="clipboard" />{' '}
+                </span>{' '}
+                <span className="freeReturnsText">Product Ref: {item.id} </span>{' '}
+              </li>{' '}
+            </ul>
+          </div>
+        </footer>
+      </div>
+    </article>
+
+    // <section className="robot">
+    //   <div className="row">
+    //     <div className="column">
+    //       <div className="single-robot">
+    //         <div className="robot-thumb">
+    //           <img className="img" src={item.image} alt="" />
+    //           <BtnSeeDetails item={item} className="robot-tag" />
+    //         </div>
+    //         <div className="robot-content">
+    //           <h3>{item.name}</h3>
+    //           <div className="mark">
+    //             <span>{item.description}</span>
+    //           </div>
+    //           <div className="containerBtns">
+    //             <div className="containerPrice"> U$ {item.price}</div>
+    //             <div>
+    //               <BtnAddToCart item={item} />
+    //             </div>
+    //           </div>
+    //         </div>
+
+    //         <div className="robot-footer">
+    //           <div className="footerImg">
+    //             <span>{item.category === 'business' && <ImgBusiness />}</span>
+    //             <span>
+    //               {item.category === 'house' && <FaHome className="icon" />}
+    //             </span>
+    //             <span>
+    //               {item.category === 'companion' && <FaDog className="icon" />}
+    //             </span>
+    //           </div>
+    //           <div className="footerRight">
+    //             <ul>
+    //               <li className="footerTexts">
+    //                 <span>
+    //                   <FaCheck className="checkMark" />
+    //                 </span>
+    //                 <span className="freeReturnsText">Same Day Delivery</span>
+    //               </li>
+    //               <li className="footerTexts">
+    //                 <span>
+    //                   <FaCheck className="checkMark" />
+    //                 </span>
+    //                 <span className="freeReturnsText">Free returns</span>
+    //               </li>
+    //               <li className="footerTexts">
+    //                 <span>
+    //                   <FaClipboard className="clipboard" />
+    //                 </span>
+    //                 <span className="freeReturnsText">
+    //                   Product Ref: {item.id}
+    //                 </span>
+    //               </li>
+    //             </ul>
+    //           </div>
+    //         </div>
+    //       </div>
+    //     </div>
+    //   </div>
+    // </section>
   );
 };
 

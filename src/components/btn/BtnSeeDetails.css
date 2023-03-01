@@ -1,2 +1,15 @@
-
+.detail{
+  position: relative;
+  padding: 1em 3em;
+  color: black;
+  font-size: 0.4rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background: rgb(44, 157, 157);
+  border: 0.25em solid rgb(110, 237, 237);
+  border-radius: 1em;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
 

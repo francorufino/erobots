@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './CartWidget.css';
+import { CartContext } from '../../contexts/CartContext';
 
 const CartWidget = () => {
-  // const totalItemsInCart = useContext(CartContext);
+  const { productsAdded } = useContext(CartContext);
   return (
     <div className="cart-container">
       <Link to="/cart">
@@ -13,7 +14,7 @@ const CartWidget = () => {
             src={require('../../assets/images/robotarm.png')}
             alt=""
           />
-          {/* <span className="cart-number ">{totalItemsInCart.length}</span> */}
+          <span className="cart-number ">{productsAdded.length}</span>
         </div>
       </Link>
     </div>

@@ -1,25 +1,11 @@
 import React, { useState, useContext } from 'react';
 import './BtnAddToCart.css';
+import { CartContext } from '../../contexts/CartContext';
 
 function BtnAddToCart({ item }) {
+  const { addProduct } = useContext(CartContext);
   const [stock, setStock] = useState(item.stock);
-  const [wantToBuy, setWantToBuy] = useState(0);
-
-  const promiseStock = new Promise((resolve, reject) => {
-    if (item) {
-      setTimeout(() => {
-        resolve(item);
-      }, 2000);
-    }
-    promiseStock
-      .then((data) => {
-        setStock(data);
-      })
-      .catch((rej) => {
-        alert('Oh oh, something went wrong, try again later');
-        console.error('Error at promiseStock: ' + rej);
-      });
-  });
+  const [wantToBuy, setWantToBuy] = useState(1);
 
   function addToWantToBuy() {
     if (stock >= 1) {
@@ -28,12 +14,12 @@ function BtnAddToCart({ item }) {
   }
 
   function removeFromWantToBuy() {
-    if (wantToBuy >= 0) {
+    if (wantToBuy > 1) {
       setWantToBuy(wantToBuy - 1);
     }
-    if (wantToBuy === 0) {
-      setWantToBuy(1);
-    }
+    // if (wantToBuy === 0) {
+    //   setWantToBuy(1);
+    // }
   }
 
   function addToCartFn() {
@@ -44,7 +30,8 @@ function BtnAddToCart({ item }) {
       alert('Choose a quantity to buy');
     } else if (wantToBuy >= 1 && stock >= 1) {
       setStock(stock - wantToBuy);
-      setWantToBuy(0);
+      setWantToBuy(1);
+      addProduct(item);
       //add o item no cartContext. (cartContext eh como se fosse um localstorage)
 
       //fazer a logica de salvar o item clicado no add to cart no localstorage ou firebase passando o item inteiro e recuperar esses dados no componente CartPage
@@ -58,22 +45,22 @@ function BtnAddToCart({ item }) {
           <button
             id="glow"
             onClick={addToCartFn}
-            className="addtocart"
-            style={
-              stock === 0 && wantToBuy === 0
-                ? { backgroundColor: 'gray', color: '#1a1a1d' }
-                : { backgroundColor: 'rgb(44, 157, 157)', color: '#1a1a1d' }
-            }
+            className={stock === 0 && wantToBuy === 0 ? 'outOfStock' : 'glow'}
           >
             {wantToBuy === 0 && stock === 0 ? 'Out of stock' : 'Add to cart'}
           </button>
           <div className="qtdeToAddToCart">
-            <span>Qtde: </span>
-            <button onClick={removeFromWantToBuy} disabled={wantToBuy === 0}>
+            <span className="wantBuyQty">Qtde: </span>
+            <button
+              className="wantBuyMinus"
+              onClick={removeFromWantToBuy}
+              disabled={stock === 0 || wantToBuy === 1}
+            >
               -
             </button>
-            <button>{wantToBuy}</button>
+            <button className="wantNumber">{wantToBuy}</button>
             <button
+              className="wantBuyPlus"
               onClick={addToWantToBuy}
               disabled={stock === 0 || wantToBuy >= stock}
             >

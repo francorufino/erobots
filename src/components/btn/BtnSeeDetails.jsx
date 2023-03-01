@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './BtnSeeDetails.css';
 import '../itemList/ItemList.css';
 import { Link } from 'react-router-dom';
@@ -6,10 +6,11 @@ import { Link } from 'react-router-dom';
 const BtnSeeDetails = ({ item }) => {
   function seeDetail() {
     console.log(item.id);
+    alert(item.name);
   }
   return (
     <div className="robot-tag">
-      <Link to={'/item/:id'}>
+      <Link to={`/item/${item.id}`}>
         <button className="detail" onClick={seeDetail}>
           See more
         </button>

@@ -4,19 +4,24 @@ import './CartPage.css';
 import { CartContext } from '../../contexts/CartContext';
 
 const CartPage = () => {
-  const { fruits, veggies } = useContext(CartContext);
-  const [productsInCart, setProductsInCart] = useState([]);
-  console.log(fruits);
+  const { productsAdded } = useContext(CartContext);
+  // const [productsInCart, setProductsInCart] = useState([]);
 
-  useEffect(() => {
-    new Promise((resolve, reject) => {
-      setTimeout(() => {
-        // resolve(userCart);
-      }, 1000);
-    }).then((data) => {
-      setProductsInCart(data);
-    });
-  }, [productsInCart]);
+  // // console.log(fruits);
+  // console.log(productsInCart);
+  // // console.log(productsInCart.name);
+
+  // useEffect(() => {
+  //   new Promise((resolve, reject) => {
+  //     setTimeout(() => {
+  //       resolve();
+  //     }, 1000);
+  //   }).then((data) => {
+  //     setProductsInCart(data);
+  //   });
+  //   console.log(productsInCart);
+  // },
+  // [productsInCart]);
 
   return (
     <div>
@@ -30,10 +35,10 @@ const CartPage = () => {
         <section>
           <div className="bodyCart">
             <div>
-              <div className="imgProductCart">image produto</div>
+              {/* <div className="imgProductCart">{productsAdded[0].image}</div> */}
             </div>
             <div className="sumaryProduct">
-              <div className="tituloProductCart">nome produto</div>
+              <div className="tituloProductCart">{productsAdded[0].name}</div>
               <div>
                 <span className="btnQtdeItem">
                   <span>Qty: </span>
@@ -47,12 +52,13 @@ const CartPage = () => {
                 <span className="shareItemCart"> | share</span>
               </div>
             </div>
-            <div>$ 20.00</div>
+            <div>{productsAdded[0].price}</div>
           </div>
           <hr />
           <div className="totalCart">
             <span className="totalProductCart">
-              Subtotal (2 itens): $ 100.00
+              Subtotal ({productsAdded.length} itens): $ {productsAdded.price}
+              total do carrinho
             </span>
           </div>
         </section>

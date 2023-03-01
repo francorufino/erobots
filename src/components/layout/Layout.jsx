@@ -2,7 +2,7 @@ import Navbarr from '../navbar/Navbar';
 
 export const Layout = ({ children }) => {
   return (
-    <main className="genSetting">
+    <main>
       <Navbarr />
       {children}
       <footer>

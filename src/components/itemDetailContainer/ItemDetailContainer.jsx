@@ -1,33 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from '../../components/itemDetail/ItemDetail';
-import { Item } from '../../mocks/item/Item.mock';
+import { Item as Items } from '../../mocks/item/Item.mock';
 import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
-  const [detail, setDetail] = useState();
-
-  const [itemm, setItemm] = useState(null);
+  const [item, setItem] = useState(null);
   const { id } = useParams();
-  console.log(id);
-
+  // console.log(id);
+  // console.log(item);
   useEffect(() => {
-    new Promise((resolve, reject) =>
+    new Promise((resolve) =>
+      // Simulation of a call to an api
       setTimeout(() => {
-        resolve(Item);
+        const itemFiltered = Items.find((item) => {
+          console.log(item.id, id);
+          return item.id == id;
+        });
+
+        console.log({ itemFiltered, Items });
+        resolve(itemFiltered);
       }, 1000),
-    ).then((data) => {
-      const product = data.find((detail) => detail.id === id);
-      setItemm(product);
-    });
+    ).then((data) => setItem(data));
   }, [id]);
 
-  if (!itemm) {
+  if (!item) {
     return <p>Loading ItemDetailContainer...</p>;
   }
 
+  console.log(item);
   return (
     <div>
-      <ItemDetail item={itemm} />
+      <ItemDetail item={item} />
     </div>
   );
 };

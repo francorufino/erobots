@@ -1,0 +1,36 @@
+.outterContainerItemDetail{
+  
+  background: #212121;
+}
+
+.containerItemDetail{
+  
+}
+
+.content{
+  display: flex;
+  max-width: 90%;
+ margin: 150px ;
+}
+
+.descContainer{
+  padding: 20px;
+}
+
+.descriptionContainer{
+  margin-top: 50px;
+}
+
+.containerPriceEBtns{
+  display: flex;
+  margin-top: 50px;
+}
+
+.priceContainer{
+  justify-content: center;
+  
+}
+
+.price{
+  flex-grow: 2;
+}
