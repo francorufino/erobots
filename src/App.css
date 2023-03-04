@@ -8,6 +8,7 @@
   font-family: 'Poppins', sans-serif;
 }
 
+
 ul, li{
   text-decoration: none;
   list-style-type: none;
@@ -17,8 +18,8 @@ a{
   text-decoration: none;
 }
 
-
-
 .container{
   max-width: 1200px;
 }
+
+ 

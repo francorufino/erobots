@@ -18,19 +18,12 @@ function Navbarr() {
             <span>
               <img src="../assets/images/infinite.jpeg"></img>
             </span>
-            <span>e-robots</span>
+            <span className="neon-text">e-robots</span>
           </Navbar.Brand>
           <Nav.Link className="navbarNames" as={Link} to="/category/business">
             Business
           </Nav.Link>
-          <Nav.Link
-            active
-            className="navbarNames"
-            as={Link}
-            to="/category/industry"
-          >
-            Industry
-          </Nav.Link>
+
           <Nav.Link className="navbarNames" as={Link} to="/category/house">
             Housekeeper
           </Nav.Link>
@@ -43,9 +36,18 @@ function Navbarr() {
           <Nav.Link className="navbarNames" as={Link} to="/about">
             About
           </Nav.Link>
+          <Nav.Link
+            active
+            className="navbarNames"
+            as={Link}
+            to="/category/industry"
+          >
+            Fan fact
+          </Nav.Link>
           <Nav.Link className="navbarNames" as={Link} to="/contact">
             Contact
           </Nav.Link>
+
           <CartWidget />
         </Container>
       </Navbar>

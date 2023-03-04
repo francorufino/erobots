@@ -10,67 +10,73 @@ import {
   FaClipboard,
   FaHome,
   FaDog,
-  FaIndustry,
+  FaCashRegister,
 } from 'react-icons/fa';
 
 const ItemList = ({ item }) => {
   return (
     <article className="outterContainer">
-      <div className="containerCard">
-        <header>
-          <img className="img" src={item.image} alt={item.name} />
-          <BtnSeeDetails item={item} className="robot-tag" />
-        </header>
-        <main>
-          <p className="productTitle">{item.name}</p>
-          <p className="productDescription">{item.description}</p>
-          <div className="containerPriceEAddToCartBtn">
-            <div>U$ {item.price}</div>
-            <div>
-              <BtnAddToCart item={item} />
+      <div className="containerInner">
+        <div className="containerCard">
+          <header>
+            <img className="img" src={item.image} alt={item.name} />
+            <BtnSeeDetails item={item} className="robot-tag" />
+          </header>
+          <main>
+            <p className="productTitle">{item.name}</p>
+            <p className="productDescription">{item.description}</p>
+            <div className="containerPriceEAddToCartBtn">
+              <div>U$ {item.price}</div>
+              <div>
+                <BtnAddToCart item={item} />
+              </div>
             </div>
-          </div>
-          <hr />
-        </main>
-        <footer className="footerContainer">
-          <div>
-            <span className="categoryImage">
-              {item.category === 'business' && <ImgBusiness className="test" />}
-            </span>{' '}
-            <span>
-              {item.category === 'house' && <FaHome className="icon" />}{' '}
-            </span>{' '}
-            <span>
-              {item.category === 'companion' && <FaDog className="icon" />}{' '}
-            </span>
-          </div>
-          <div>
-            <ul>
-              {' '}
-              <li className="footerTexts">
+            <hr />
+          </main>
+          <footer className="footerContainer">
+            <div className="icon">
+              <span className="categoryImage">
+                {item.category === 'business' && (
+                  <FaCashRegister className="icon" />
+                )}
+              </span>{' '}
+              <span>
+                {item.category === 'house' && <FaHome className="icon" />}{' '}
+              </span>{' '}
+              <span>
+                {item.category === 'companion' && <FaDog className="icon" />}{' '}
+              </span>
+            </div>
+            <div>
+              <ul>
                 {' '}
-                <span>
-                  <FaCheck className="checkMark" />{' '}
-                </span>
-                <span className="freeReturnsText">Same Day Delivery</span>{' '}
-              </li>{' '}
-              <li className="footerTexts">
-                {' '}
-                <span>
-                  <FaCheck className="checkMark" />{' '}
-                </span>
-                <span className="freeReturnsText">Free returns</span>{' '}
-              </li>{' '}
-              <li className="footerTexts">
-                {' '}
-                <span>
-                  <FaClipboard className="clipboard" />{' '}
-                </span>{' '}
-                <span className="freeReturnsText">Product Ref: {item.id} </span>{' '}
-              </li>{' '}
-            </ul>
-          </div>
-        </footer>
+                <li className="footerTexts">
+                  {' '}
+                  <span>
+                    <FaCheck className="checkMark" />{' '}
+                  </span>
+                  <span className="freeReturnsText">Same Day Delivery</span>{' '}
+                </li>{' '}
+                <li className="footerTexts">
+                  {' '}
+                  <span>
+                    <FaCheck className="checkMark" />{' '}
+                  </span>
+                  <span className="freeReturnsText">Free returns</span>{' '}
+                </li>{' '}
+                <li className="footerTexts">
+                  {' '}
+                  <span>
+                    <FaClipboard className="clipboard" />{' '}
+                  </span>{' '}
+                  <span className="freeReturnsText">
+                    Product Ref: {item.id}{' '}
+                  </span>{' '}
+                </li>{' '}
+              </ul>
+            </div>
+          </footer>
+        </div>
       </div>
     </article>
 

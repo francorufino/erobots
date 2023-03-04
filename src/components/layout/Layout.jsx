@@ -1,13 +1,12 @@
 import Navbarr from '../navbar/Navbar';
+import Footer from '../footer/Footer';
 
 export const Layout = ({ children }) => {
   return (
     <main>
       <Navbarr />
       {children}
-      <footer>
-        <h2>e-robots made with love</h2>
-      </footer>
+      <Footer />
     </main>
   );
 };

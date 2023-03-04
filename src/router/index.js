@@ -18,4 +18,6 @@ export const router = createBrowserRouter([
   { path: '/about', element: <About /> },
   { path: '/contact', element: <Contact /> },
   { path: '/cart', element: <CartPage /> },
+  { path: '/checkout', element: <CartPage /> },
+  { path: '/continueshopping', element: <App /> },
 ]);

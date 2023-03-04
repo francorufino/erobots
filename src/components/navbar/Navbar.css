@@ -11,11 +11,31 @@
 .navbarNames{
   color: rgb(110, 237, 237);
   margin: 0 5px;
+  
 }
 
 .navbarNames:hover{
   color: #ea58f9;
+  text-shadow:0 0 0.5em rgb(110, 237, 237);
 }
 
 
+.neon-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(0, 0, 0), 0 0 30px rgb(0, 0, 0), 0 0 40px rgb(0, 0, 0), 0 0 50px rgb(0, 0, 0);
+  animation: neon 1.5s ease-in-out infinite alternate;
+  background: linear-gradient(to right, rgb(0,0,0), rgb(3,6,5));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
+@keyframes neon {
+  from {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(0, 0, 0), 0 0 30px rgb(0, 0, 0), 0 0 40px rgb(0, 0, 0), 0 0 50px rgb(0, 0, 0);
+  }
+  to {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgb(3, 6, 5), 0 0 30px rgb(3, 6, 5), 0 0 40px rgb(3, 6, 5), 0 0 50px rgb(3, 6, 5);
+  }
+}

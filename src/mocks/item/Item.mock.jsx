@@ -8,6 +8,8 @@ export const Item = [
     category: 'business',
     stock: 0,
     image: 'https://m.media-amazon.com/images/I/316V1EKO3EL.jpg',
+    image2: 'https://m.media-amazon.com/images/I/51wflwb6T0L.jpg',
+    image3: 'https://m.media-amazon.com/images/I/812FhdqYTaL._SL1500_.jpg',
   },
   {
     id: 2,
@@ -19,6 +21,8 @@ export const Item = [
     stock: 5,
     image:
       'https://m.media-amazon.com/images/I/81JhrvAHCyL.__AC_SX300_SY300_QL70_FMwebp_.jpg',
+    image2: 'https://m.media-amazon.com/images/I/81CZhU2UR7L._AC_SL1500_.jpg',
+    image3: 'https://m.media-amazon.com/images/I/91160neJQCL._AC_SL1500_.jpg',
   },
   {
     id: 3,
@@ -29,6 +33,8 @@ export const Item = [
     category: 'house',
     stock: 12,
     image: 'https://m.media-amazon.com/images/I/61IyBHTrxlL._AC_SL1500_.jpg',
+    image2: 'https://m.media-amazon.com/images/I/71KYpVh+JlL._AC_SL1500_.jpg',
+    image3: 'https://m.media-amazon.com/images/I/71YIjih01wL._AC_SL1500_.jpg',
   },
   {
     id: 4,
@@ -39,6 +45,8 @@ export const Item = [
     category: 'house',
     stock: 9,
     image: 'https://m.media-amazon.com/images/I/41JCI-X0b5L._AC_SL1000_.jpg',
+    image2: 'https://m.media-amazon.com/images/I/61bvu5qvnnL._AC_SL1000_.jpg',
+    image3: 'https://m.media-amazon.com/images/I/61W0kQsB6aL._AC_SL1000_.jpg',
   },
   {
     id: 5,
@@ -49,6 +57,8 @@ export const Item = [
     category: 'companion',
     stock: 3,
     image: 'https://m.media-amazon.com/images/I/41iYUZFHXOL._AC_.jpg',
+    image2: 'https://m.media-amazon.com/images/I/41Cfnq3xKcL._AC_.jpg',
+    image3: 'https://m.media-amazon.com/images/I/71NWM-AxbyL._AC_SL1500_.jpg',
   },
   {
     id: 6,
@@ -60,6 +70,9 @@ export const Item = [
     stock: 16,
     image:
       'https://mobilerobotguide.com/wp-content/uploads/2022/01/featured-web-starship.jpg',
+    image2: 'https://scx1.b-cdn.net/csz/news/800a/2015/1-watchforside.jpg',
+    image3:
+      'https://www.roboticsbusinessreview.com/wp-content/uploads/2019/11/Purdue-President-with-Starship-Robot-1024x682.jpeg',
   },
   {
     id: 7,
@@ -69,8 +82,11 @@ export const Item = [
     price: 6999,
     category: 'business',
     stock: 10,
-    image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSXJM6BR3XjzYac70qBeduXUBfaFAwrkRYkDw&usqp=CAU',
+    image: 'https://tuonilabs.files.wordpress.com/2017/04/screenshot1.png',
+    image2:
+      'https://www.personalrobots.biz/wp-content/uploads/2019/09/pepper-robot-assistant-e1568490646408-960x925.jpg',
+    image3:
+      'https://i.dailymail.co.uk/1s/2020/09/15/09/33198054-0-image-a-6_1600159992829.jpg',
   },
   {
     id: 8,
@@ -81,7 +97,10 @@ export const Item = [
     category: 'business',
     stock: 9,
     image:
-      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQScOatHyVV_iCCC6YEbBmT9F17d0ZNCzvyow&usqp=CAU',
+      'https://www.inceptivemind.com/wp-content/uploads/2020/09/Servi-robot-2.jpg',
+    image2:
+      'https://lh3.googleusercontent.com/-WweFsi4k7oM/YP6bemql5jI/AAAAAAAAB3U/JtrjWNqs6RgIPIseAZ03iSgtgv_1i43LACLcBGAsYHQ/image.png',
+    image3: 'https://i.insider.com/5f75f8a274fe5b0018a8e7de?width=700',
   },
   {
     id: 9,
@@ -93,6 +112,10 @@ export const Item = [
     stock: 20,
     image:
       'https://static.designboom.com/wp-content/uploads/2019/01/sophia-the-robot-sister-little-sophia-6.jpg',
+    image2:
+      'https://www.highereducationdigest.com/wp-content/uploads/2019/04/Little-Sophia-800x480.jpg',
+    image3:
+      'https://assets.newatlas.com/dims4/default/ec82ea7/2147483647/strip/true/crop/1920x1080+0+0/resize/800x450!/quality/90/?url=http%3A%2F%2Fnewatlas-brightspot.s3.amazonaws.com%2Farchive%2Flittle-sophia-4.png',
   },
   {
     id: 10,
@@ -104,5 +127,9 @@ export const Item = [
     stock: 35,
     image:
       'https://robots.ieee.org/robots/sophia/Photos/SD/sophia-photo1-full.jpg',
+    image2:
+      'https://thinkingheads.com/wp-content/uploads/2018/04/sophia-the-ai-robot-conferenciante-1.jpg',
+    image3:
+      'https://upload.wikimedia.org/wikipedia/commons/1/1e/Sophia_at_the_AI_for_Good_Global_Summit_2018_%2827254369347%29_%28cropped%29.jpg',
   },
 ];

@@ -1,7 +1,8 @@
 import React from 'react';
+import './BtnContinueShopping.css';
 
 const BtnContinueShopping = () => {
-  return <button>Continue Shopping</button>;
+  return <span className="btnContinueShopping">Continue Shopping</span>;
 };
 
 export default BtnContinueShopping;
