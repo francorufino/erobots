@@ -8,7 +8,7 @@ import BtnPlaceOrder from '../btn/BtnPlaceOrder';
 import BtnClearCart from '../../components/btn/BtnClearCart';
 
 const CartListContainer = () => {
-  const { productsAdded, cartTotal } = useContext(CartContext);
+  const { productsAdded, cartTotal, amountPerItem } = useContext(CartContext);
   if (productsAdded.length === 0) {
     return <EmptyCart />;
   }
@@ -30,6 +30,7 @@ const CartListContainer = () => {
                 key={product.id}
                 product={product}
                 sumCart={cartTotal}
+                amount={amountPerItem.get(product.id)}
               />
             );
           })}

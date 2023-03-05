@@ -4,7 +4,7 @@ import './CartWidget.css';
 import { CartContext } from '../../contexts/CartContext';
 
 const CartWidget = () => {
-  const { productsAdded } = useContext(CartContext);
+  const { qtyToBuy } = useContext(CartContext);
   return (
     <div className="cart-container">
       <Link to="/cart">
@@ -14,7 +14,7 @@ const CartWidget = () => {
             src={require('../../assets/images/robotarm.png')}
             alt=""
           />
-          <span className="cart-number ">{productsAdded.length}</span>
+          <span className="cart-number ">{qtyToBuy}</span>
         </div>
       </Link>
     </div>

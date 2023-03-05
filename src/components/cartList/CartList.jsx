@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartPage.css';
 
-const CartList = ({ product }) => {
+const CartList = ({ product, amount }) => {
   return (
     <div>
       <div className="container">
@@ -18,7 +18,7 @@ const CartList = ({ product }) => {
                     <span>Qty: </span>
                     <span className="btnsQty">
                       <button>-</button>
-                      <span className="qtdeEditItem">1</span>
+                      <span className="qtdeEditItem">{amount}</span>
                       <button>+</button>
                     </span>
                   </span>
