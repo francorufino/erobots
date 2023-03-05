@@ -224,14 +224,14 @@ color: white;
 
 .containerInner{
   display: flex;
-  width: 100px;
+  width: 400px;
 
 }
 .containerCard{
   max-width: 1300px;
   flex-wrap: wrap;
   color:#E2DDDF;
-  width: 350px;
+  width: 400px;
   padding: 12px;
   margin:0 8px;
   position: relative;

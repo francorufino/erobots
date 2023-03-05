@@ -6,7 +6,7 @@ export const CartContextProvider = ({ children }) => {
 
   function addProduct(product) {
     setProductsAdded([...productsAdded, product]);
-    console.log(productsAdded);
+    console.log('function add to cart no cartcontext' + productsAdded);
   }
 
   function deleteProductFromCart(id) {

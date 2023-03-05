@@ -42,7 +42,7 @@ function Navbarr() {
             as={Link}
             to="/category/industry"
           >
-            Fan fact
+            Fun fact
           </Nav.Link>
           <Nav.Link className="navbarNames" as={Link} to="/contact">
             Contact

@@ -5,7 +5,7 @@ import Category from '../views/category';
 import Item from '../views/item';
 import About from '../views/about/About';
 import Contact from '../views/contact/Contact';
-import CartPage from '../views/cartPage/CartPage';
+import CartListContainer from '../components/cartListContainer/CartListContainer';
 
 export const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ export const router = createBrowserRouter([
   { path: '/item/:id', element: <Item /> },
   { path: '/about', element: <About /> },
   { path: '/contact', element: <Contact /> },
-  { path: '/cart', element: <CartPage /> },
-  { path: '/checkout', element: <CartPage /> },
+  { path: '/cart', element: <CartListContainer /> },
+  { path: '/checkout', element: <CartListContainer /> },
   { path: '/continueshopping', element: <App /> },
 ]);

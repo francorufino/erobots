@@ -1,6 +1,5 @@
 import React from 'react';
 import './ItemList.css';
-import ImgBusiness from '../../assets/images/ImgBusiness';
 import BtnAddToCart from '../../components/btn/BtnAddToCart';
 import '../btn/BtnAddToCart';
 import BtnSeeDetails from '../../components/btn/BtnSeeDetails';

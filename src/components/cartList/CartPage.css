@@ -15,13 +15,22 @@
 }
 
 .bodyCart{
-  display: flex;
   justify-content: space-between;
 }
 
 .sumaryProduct{
-  flex-grow: 2;
   margin-left: 22px ;
+}
+.imgProductCart{
+  flex-grow: 2;
+  width: 150px;
+  height: 150px;
+}
+.tituloProductCart{
+  flex-grow: 3;
+}
+.productPrice{
+  flex-grow: 2;
 }
 
 .btnQtdeItem{
