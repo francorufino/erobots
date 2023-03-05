@@ -1,0 +1,31 @@
+.emptyCart{
+  color: white;
+}
+
+.outterContainerEmptyCart{
+  position: relative;
+}
+
+.imageEmptyCart{
+  text-align: right;
+}
+.bgForTextEmptyCart{
+position: absolute;
+content:"";
+background-color: black;
+height: 100%;
+width: 600px;
+margin-left: 100px;
+margin-top: 0;
+opacity: 0.8;
+}
+
+.emptyCartText{
+  color:rgb(44, 157, 157);
+  position: absolute;
+  margin-top: 400px;
+  z-index: 1;
+  font-weight: 900;
+  margin-left: 200px;
+  font-size: 2rem;
+}

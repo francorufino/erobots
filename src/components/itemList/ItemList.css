@@ -228,6 +228,7 @@ color: white;
 
 }
 .containerCard{
+  display: flex;
   max-width: 1300px;
   flex-wrap: wrap;
   color:#E2DDDF;

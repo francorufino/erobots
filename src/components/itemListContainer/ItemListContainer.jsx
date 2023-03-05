@@ -30,7 +30,7 @@ const ItemListContainer = () => {
   }
 
   return (
-    <div className="containerItemListContainer">
+    <div>
       {allProducts.map((product) => {
         return <ItemList key={product.id} item={product} />;
       })}

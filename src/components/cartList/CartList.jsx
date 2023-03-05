@@ -5,10 +5,6 @@ const CartList = ({ product }) => {
   return (
     <div>
       <div className="container">
-        <div className="header">
-          <div className="titlePrice"> Price</div>
-        </div>
-        <hr />
         <section>
           <div className="bodyCart">
             <div>

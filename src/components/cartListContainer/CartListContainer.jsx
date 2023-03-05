@@ -1,6 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import CartList from '../cartList/CartList';
 import { CartContext } from '../../contexts/CartContext';
+import EmptyCart from '../../views/emptyCart/EmptyCart';
+import { Layout } from '../../components/layout/Layout';
 
 const CartListContainer = () => {
   const { productsAdded } = useContext(CartContext);
@@ -18,15 +20,21 @@ const CartListContainer = () => {
   }, [allProductsInCart]);
 
   if (allProductsInCart.length === 0) {
-    return <p>Your cart is empty</p>;
+    return <EmptyCart />;
   }
 
   return (
     <div>
-      <div className="titleShoppingCart">Shopping Cart</div>
-      {allProductsInCart.map((product) => {
-        return <CartList key={product.id} product={product} />;
-      })}
+      <Layout>
+        <div className="header">
+          <div className="titleShoppingCart">Shopping Cart</div>
+          <div className="titlePrice"> Price</div>
+        </div>
+        <hr />
+        {allProductsInCart.map((product) => {
+          return <CartList key={product.id} product={product} />;
+        })}
+      </Layout>
     </div>
   );
 };
