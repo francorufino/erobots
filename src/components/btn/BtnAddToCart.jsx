@@ -32,9 +32,8 @@ function BtnAddToCart({ item }) {
       setStock(stock - wantToBuy);
       setWantToBuy(1);
       addProduct(item);
-      //add o item no cartContext. (cartContext eh como se fosse um localstorage)
 
-      //fazer a logica de salvar o item clicado no add to cart no localstorage ou firebase passando o item inteiro e recuperar esses dados no componente CartPage
+      //fazer a logica de salvar o item clicado no add to cart no firebase passando o item inteiro e recuperar esses dados no componente CartPage
     }
   }
 

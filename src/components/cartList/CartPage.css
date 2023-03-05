@@ -6,32 +6,41 @@
 
 .titleShoppingCart{
   font-size: 2rem;
+  margin-top: 45px;
+  color: #E2DDDF;
 }
 
 .titlePrice{
   display: flex;
   font-size: 1.3rem;
   align-items: flex-end;
+  color: #E2DDDF;
 }
 
 .bodyCart{
   display: flex;
-  justify-content: space-between;
+  color: #E2DDDF;
+
+}
+
+.descPrc{
+  display: flex;
 }
 
 .sumaryProduct{
   margin-left: 22px ;
+  
 }
 .imgProductCart{
-  flex-grow: 2;
   width: 150px;
   height: 150px;
+  border-radius: 8px;
+  outline: 1px solid rgb(110, 237, 237);
+  outline-offset: -8px;
 }
 .tituloProductCart{
-  flex-grow: 3;
-}
-.productPrice{
-  flex-grow: 2;
+  text-align: left;
+  max-width: 900px;
 }
 
 .btnQtdeItem{
@@ -59,4 +68,9 @@
   display: flex;
   justify-content: right;
 }
+
+.totalProductCart{
+  color:white
+}
+
 

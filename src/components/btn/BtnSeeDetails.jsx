@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const BtnSeeDetails = ({ item }) => {
   function seeDetail() {
     console.log(item.id);
-    alert(item.name);
   }
   return (
     <div className="robot-tag">
