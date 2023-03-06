@@ -9,6 +9,14 @@ export const CartContextProvider = ({ children }) => {
     setAmountPerItem(new Map(amountPerItem.set(key, value)));
   };
 
+  function totalItemsInCart() {
+    let totalItems = 0;
+    productsAdded.map((p) => {
+      totalItems = totalItems + amountPerItem.get(p.id);
+    });
+    return totalItems;
+  }
+
   function updateCartTotal(productsAdded) {
     productsAdded.map((product) => {
       setCartTotal(cartTotal + product.price * amountPerItem(product.id));
@@ -53,6 +61,7 @@ export const CartContextProvider = ({ children }) => {
         deleteProductFromCart,
         clear,
         isInCart,
+        totalItemsInCart,
       }}
     >
       {children}

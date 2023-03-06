@@ -8,7 +8,8 @@ import BtnPlaceOrder from '../btn/BtnPlaceOrder';
 import BtnClearCart from '../../components/btn/BtnClearCart';
 
 const CartListContainer = () => {
-  const { productsAdded, cartTotal, amountPerItem } = useContext(CartContext);
+  const { productsAdded, cartTotal, amountPerItem, totalItemsInCart } =
+    useContext(CartContext);
   if (productsAdded.length === 0) {
     return <EmptyCart />;
   }
@@ -36,7 +37,7 @@ const CartListContainer = () => {
           })}
           <div className="totalCart">
             <span className="totalProductCart">
-              Subtotal ({productsAdded.length} items): $ {cartTotal}
+              Subtotal ({totalItemsInCart()} items): $ {cartTotal}
             </span>
           </div>
         </div>
