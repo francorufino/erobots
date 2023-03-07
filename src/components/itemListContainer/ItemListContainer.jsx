@@ -3,6 +3,7 @@ import ItemList from '../itemList/ItemList';
 import { Item } from '../../mocks/item/Item.mock';
 import { useParams } from 'react-router-dom';
 import './ItemListContainer.css';
+import '../../components/itemList/ItemList.css';
 
 const ItemListContainer = () => {
   const { category } = useParams();
@@ -30,7 +31,7 @@ const ItemListContainer = () => {
   }
 
   return (
-    <div>
+    <div className="outterContainerProducts">
       {allProducts.map((product) => {
         return <ItemList key={product.id} item={product} />;
       })}

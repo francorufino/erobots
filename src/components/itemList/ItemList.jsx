@@ -21,11 +21,13 @@ const ItemList = ({ item }) => {
             <img className="img" src={item.image} alt={item.name} />
             <BtnSeeDetails item={item} className="robot-tag" />
           </header>
-          <main>
+          <main className="mainCard">
             <p className="productTitle">{item.name}</p>
             <p className="productDescription">{item.description}</p>
             <div className="containerPriceEAddToCartBtn">
-              <div>U$ {item.price}</div>
+              <div className="itemPrice">
+                U$ {Number(item.price).toLocaleString('en')}
+              </div>
               <div>
                 <BtnAddToCart item={item} />
               </div>

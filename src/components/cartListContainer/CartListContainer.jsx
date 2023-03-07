@@ -4,7 +4,7 @@ import { CartContext } from '../../contexts/CartContext';
 import EmptyCart from '../../views/emptyCart/EmptyCart';
 import { Layout } from '../../components/layout/Layout';
 import '../cartList/CartPage.css';
-import BtnPlaceOrder from '../btn/BtnPlaceOrder';
+import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
 import BtnClearCart from '../../components/btn/BtnClearCart';
 
 const CartListContainer = () => {
@@ -36,16 +36,20 @@ const CartListContainer = () => {
             );
           })}
           <div className="totalCart">
-            <span className="totalProductCart">
-              Subtotal ({totalItemsInCart()} items): $ {cartTotal}
-            </span>
+            <div className="totalCartInnerDiv">
+              <span className="totalProductCart">
+                Subtotal ({totalItemsInCart()} items): U${' '}
+                {Number(cartTotal).toLocaleString('en')}
+              </span>
+              <div>
+                <BtnPlaceOrder />
+              </div>
+
+              <div className="btnClearCart">
+                <BtnClearCart />
+              </div>
+            </div>
           </div>
-        </div>
-        <div>
-          <BtnPlaceOrder />
-        </div>
-        <div>
-          <BtnClearCart />
         </div>
       </Layout>
     </div>

@@ -17,6 +17,11 @@ export const CartContextProvider = ({ children }) => {
     return totalItems;
   }
 
+  function placeOrder() {
+    alert('Your order was placed! Thank you for shopping at e-robots');
+    clear();
+  }
+
   function updateCartTotal(productsAdded) {
     productsAdded.map((product) => {
       setCartTotal(cartTotal + product.price * amountPerItem(product.id));
@@ -62,6 +67,7 @@ export const CartContextProvider = ({ children }) => {
         clear,
         isInCart,
         totalItemsInCart,
+        placeOrder,
       }}
     >
       {children}

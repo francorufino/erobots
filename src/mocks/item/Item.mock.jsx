@@ -40,7 +40,7 @@ export const Item = [
     id: 4,
     name: 'Amazon Astro, Household Robot for Home Monitoring, with Alexa, Includes 6-month Free Trial of Ring Protect Pro',
     description:
-      "Food Delivery Deliver the meal to the guest's designated table, then explain the restaurant information, the waiter or the guest touches the robot's screen and the robot goes to the next table or returns to the starting point to charging.Multi-point Delivery Robot can deliver the food to one table, can also deliver the good to three different tables in one order",
+      "Keep home closer - Meet Astro, the household robot for home monitoring, with Alexa.Introducing Intelligent Motion - Amazon Astro uses advanced navigation technology to find its way around your home and go where you need it. When you're not using Astro, it will hang out close by at the ready.Stay connected from anywhere - Remotely send Astro to check on specific rooms, people, or things. Plus, get alerts if Astro detects an unrecognized person or certain sounds when you're away.",
     price: 999,
     category: 'house',
     stock: 9,

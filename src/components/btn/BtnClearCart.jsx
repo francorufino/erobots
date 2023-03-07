@@ -8,7 +8,7 @@ const ClearCart = () => {
   return (
     <div>
       <button className="clearCartBtn" onClick={clear}>
-        ClearCart
+        Clear Cart
       </button>
     </div>
   );
