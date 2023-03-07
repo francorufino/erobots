@@ -3,6 +3,7 @@
 }
 .outterContainerItemDetail{
   display: flex;
+  
 }
 
 .containerItemDetail{
@@ -16,76 +17,19 @@
   color:#cecece
 }
 
-.descriptionContainer{
-  margin-top: 50px;
-}
-
-.title{
-  font-size: 1.5rem;
-  font-weight: 700;
-  padding-top: 50px;
-  color:#cecece;
-  max-width: 1000px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.productDescriptionDetail{
-  margin-top: 20px;
-  padding-left: 20px;
-}
-
-
-.priceContainer{
-  padding: 12px;
-  text-align: left;
-  font-size: 1.5rem;
-  color: #cecece;
-  font-weight: 900;
-}
-
-.container-right{
-  padding-right: 500px;
-}
-
-.price{
-  color:white;
-  font-size: 2rem;
-}
-
-.outterContainer{
-  display: flex;
-  margin-top: 50px;
-  justify-content: center;
-  
+.content img{
+  width: 500px;
+  height: 500px;
+  padding-right: 4px;
+  padding-left: 4px;
+  padding-top: 2px;
+  border-radius: 12px;
+  outline: 2px solid rgb(110, 237, 237);
+  outline-offset: -20px;
 }
 
 .containerMainPic img{
   border-radius: 12px;
-}
-
-.container-price{
-  justify-content: left;
-}
-
-.list{
-  font-size: 0.6rem;
-  padding: 12px;
-  text-align: left;
-}
-
-.containerList{
-  display: flex;
-  justify-content: right;
-}
-
-.btnAddCart{
-  padding: 12px;
-  text-align: center;
-}
-
-.btns{
-  margin-top: 20px;
 }
 
 .containerSmallPics{
@@ -99,35 +43,68 @@
   margin-top: 4px;
 }
 
-.content img{
-  width: 500px;
-  height: 500px;
-  padding-right: 4px;
-  padding-left: 4px;
-  padding-top: 2px;
-  border-radius: 12px;
-  outline: 3px solid rgb(110, 237, 237);
-  outline-offset: -20px;
-}
-
-.container-list{
-  text-align: center;
-}
-
 .containerPhotoSmall img{
   width: 250px;
   height: 250px;
 }
 
-.categoryImage{
- display: flex;
+.descContainer{
+margin-left: 30px;
+}
+
+.title{
+  font-size: 1.5rem;
+  font-weight: 700;
+  color:#cecece;
+  text-align: left;
+}
+
+.productDescriptionDetail{
+  margin-top: 20px;
+  text-align: left;
+}
+
+.outterContainer{
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  padding-left: -50px;
 }
 
 .priceContainer{
+  text-align: left;
+  font-size: 1.5rem;
+  color: #cecece;
+  font-weight: 900;
   text-align: center;
-  padding-right: 120px;
+}
+
+.price{
+  color:white;
+  font-size: 2rem;
+}
+
+.list{
+  font-size: 0.6rem;
+  padding: 12px;
+  text-align: left;
 }
 
 .checkMark{
   color: rgb(44, 157, 157)
+}
+
+.icon{
+  width: 40px;
+  height: 40px;
+}
+
+.btnAddCart{
+  padding: 12px;
+  text-align: center;
+  margin-left: 50px;
+}
+
+.btns{
+  margin-top: 20px;
 }

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './CartWidget.css';
 import { CartContext } from '../../contexts/CartContext';
+import { FaDollyFlatbed } from 'react-icons/fa';
 
 const CartWidget = () => {
   const { totalItemsInCart } = useContext(CartContext);
@@ -9,11 +10,7 @@ const CartWidget = () => {
     <div className="cart-container">
       <Link to="/cart">
         <div className="cart">
-          <img
-            className="cart-img navbarNames"
-            src={require('../../assets/images/robotarm.png')}
-            alt=""
-          />
+          <FaDollyFlatbed />
           <span className="cart-number ">{totalItemsInCart()}</span>
         </div>
       </Link>

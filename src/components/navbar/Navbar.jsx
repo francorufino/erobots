@@ -8,6 +8,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../cartwidget/CartWidget';
 import { Link } from 'react-router-dom';
+import { FaDollyFlatbed } from 'react-icons/fa';
 
 function Navbarr() {
   return (

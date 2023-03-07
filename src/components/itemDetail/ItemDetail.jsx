@@ -16,11 +16,6 @@ const ItemDetail = ({ item }) => {
   return (
     <div>
       <section className="outter">
-        <div>
-          <h2 className="title">{item.name}</h2>
-          <hr />
-        </div>
-        <hr />
         <div className="outterContainerItemDetail">
           <div className="containerItemDetail">
             <div className="content">
@@ -38,11 +33,17 @@ const ItemDetail = ({ item }) => {
                 </div>
               </div>
               <div className="descContainer">
+                <div>
+                  <hr />
+                  <h2 className="title">{item.name}</h2>
+                  <hr />
+                  <hr />
+                </div>
                 <div className="productDescriptionDetail">
                   {item.description}
                 </div>
                 <div className="outterContainer">
-                  <div className="container-price">
+                  <div>
                     <div className="priceContainer">
                       <div className="price">
                         U$ {Number(item.price).toLocaleString('en')}
@@ -65,13 +66,11 @@ const ItemDetail = ({ item }) => {
                           <span>
                             <FaClipboard className="checkMark" />{' '}
                           </span>{' '}
-                          <span className="freeReturnsText">
-                            Product Ref: {item.id}{' '}
-                          </span>{' '}
+                          <span>Product Ref: {item.id} </span>{' '}
                         </div>
                       </div>
                       <div>
-                        <div className="icon">
+                        <div>
                           <span className="categoryImage">
                             {item.category === 'business' && (
                               <FaCashRegister className="icon" />
@@ -109,7 +108,6 @@ const ItemDetail = ({ item }) => {
                       </div>
                     </div>
                   </div>
-                  <div className="gap"></div>
                 </div>
               </div>
             </div>

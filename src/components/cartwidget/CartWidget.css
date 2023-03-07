@@ -5,12 +5,18 @@
   position: absolute;
   width: 27px;
   height: 28px;
-  background: white;
-  color: red;
+  background: #ea58f9;
+  color: black;
   font-size: 18px;
-  margin-top: 2px;
+  margin-top: -20px;
   margin-right: 50px;
   text-align: center;
-  font-weight: bold;
+  font-weight: 900;
   border-radius: 100%;
+}
+
+svg{
+  width: 37px;
+  height: 37px;
+  color: #ea58f9
 }
