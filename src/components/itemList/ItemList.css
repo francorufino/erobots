@@ -1,14 +1,17 @@
 .outterContainerProducts{
   display: flex;
   flex-wrap: wrap;
+  margin-right: 100px;
+  margin-left: 100px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   
 }
 
 .outterContainer{
   background: #212121;
-  margin: 25px auto;
+  margin: 0 auto;
   flex-wrap: wrap;
-  
 }
 
 .containerInner{
