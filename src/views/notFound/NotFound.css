@@ -1,13 +1,31 @@
 .head-text {
-  position: relative;
+  background-image: url("../../assets//images/404.png");
+  width: 100%;
+  height: 100vh;
+  background-size:  cover;
+  background-position: center;
 }
 .text-on-image {
  position: absolute;
- right:10%;
- left:10%;
- top: 10%;
+ right:2%;
+ left:2%;
+ top: 20%;
+ bottom: 3%;
  text-align:center;
- color: #14ffec
+ color: #14ffec;
+ font-size: 2rem;
+ background-color: black;
+ opacity: .8;
+ border-radius: 25px;
+ outline-offset: -30px;
+ outline: 3px solid rgb(110, 237, 237);
 }
 
+#text{
+margin: 270px auto 12px;
+color: rgb(110, 237, 237);
+}
 
+.text2{
+  color: rgb(110, 237, 237);
+}

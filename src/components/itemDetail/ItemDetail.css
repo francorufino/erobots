@@ -52,6 +52,10 @@
 margin-left: 30px;
 }
 
+#hrTop{
+  margin-top: 0px
+}
+
 .title{
   font-size: 1.5rem;
   font-weight: 700;
@@ -64,9 +68,9 @@ margin-left: 30px;
   text-align: left;
 }
 
-.outterContainer{
+#outterContainer{
   display: flex;
-  margin-top: 50px;
+  padding-top: 50px;
   justify-content: center;
   padding-left: -50px;
 }
@@ -77,17 +81,24 @@ margin-left: 30px;
   color: #cecece;
   font-weight: 900;
   text-align: center;
+  
+}
+
+.containerPriceEList{
+  margin-left: -50px;
 }
 
 .price{
   color:white;
   font-size: 2rem;
+  
 }
 
 .list{
   font-size: 0.6rem;
   padding: 12px;
   text-align: left;
+  
 }
 
 .checkMark{
@@ -95,16 +106,33 @@ margin-left: 30px;
 }
 
 .icon{
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
 .btnAddCart{
   padding: 12px;
   text-align: center;
-  margin-left: 50px;
+  margin-left: 30px;
+  
 }
 
 .btns{
   margin-top: 20px;
+}
+
+a:link {
+  color: rgb(44, 157, 157);
+}
+
+a:visited {
+  color: rgb(44, 157, 157);
+}
+
+a:hover {
+  color: rgb(44, 157, 157);
+}
+
+a:active {
+  color: rgb(44, 157, 157);
 }

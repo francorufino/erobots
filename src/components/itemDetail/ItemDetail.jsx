@@ -34,7 +34,7 @@ const ItemDetail = ({ item }) => {
               </div>
               <div className="descContainer">
                 <div>
-                  <hr />
+                  <hr id="hrTop" />
                   <h2 className="title">{item.name}</h2>
                   <hr />
                   <hr />
@@ -42,8 +42,8 @@ const ItemDetail = ({ item }) => {
                 <div className="productDescriptionDetail">
                   {item.description}
                 </div>
-                <div className="outterContainer">
-                  <div>
+                <div id="outterContainer" className="outterContainer">
+                  <div className="containerPriceEList">
                     <div className="priceContainer">
                       <div className="price">
                         U$ {Number(item.price).toLocaleString('en')}

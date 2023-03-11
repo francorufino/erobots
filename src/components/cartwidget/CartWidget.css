@@ -3,16 +3,12 @@
 }
 .cart-number{
   position: absolute;
-  width: 27px;
-  height: 28px;
-  background: #ea58f9;
-  color: black;
-  font-size: 18px;
-  margin-top: -20px;
-  margin-right: 50px;
+  margin-left: 2px;
+  color: #ea58f9;
+  font-size: 1rem;
+  margin-top: -25px;
   text-align: center;
   font-weight: 900;
-  border-radius: 100%;
 }
 
 #cart svg{

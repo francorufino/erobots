@@ -9,13 +9,13 @@
 .imageEmptyCart{
   text-align: right;
 }
+
 .bgForTextEmptyCart{
 position: absolute;
 content:"";
 background-color: black;
 height: 100%;
-width: 600px;
-margin-left: 100px;
+width: 800px;
 margin-top: 0;
 opacity: 0.8;
 }

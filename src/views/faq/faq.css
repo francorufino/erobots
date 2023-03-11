@@ -1,0 +1,21 @@
+.faqContainer{
+  background-color: #212121;
+  color: #E2DDDF;
+}
+
+h4{
+padding-top: 50px;
+}
+
+p{
+  text-align: left;
+  margin: 0;
+}
+
+p:nth-child(odd) {
+  margin-top: 25px;
+}
+
+.faqContainer{
+  margin-bottom: 50px;
+}

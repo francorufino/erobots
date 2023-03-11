@@ -14,7 +14,7 @@ import {
 
 const ItemList = ({ item }) => {
   return (
-    <article className="outterContainer">
+    <article className="outterContainerItemList">
       <div className="containerInner">
         <div className="containerCard">
           <header>
@@ -25,7 +25,7 @@ const ItemList = ({ item }) => {
             <p className="productTitle">{item.name}</p>
             <p className="productDescription">{item.description}</p>
             <div className="containerPriceEAddToCartBtn">
-              <div className="itemPrice">
+              <div id="itemPrice" className="itemPrice">
                 U$ {Number(item.price).toLocaleString('en')}
               </div>
               <div>

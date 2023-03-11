@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ItemDetail from '../../components/itemDetail/ItemDetail';
 import { Item as Items } from '../../mocks/item/Item.mock';
 import { useParams } from 'react-router-dom';
+import Loading from '../../views/loading/Loading';
 
 const ItemDetailContainer = () => {
   const [item, setItem] = useState(null);
@@ -19,7 +20,7 @@ const ItemDetailContainer = () => {
   }, [id]);
 
   if (!item) {
-    return <p>Loading ItemDetailContainer...</p>;
+    return <Loading />;
   }
   return (
     <div>

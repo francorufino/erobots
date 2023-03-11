@@ -5,12 +5,16 @@ import '../../App.css';
 const NotFound = () => {
   return (
     <div className="head-text">
-      <div className="head-image">
-        <img src={require('../../assets/images/404pageimag.png')} />
-      </div>
+      <div className="head-image"></div>
       <div class="text-on-image">
-        <h3 className="container"> Uh oh... something went wrong </h3>
-        <p className="container"> 404 page not found </p>
+        <h3 id="text" className="container text">
+          {' '}
+          Uh oh... something went wrong{' '}
+        </h3>
+        <h3 id="text2" className="container text2">
+          {' '}
+          error: 404 page not found{' '}
+        </h3>
       </div>
     </div>
   );

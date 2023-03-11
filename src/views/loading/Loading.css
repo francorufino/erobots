@@ -1,4 +1,30 @@
-.loading{
+.bg{
   background-color: #212121;
-  color: #E2DDDF
+  height: 100vh;
+}
+
+.loaderContainer{
+  text-align: center;
+  padding-top: 25vh;
+  
+}
+
+.loader {
+  border-bottom: 16px solid rgb(110, 237, 237); /* Light grey */
+  border-top: 16px solid #ea58f9; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+}
+
+.loading{
+  margin-top: 12px;
+  color: rgb(110, 237, 237)
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

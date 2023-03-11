@@ -99,7 +99,7 @@ export const Item = [
     image:
       'https://www.inceptivemind.com/wp-content/uploads/2020/09/Servi-robot-2.jpg',
     image2:
-      'https://lh3.googleusercontent.com/-WweFsi4k7oM/YP6bemql5jI/AAAAAAAAB3U/JtrjWNqs6RgIPIseAZ03iSgtgv_1i43LACLcBGAsYHQ/image.png',
+      'https://brenpierce.com/wp-content/uploads/2020/01/Brennand_Pierce_Bren_penny_Bear_robotics_servi_robot_resturant_mobile_busser_1-684x1024.jpg',
     image3: 'https://i.insider.com/5f75f8a274fe5b0018a8e7de?width=700',
   },
   {
@@ -128,7 +128,7 @@ export const Item = [
     image:
       'https://robots.ieee.org/robots/sophia/Photos/SD/sophia-photo1-full.jpg',
     image2:
-      'https://thinkingheads.com/wp-content/uploads/2018/04/sophia-the-ai-robot-conferenciante-1.jpg',
+      'https://www.researchgate.net/profile/Oliver-Korn-2/publication/326009520/figure/fig4/AS:642031240105985@1530083584231/The-Sophia-Robot-first-shown-in-2015-by-Hanson-Robotics-Courtesy-of-Hanson-Robotics.png',
     image3:
       'https://upload.wikimedia.org/wikipedia/commons/1/1e/Sophia_at_the_AI_for_Good_Global_Summit_2018_%2827254369347%29_%28cropped%29.jpg',
   },

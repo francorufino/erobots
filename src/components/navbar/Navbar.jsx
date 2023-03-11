@@ -3,55 +3,79 @@ import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 
 import '../../App.css';
 import '../navbar/Navbar.css';
-import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import CartWidget from '../cartwidget/CartWidget';
 import { Link } from 'react-router-dom';
-import { FaDollyFlatbed } from 'react-icons/fa';
+import Logo from './Logo';
 
 function Navbarr() {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand className="navbarNames" as={Link} to="/" id="brand">
-            <span>
-              <img src="../assets/images/infinite.jpeg"></img>
-            </span>
-            <span className="neon-text">e-robots</span>
-          </Navbar.Brand>
-          <Nav.Link className="navbarNames" as={Link} to="/category/business">
-            Business
-          </Nav.Link>
+      <article id="outterContainerNavbar">
+        <div className="navLinks container">
+          <div className="logoContainer">
+            <div>
+              <Nav.Link as={Link} to="/">
+                <Logo />
+              </Nav.Link>
+            </div>
+          </div>
+          <div>
+            <div className="linksNav">
+              <div className="links">
+                <Nav.Link as={Link} to="/category/business">
+                  Business
+                </Nav.Link>
+              </div>
+              <div className="links">
+                <Nav.Link as={Link} to="/category/house">
+                  Housekeeper
+                </Nav.Link>
+              </div>
+              <div className="links">
+                <Nav.Link as={Link} to="/category/companion">
+                  Companion
+                </Nav.Link>
+              </div>
+              <div className="links">
+                <Nav.Link as={Link} to="/create">
+                  Create
+                </Nav.Link>
+              </div>
+              <div>
+                <div id="cartWidgetNavBar" className="links">
+                  <Link className="cart-container" to="/cart">
+                    <CartWidget />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-          <Nav.Link className="navbarNames" as={Link} to="/category/house">
-            Housekeeper
-          </Nav.Link>
-          <Nav.Link className="navbarNames" as={Link} to="/category/companion">
-            Companion
-          </Nav.Link>
-          <Nav.Link className="navbarNames" as={Link} to="/companion/create">
-            Create
-          </Nav.Link>
-          <Nav.Link className="navbarNames" as={Link} to="/about">
-            About
-          </Nav.Link>
-          <Nav.Link
-            active
-            className="navbarNames"
-            as={Link}
-            to="/category/industry"
-          >
-            Fun fact
-          </Nav.Link>
-          <Nav.Link className="navbarNames" as={Link} to="/contact">
-            Contact
-          </Nav.Link>
+        {/* 
 
-          <CartWidget />
-        </Container>
-      </Navbar>
+                
+                
+               
+        {/*  */}
+        {/* <Nav.Link className="navbarNames" as={Link} to="/about">
+                About
+              </Nav.Link>
+              <Nav.Link
+                active
+                className="navbarNames"
+                as={Link}
+                to="/category/industry"
+              >
+                Fun fact
+              </Nav.Link>
+              <Nav.Link className="navbarNames" as={Link} to="/contact">
+                Contact
+              </Nav.Link> */}
+        {/* </div>
+        </div> */}
+      </article>
     </>
   );
 }
