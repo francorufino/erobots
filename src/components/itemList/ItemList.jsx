@@ -14,7 +14,7 @@ import {
 
 const ItemList = ({ item }) => {
   return (
-    <article className="outterContainerItemList">
+    <article className="outterContainerItemList container">
       <div className="containerInner">
         <div className="containerCard">
           <header>
