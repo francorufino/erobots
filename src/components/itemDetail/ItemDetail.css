@@ -1,5 +1,6 @@
 .outter{
   background: #212121;
+  max-width: 200px;
 }
 .outterContainerItemDetail{
   display: flex;
