@@ -6,13 +6,16 @@ const EmptyCart = () => {
   return (
     <div>
       <Layout>
-        <div className="head-text-empty">
-          <div className="head-image-empty"></div>
-          <div class="text-on-image-empty">
-            <h3 id="text-empty" className="container text-empty">
-              {' '}
-              Your cart is empty{' '}
-            </h3>
+        <div className="outterContainerEmptyCart">
+          <div className="emptyCartText">
+            <p>Your cart is empty</p>
+          </div>
+          <div className="bgForTextEmptyCart"></div>
+          <div className="imageEmptyCart">
+            <img
+              src={require('../../assets/images/robotCryingPink.png')}
+              alt=""
+            />
           </div>
         </div>
       </Layout>

@@ -4,7 +4,7 @@ import './CartPage.css';
 const CartList = ({ product, amount }) => {
   return (
     <div>
-      <section>
+      <section id="cartContainer">
         <div className="bodyCart">
           <div>
             <img className="imgProductCart" src={product.image}></img>

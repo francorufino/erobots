@@ -17,7 +17,7 @@ const CartListContainer = () => {
   return (
     <div>
       <Layout>
-        <div className="container">
+        <div className="container cartListContainer">
           <div className="header">
             <div className="titleShoppingCart">Shopping Cart</div>
             <div className="titlePrice priceEBtnClear">
