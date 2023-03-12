@@ -1,8 +1,9 @@
 .outterContainerProducts{
   display: flex;
-  margin:50px 100px;
+  margin:50px auto;
   flex-wrap: wrap;
   max-width: 1200px;
+  justify-content: center;
 }
 
 .outterContainerItemList{
