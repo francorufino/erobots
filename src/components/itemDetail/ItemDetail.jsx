@@ -15,7 +15,7 @@ import { Link } from 'react-router-dom';
 const ItemDetail = ({ item }) => {
   return (
     <div>
-      <section className="outter">
+      <section className="outter container">
         <div className="outterContainerItemDetail">
           <div className="containerItemDetail">
             <div className="content">
