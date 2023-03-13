@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import './BtnAddToCart.css';
 import { CartContext } from '../../contexts/CartContext';
+import Swal from 'sweetalert2';
 
 function BtnAddToCart({ item }) {
   const { addProduct } = useContext(CartContext);
@@ -22,16 +23,46 @@ function BtnAddToCart({ item }) {
     // }
   }
 
+  function productAddedToCartAlert() {
+    new Swal({
+      title: 'Added',
+      text: 'Your product was added to cart',
+      icon: 'success',
+      button: 'OK',
+      timer: '2000',
+    });
+  }
+
+  function productOutOfStockAlert() {
+    new Swal({
+      title: 'Sold out',
+      text: 'Sorry, this product is unavailable at this moment, but more is on the way!',
+      icon: 'error',
+      button: 'OK',
+      timer: '3000',
+    });
+  }
+
+  function chooseQtyToBuyAlert() {
+    new Swal({
+      title: 'Oops...',
+      text: 'Please choose a quantity first',
+      icon: 'warning',
+      button: 'OK',
+    });
+  }
+
   function addToCartFn() {
     if (stock === 0) {
       setWantToBuy(0);
-      alert('This product is unavailable at this moment');
+      productOutOfStockAlert();
     } else if (wantToBuy === 0 && stock >= 1) {
-      alert('Choose a quantity to buy');
+      chooseQtyToBuyAlert();
     } else if (wantToBuy >= 1 && stock >= 1) {
       setStock(stock - wantToBuy);
       addProduct(item, wantToBuy);
       setWantToBuy(1);
+      productAddedToCartAlert();
 
       //fazer a logica de salvar o item clicado no add to cart no firebase passando o item inteiro e recuperar esses dados no componente CartPage
     }

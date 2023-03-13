@@ -1,55 +1,93 @@
 import { createContext, useState } from 'react';
-
+import Swal from 'sweetalert2';
 export const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
   const [productsAdded, setProductsAdded] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-  const [amountPerItem, setAmountPerItem] = useState(new Map());
-  const updateAmountPerItem = (key, value) => {
-    setAmountPerItem(new Map(amountPerItem.set(key, value)));
+  const [qtyPerItem, setQtyPerItem] = useState(new Map());
+  const updateQtyPerItem = (key, value) => {
+    setQtyPerItem(new Map(qtyPerItem.set(key, value)));
   };
+
+  function add1ToCart(id) {
+    updateQtyPerItem(id, qtyPerItem.get(id) + 1);
+    updateCartTotal();
+  }
+
+  function remove1FromCart(id) {
+    updateQtyPerItem(id, qtyPerItem.get(id) - 1);
+    updateCartTotal();
+  }
 
   function totalItemsInCart() {
     let totalItems = 0;
     productsAdded.map((p) => {
-      totalItems = totalItems + amountPerItem.get(p.id);
+      totalItems = totalItems + qtyPerItem.get(p.id);
     });
     return totalItems;
   }
 
-  function placeOrder() {
-    alert('Your order was placed! Thank you for shopping at e-robots');
-    clear();
+  function placeOrder(orderSumary) {
+    new Swal({
+      tittle: 'Order Placed',
+      text: 'Check your email to see your order details',
+      text: 'Thank you for shopping at e-robots!',
+      icon: 'success',
+      buttons: ['OK', 'View order'],
+    }).then((answer) => {
+      if (answer) {
+        //2. navigate to a sumary page with all info of the order
+        //1. call a function that sends an email with all info of the order to the user
+      }
+    });
+    clearCart();
   }
 
-  function updateCartTotal(productsAdded) {
+  function updateCartTotal() {
+    setCartTotal(0);
     productsAdded.map((product) => {
-      setCartTotal(cartTotal + product.price * amountPerItem(product.id));
+      setCartTotal(product.price * qtyPerItem.get(product.id));
     });
   }
 
-  function addProduct(product, amount) {
+  function addProduct(product, qty) {
     const pID = product.id;
     if (!isInCart(pID)) {
       setProductsAdded([...productsAdded, product]);
     }
-    if (!amountPerItem.has(pID)) {
-      updateAmountPerItem(pID, 0);
+    if (!qtyPerItem.has(pID)) {
+      updateQtyPerItem(pID, 0);
     }
-    updateAmountPerItem(pID, amountPerItem.get(pID) + amount);
-    setCartTotal(cartTotal + product.price * amount);
+    updateQtyPerItem(pID, qtyPerItem.get(pID) + qty);
+    updateCartTotal();
   }
 
   function deleteProductFromCart(id) {
     setProductsAdded(productsAdded.filter((product) => product.id !== id));
-    //amountPerItem.delete(id);
-    updateCartTotal(productsAdded);
+    //qtyPerItem.delete(id);
+    updateCartTotal();
   }
 
-  function clear() {
+  function clearCart() {
+    new Swal({
+      title: 'Delete',
+      text: 'Are you sure you want to delete ALL products from your cart?',
+      icon: 'error',
+      buttons: ['No', 'Yes'],
+    }).then((answer) => {
+      if (answer) {
+        new Swal({
+          text: 'All your items were deleted with success!',
+          icon: 'success',
+          buttons: 'OK',
+          timer: '2000',
+        });
+      }
+    });
+
     setProductsAdded([]);
     setCartTotal(0.0);
-    setAmountPerItem(new Map());
+    setQtyPerItem(new Map());
   }
 
   function isInCart(id) {
@@ -61,13 +99,15 @@ export const CartContextProvider = ({ children }) => {
       value={{
         productsAdded,
         cartTotal,
-        amountPerItem,
+        qtyPerItem,
         addProduct,
         deleteProductFromCart,
-        clear,
+        clearCart,
         isInCart,
         totalItemsInCart,
         placeOrder,
+        add1ToCart,
+        remove1FromCart,
       }}
     >
       {children}
