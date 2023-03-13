@@ -44,10 +44,11 @@ export const CartContextProvider = ({ children }) => {
   }
 
   function updateCartTotal() {
-    setCartTotal(0);
+    const newTotal = 0;
     productsAdded.map((product) => {
-      setCartTotal(product.price * qtyPerItem.get(product.id));
+      newTotal = newTotal + product.price * qtyPerItem.get(product.id);
     });
+    setCartTotal(newTotal);
   }
 
   function addProduct(product, qty) {
