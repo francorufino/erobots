@@ -1,0 +1,22 @@
+.btnQtdeItem{
+  background-color: #cecece;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  color: black;
+  font-weight: 900;
+}
+
+.btnQtdeItem button{
+  border: none;
+  background-color: transparent;
+  padding: 0 6px;
+}
+
+.btnsQty{
+  margin-left: 4px;
+}
+
+.qtdeEditItem{
+  padding: 0 8px;
+}

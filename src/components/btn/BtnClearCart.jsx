@@ -3,11 +3,11 @@ import React, { useContext } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 
 const ClearCart = () => {
-  const { clear } = useContext(CartContext);
+  const { clearCart } = useContext(CartContext);
 
   return (
     <div>
-      <button className="clearCartBtn" onClick={clear}>
+      <button className="clearCartBtn" onClick={clearCart}>
         Clear Cart
       </button>
     </div>

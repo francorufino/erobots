@@ -13,6 +13,7 @@ const EmptyCart = () => {
           <div className="bgForTextEmptyCart"></div>
           <div className="imageEmptyCart">
             <img
+              id="imgEmptyCart"
               src={require('../../assets/images/robotCryingPink.png')}
               alt=""
             />

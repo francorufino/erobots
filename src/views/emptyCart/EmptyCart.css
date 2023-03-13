@@ -8,11 +8,13 @@
 
 .imageEmptyCart{
   text-align: center;
+  position: relative;
+  z-index: 3
 }
 
 .bgForTextEmptyCart{
 position: absolute;
-background-color: black;
+background-color: transparent;
 height: 100%;
 width: 100%;
 margin-top: 0;
@@ -22,7 +24,7 @@ opacity: 0.5;
 .emptyCartText{
   color:rgb(110, 237, 237);
   position: absolute;
-  z-index: 1;
+  z-index: 4;
   font-weight: 900;
   font-size: 2rem;
   top: 40%; 

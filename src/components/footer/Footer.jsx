@@ -53,11 +53,13 @@ const Footer = () => {
               Create
             </Nav.Link>
           </div>
+          <div className="links">My Orders</div>
           <div className="links">
             <Nav.Link className="navbarNames" as={Link} to="/faq">
               FAQ
             </Nav.Link>
           </div>
+          <div className="links">Log out</div>
         </div>
       </div>
     </div>

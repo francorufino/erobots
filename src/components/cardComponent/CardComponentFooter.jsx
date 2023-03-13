@@ -1,7 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-const CardComponentFooter = () => {
-  return <div>CardComponentFooter</div>;
-};
+// const CardComponentFooter = () => {
+//   return <div>CardComponentFooter</div>;
+// };
 
-export default CardComponentFooter;
+// export default CardComponentFooter;

@@ -4,9 +4,9 @@
   justify-content: space-between;
 }
 
-.cartListContainer{
+/* .cartListContainer{
   height: 100vh;
-}
+} */
 
 .titleShoppingCart{
   font-size: 2rem;
@@ -54,10 +54,11 @@
 }
 .btnQtdeItem{
   background-color: #cecece;
-  padding: 4px 12px;
+  padding: 6px 12px;
   border-radius: 12px;
   font-size: 0.7rem;
-  color: black
+  color: black;
+  font-weight: 900;
 }
 
 .btnQtdeItem button{
@@ -72,6 +73,12 @@
 
 .qtdeEditItem{
   padding: 0 8px;
+}
+
+.divLineQtyDetDel{
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
 }
 
 .containerPrice{
