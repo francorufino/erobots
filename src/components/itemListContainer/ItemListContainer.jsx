@@ -17,34 +17,34 @@ const ItemListContainer = () => {
   const { category } = useParams();
   const [allProducts, setAllProducts] = useState([]);
 
-  // useEffect(() => {
-  //   const db = getFirestore();
-  //   const itemsCollection = collection(db, 'items');
-  //   const q = query(itemsCollection, where('category', '==', 'companion'));
-  //   getDocs(q).then((snapshot) => {
-  //     const products = snapshot.docs.map((doc) => ({
-  //       id: doc.id,
-  //       ...doc.data(),
-  //     }));
-  //     setAllProducts(products);
-  //   });
-  // }, []);
-
-  //getting a single product from firebase:
   useEffect(() => {
     const db = getFirestore();
-    const itemRef = doc(db, 'items', '2x3YZq7ynCtwVH8haf8U');
-    getDoc(itemRef).then((snapshot) => {
-      if (snapshot.exists()) {
-        setAllProducts([{ id: '2x3YZq7ynCtwVH8haf8U', ...snapshot.data() }]);
-        console.log(allProducts);
-      } else {
-        console.log(
-          'this product does not exist click here to continue shopping1:973579672953:web:b5947f3c36616c069aa3a8',
-        );
-      }
+    const itemsCollection = collection(db, 'items');
+    // const q = query(itemsCollection, where('category', '==', 'companion'));
+    getDocs(itemsCollection).then((snapshot) => {
+      const products = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setAllProducts(products);
     });
   }, []);
+
+  // //getting a single product from firebase:
+  // useEffect(() => {
+  //   const db = getFirestore();
+  //   const itemRef = doc(db, 'items', '2x3YZq7ynCtwVH8haf8U');
+  //   getDoc(itemRef).then((snapshot) => {
+  //     if (snapshot.exists()) {
+  //       setAllProducts([{ id: '2x3YZq7ynCtwVH8haf8U', ...snapshot.data() }]);
+  //       console.log(allProducts);
+  //     } else {
+  //       console.log(
+  //         'this product does not exist click here to continue shopping1:973579672953:web:b5947f3c36616c069aa3a8',
+  //       );
+  //     }
+  //   });
+  // }, []);
 
   if (allProducts.length === 0) {
     return <Loading />;
