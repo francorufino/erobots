@@ -10,6 +10,7 @@ import Create from '../components/create/Create';
 import Faq from '../components/../views/faq/faq';
 import Loading from '../views/loading/Loading';
 import { Layout } from '../components/layout/Layout';
+import Login from '../components/loginAndRegister/Login';
 
 export const router = createBrowserRouter([
   {
@@ -34,4 +35,5 @@ export const router = createBrowserRouter([
   { path: '/continueshopping', element: <App /> },
   { path: '/faq', element: <Faq /> },
   { path: '/loading', element: <Loading /> },
+  { path: '/login', element: <Login /> },
 ]);

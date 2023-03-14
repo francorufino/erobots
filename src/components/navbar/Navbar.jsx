@@ -42,6 +42,7 @@ function Navbarr() {
                   Create
                 </Nav.Link>
               </div>
+              <div className="links">Login</div>
               <div>
                 <div id="cartWidgetNavBar" className="links">
                   <Link className="cart-container" to="/cart">
