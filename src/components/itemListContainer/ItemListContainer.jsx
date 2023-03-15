@@ -12,6 +12,7 @@ import {
   doc,
   getDoc,
 } from 'firebase/firestore';
+import db from '../../index';
 
 const ItemListContainer = () => {
   const { category } = useParams();
