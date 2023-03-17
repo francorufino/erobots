@@ -3,56 +3,78 @@ import Swal from 'sweetalert2';
 
 export const UserContext = createContext([]);
 export const UserContextProvider = ({ children }) => {
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
+  const [userFirstName, setUserFirstName] = useState('');
+  const [userLastName, setUserLastName] = useState('');
+  const [emailUser, setEmailUser] = useState('');
   const [emailConfirm, setEmailConfirm] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordConfirm, setPasswordConfirm] = useState('');
+  const [passwordUser, setPasswordUser] = useState('');
+  // const [passwordConfirm, setPasswordConfirm] = useState('');
 
-  function handleSubmitLogin(e) {
-    e.preventDefault();
-    if (email && password) {
-      //navigate to...
+  // var sha256 = require('js-sha256');
+  // var hash = sha256.create();
+  // hash.update(passwordUser);
+
+  // console.log('hash pass :   ' + hash);
+
+  function handleSubmitLogin(
+    userFName,
+    userLName,
+    email,
+    confirmEmail,
+    password,
+  ) {
+    setUserFirstName(userFName);
+    setUserLastName(userLName);
+    setEmailUser(email);
+    setEmailConfirm(confirmEmail);
+    setPasswordUser(password);
+  }
+  console.log('first name: ' + userFirstName);
+  console.log('last name: ' + userLastName);
+  console.log('email:  ' + emailUser);
+  console.log('email confirm: ' + emailConfirm);
+
+  // function handleSubmitSignup(
+  //   userName,
+  //   email,
+  //   emailConfirm,
+  //   password,
+  //   passwordConfirm,
+  // ) {
+  //   console.log(`SubmittingSignup: ${userName}, ${email}, ${password}`);
+  // }
+
+  // function validatePassword(password, passwordConfirm) {
+  //   if (password === passwordConfirm) {
+  //     alert('Your password does match');
+  //   }
+  // }
+
+  function validateEmail(emailUser, emailConfirm) {
+    if (emailUser === emailConfirm) {
+      alert('Your email does match');
+    } else {
+      alert('dont match');
     }
-    console.log(`SubmittingLogin: ${username}, ${email}, ${password}`);
   }
 
-  function handleSubmitSignup(e) {
-    e.preventDefault();
-    if (email && password) {
-      //navigate to...
-    }
-    console.log(`SubmittingSignup: ${username}, ${email}, ${password}`);
-  }
+  // function verifyUserLoggedIn(username) {}
 
-  function validatePassword(password, passwordConfirm) {
-    if (password !== passwordConfirm) {
-      alert('Your password does not match');
-    }
-  }
-
-  function validateEmail(email, emailConfirm) {
-    if (email !== emailConfirm) {
-      alert('Your email does not match');
-    }
-  }
-
-  function isUserLoggedIn(username) {}
-
-  function logout(username) {}
+  // function logout(username) {}
 
   return (
     <UserContext.Provider
       value={{
-        username,
-        password,
-        email,
+        // username,
+        // password,
+        emailUser,
+        emailConfirm,
         handleSubmitLogin,
-        handleSubmitSignup,
+        // handleSubmitSignup,
         validateEmail,
-        validatePassword,
-        isUserLoggedIn,
-        logout,
+        // validatePassword,
+        // verifyUserLoggedIn,
+        // logout,
       }}
     >
       {children}

@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 
 const CartList = ({ product, qty }) => {
-  const { add1ToCart, remove1FromCart } = useContext(CartContext);
+  const { add1ToCart, remove1FromCart, deleteProductFromCart } =
+    useContext(CartContext);
   return (
     <div>
       <section id="cartContainer">
@@ -31,7 +32,7 @@ const CartList = ({ product, qty }) => {
                   <span>detail</span>
                 </Link>
                 <span> | </span>
-                <span>delete</span>
+                <span onClick={deleteProductFromCart}>delete</span>
               </div>
             </div>
           </div>
