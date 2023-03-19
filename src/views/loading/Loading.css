@@ -10,7 +10,7 @@
 }
 
 .loader {
-  border-bottom: 16px solid rgb(110, 237, 237); /* Light grey */
+  border: 16px solid rgb(110, 237, 237); /* Light grey */
   border-top: 16px solid #ea58f9; /* Blue */
   border-radius: 50%;
   width: 120px;

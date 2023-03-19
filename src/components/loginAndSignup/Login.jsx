@@ -1,20 +1,34 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './Login.css';
 import { Layout } from '../layout/Layout';
-import { UserContext } from '../../contexts/UserContext';
 
 const Login = () => {
   const [userFName, setUserFName] = useState('');
   const [userLName, setUserLName] = useState('');
-  const [email, setEmail] = useState('');
-  const [confirmEmail, setConfirmEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const { handleSubmitLogin, validateEmail } = useContext(UserContext);
+  const [userEmail, setUserEmail] = useState('');
+  const [userEmailConfirm, setUserEmailConfirm] = useState('');
 
-  function submitFormLogin(e) {
+  function submitUserLocalStorage(e) {
     e.preventDefault();
-    handleSubmitLogin(userFName, userLName, email, confirmEmail, password);
-    validateEmail(email, confirmEmail);
+    if (
+      userFName === '' ||
+      userLName === '' ||
+      userEmail === '' ||
+      userEmailConfirm === ''
+    ) {
+      alert('The fields cannot be empty');
+    } else if (userEmail !== userEmailConfirm) {
+      alert('your emails do not match');
+    } else {
+      localStorage.setItem('userFN', JSON.stringify(userFName));
+      localStorage.setItem('userLN', JSON.stringify(userLName));
+      localStorage.setItem('userEmail', JSON.stringify(userEmail));
+      console.log('TESTEEEEEE' + userEmail, userFName, userLName);
+      console.log('TESTEEEEEE 2' + localStorage.getItem('userFN'));
+      setUserFName(localStorage.getItem('userFN'));
+      setUserLName(localStorage.getItem('userLN'));
+      setUserEmail(localStorage.getItem('userEmail'));
+    }
   }
 
   return (
@@ -23,8 +37,9 @@ const Login = () => {
         <div className="outter-left">teste</div>
         <div className="outter-right">
           teste2
+          <p>{userFName}</p>
           <div className="inner-right">testing</div>
-          <form onSubmit={submitFormLogin}>
+          <form onSubmit={submitUserLocalStorage}>
             <label>
               Name:
               <input
@@ -47,8 +62,8 @@ const Login = () => {
               Email:
               <input
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={userEmail}
+                onChange={(e) => setUserEmail(e.target.value)}
               />
             </label>
             <br />
@@ -56,19 +71,11 @@ const Login = () => {
               Confirm Email:
               <input
                 type="email"
-                value={confirmEmail}
-                onChange={(e) => setConfirmEmail(e.target.value)}
+                value={userEmailConfirm}
+                onChange={(e) => setUserEmailConfirm(e.target.value)}
               />
             </label>
             <br />
-            {/* <label>
-              Password:
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </label> */}
             <br />
             <button type="submit">Submit</button>
             <br />

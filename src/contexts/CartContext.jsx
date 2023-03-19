@@ -1,6 +1,6 @@
-import { createContext, useState, useContext } from 'react';
+import { createContext, useState } from 'react';
 import Swal from 'sweetalert2';
-import { UserContext } from './UserContext';
+
 export const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
   const [productsAdded, setProductsAdded] = useState([]);
@@ -9,8 +9,8 @@ export const CartContextProvider = ({ children }) => {
   const updateQtyPerItem = (key, value) => {
     setQtyPerItem(new Map(qtyPerItem.set(key, value)));
   };
-  const { userName, email, verifyUserLoggedIn } = useContext(UserContext);
-  // const { orderIdDB, dateAndTimeDB } = db;
+
+  //
   // const orderSumary = (
   //   orderID,
   //   dateAndTime,
@@ -64,9 +64,9 @@ export const CartContextProvider = ({ children }) => {
   }
 
   function updateCartTotal() {
-    const newTotal = 0;
+    let newTotal = 0;
     productsAdded.map((product) => {
-      newTotal = newTotal + product.price * qtyPerItem.get(product.id);
+      return (newTotal = newTotal + product.price * qtyPerItem.get(product.id));
     });
     setCartTotal(newTotal);
   }
@@ -74,50 +74,13 @@ export const CartContextProvider = ({ children }) => {
   function totalItemsInCart() {
     let totalItems = 0;
     productsAdded.map((p) => {
-      totalItems = totalItems + qtyPerItem.get(p.id);
+      return (totalItems = totalItems + qtyPerItem.get(p.id));
     });
     return totalItems;
   }
 
-  function placeOrder() {
-    if (verifyUserLoggedIn()) {
-      // createOrderSumary();
-      createMsgUserOrderPlaced();
-      sendEmailToUserWithOrder();
-      clearCart();
-    }
-  }
-
-  // function createOrderSumary() {
-  //   const ordersCollection = collection(db, 'orders');
-  //   orderSumary(
-  //     orderIdDB,
-  //     dateAndTimeDB,
-  //     userName,
-  //     email,
-  //     productsAdded,
-  //     totalItemsInCart,
-  //     cartTotal,
-  //   );
-  // }
-
-  function createMsgUserOrderPlaced() {
-    new Swal({
-      tittle: 'Order Placed',
-      text: 'Check your email to see your order details',
-      text: 'Thank you for shopping at e-robots!',
-      icon: 'success',
-      buttons: ['OK', 'View order'],
-    }).then((answer) => {
-      if (answer) {
-        //2. navigate to a sumary page with all info of the order
-        //1. call a function that sends an email with all info of the order to the user
-      }
-    });
-  }
-
   function sendEmailToUserWithOrder() {
-    //sendEmail to user
+    console.log("Sending order sumary to user's email");
   }
 
   function clearCart() {
@@ -153,9 +116,9 @@ export const CartContextProvider = ({ children }) => {
         clearCart,
         isInCart,
         totalItemsInCart,
-        placeOrder,
         add1ToCart,
         remove1FromCart,
+        sendEmailToUserWithOrder,
       }}
     >
       {children}

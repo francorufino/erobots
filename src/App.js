@@ -1,12 +1,15 @@
 import './App.css';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
 import { Layout } from './components/layout/Layout';
+import { UserContextProvider } from './contexts/UserContext';
 
 function App() {
   return (
-    <Layout>
-      <ItemListContainer />
-    </Layout>
+    <UserContextProvider>
+      <Layout>
+        <ItemListContainer />
+      </Layout>
+    </UserContextProvider>
   );
 }
 

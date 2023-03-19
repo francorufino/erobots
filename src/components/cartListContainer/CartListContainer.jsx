@@ -6,6 +6,7 @@ import { Layout } from '../../components/layout/Layout';
 import '../cartList/CartPage.css';
 import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
 import BtnClearCart from '../../components/btn/BtnClearCart';
+import { UserContextProvider } from '../../contexts/UserContext';
 
 const CartListContainer = () => {
   const { productsAdded, cartTotal, qtyPerItem, totalItemsInCart } =

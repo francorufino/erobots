@@ -29,7 +29,7 @@ function BtnAddToCart({ item }) {
       text: 'Your product was added to cart',
       icon: 'success',
       button: 'OK',
-      timer: '2000',
+      timer: '1500',
     });
   }
 
