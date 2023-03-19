@@ -4,62 +4,45 @@ import Nav from 'react-bootstrap/Nav';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
+  function logout() {
+    localStorage.removeItem('userFN');
+    localStorage.removeItem('userLN');
+    localStorage.removeItem('userEmail');
+  }
+
   return (
     <div className="footerFooter">
-      <div className="footerBrand">e-robots - Where Innovation Meets Life</div>
+      <div className="footerBrand">
+        {' '}
+        <span className="text-rainbow-animation text">e-robots</span> - Where
+        Innovation Meets Life
+      </div>
       <div className="footerNavLinks">
         <div>
-          <div className="links">
-            <Nav.Link as={Link} to="/about">
-              About
-            </Nav.Link>
-          </div>
-          <div className="links">
-            <Nav.Link
-              active
-              className="navbarNames"
-              as={Link}
-              to="/category/industry"
-            >
-              Fun fact
-            </Nav.Link>
-          </div>
-          <div className="links">
-            <Nav.Link className="navbarNames" as={Link} to="/contact">
-              Contact Us
-            </Nav.Link>
-          </div>
+          <Nav.Link as={Link} to="/about">
+            <div className="links">About</div>
+          </Nav.Link>
+          <Nav.Link
+            active
+            className="navbarNames"
+            as={Link}
+            to="/category/industry"
+          >
+            <div className="links">Fun fact</div>
+          </Nav.Link>
+
+          <Nav.Link className="navbarNames" as={Link} to="/contact">
+            <div className="links">Contact Us</div>
+          </Nav.Link>
         </div>
         <div>
-          <div className="links">
-            <Nav.Link as={Link} to="/category/business">
-              Business
-            </Nav.Link>
-          </div>
-          <div className="links">
-            <Nav.Link as={Link} to="/category/house">
-              Housekeeper
-            </Nav.Link>
-          </div>
-          <div className="links">
-            <Nav.Link as={Link} to="/category/companion">
-              Companion
-            </Nav.Link>
-          </div>
-        </div>
-        <div>
-          <div className="links">
-            <Nav.Link as={Link} to="/create">
-              Create
-            </Nav.Link>
-          </div>
+          <Nav.Link className="navbarNames" as={Link} to="/faq">
+            <div className="links">FAQ</div>
+          </Nav.Link>
           <div className="links">My Orders</div>
-          <div className="links">
-            <Nav.Link className="navbarNames" as={Link} to="/faq">
-              FAQ
-            </Nav.Link>
+          <div className="links logout" onClick={logout}>
+            Log out
           </div>
-          <div className="links">Log out</div>
         </div>
       </div>
     </div>

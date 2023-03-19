@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect } from 'react';
 import CartList from '../cartList/CartList';
-import { CartContext } from '../../contexts/CartContext';
+import { CartContext, CartContextProvider } from '../../contexts/CartContext';
 import EmptyCart from '../../views/emptyCart/EmptyCart';
 import { Layout } from '../../components/layout/Layout';
 import '../cartList/CartPage.css';
@@ -43,7 +43,9 @@ const CartListContainer = () => {
                 {Number(cartTotal).toLocaleString('en')}
               </span>
               <div>
-                <BtnPlaceOrder />
+                <CartContextProvider>
+                  <BtnPlaceOrder />
+                </CartContextProvider>
               </div>
 
               <div className="btnClearCart">

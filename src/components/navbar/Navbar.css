@@ -18,6 +18,11 @@ gap: 8px;
 .links{
   padding: 18px;
   color: rgb(110, 237, 237);
+  text-decoration: none;
+}
+
+#login{
+  text-decoration: none;
 }
 
 .cart-img{
@@ -26,7 +31,8 @@ gap: 8px;
 }
 
 .links:hover{
-  text-shadow:0 0 0.5em rgb(110, 237, 237);
+  text-shadow:0 0 0.9em #ea58f9;
+  color:#ea58f9
 }
 
 #cartWidgetNavBar:hover{

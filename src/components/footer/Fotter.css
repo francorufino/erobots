@@ -23,3 +23,30 @@
   padding: 4px;
   margin-left: 25px;
 }
+
+.logout{
+  cursor: pointer;
+}
+
+
+.text-rainbow-animation {
+  margin-top: -15px;
+  font-size: 1.4rem;
+  font-family: 'Orbitron', sans-serif;
+  font-family:arial black;
+  background-image: 
+    linear-gradient(to right, #ea58f9,#ea58f9, rgb(110, 237, 237),rgb(110, 237, 237),rgb(110, 237, 237), #ea58f9,#ea58f9 ); 
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;  
+  animation: rainbow-animation 2500s linear infinite;
+}
+
+.text{
+  font-size: 1rem;
+}
+
+@keyframes rainbow-animation {
+    to {
+        background-position: 4500vh;
+    }
+}

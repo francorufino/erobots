@@ -12,8 +12,6 @@ import Loading from '../views/loading/Loading';
 import { Layout } from '../components/layout/Layout';
 import Login from '../components/loginAndSignup/Login';
 import { UserContextProvider } from '../contexts/UserContext';
-import Signup from '../components/loginAndSignup/Signup';
-
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -43,15 +41,6 @@ export const router = createBrowserRouter([
       <UserContextProvider>
         {' '}
         <Login />
-      </UserContextProvider>
-    ),
-  },
-  {
-    path: '/signup',
-    element: (
-      <UserContextProvider>
-        {' '}
-        <Signup />
       </UserContextProvider>
     ),
   },

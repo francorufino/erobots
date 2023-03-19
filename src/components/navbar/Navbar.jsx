@@ -22,30 +22,23 @@ function Navbarr() {
           </div>
           <div>
             <div className="linksNav">
-              <div className="links">
-                <Nav.Link as={Link} to="/category/business">
-                  Business
-                </Nav.Link>
-              </div>
-              <div className="links">
-                <Nav.Link as={Link} to="/category/house">
-                  Housekeeper
-                </Nav.Link>
-              </div>
-              <div className="links">
-                <Nav.Link as={Link} to="/category/companion">
-                  Companion
-                </Nav.Link>
-              </div>
-              <div className="links">
-                <Nav.Link as={Link} to="/create">
-                  Create
-                </Nav.Link>
-              </div>
+              <Nav.Link as={Link} to="/category/business">
+                <div className="links">Business</div>
+              </Nav.Link>
+              <Nav.Link as={Link} to="/category/house">
+                <div className="links">Housekeeper</div>
+              </Nav.Link>
+              <Nav.Link as={Link} to="/category/companion">
+                <div className="links">Companion</div>
+              </Nav.Link>
+              <Nav.Link as={Link} to="/create">
+                <div className="links">Create</div>
+              </Nav.Link>
               <Link to="/login">
-                <div className="links">Login</div>
+                <div id="login" className="links">
+                  Login
+                </div>
               </Link>
-
               <div>
                 <div id="cartWidgetNavBar" className="links">
                   <Link className="cart-container" to="/cart">

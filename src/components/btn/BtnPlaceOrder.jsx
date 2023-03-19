@@ -4,39 +4,31 @@ import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
 
 const BtnPlaceOrder = () => {
-  const [orderID, setOrderID] = useState('');
+  const [orderID, setOrderID] = useState('IDNumber from Firebase');
   const userFirstName = JSON.parse(localStorage.getItem('userFN'));
   const userLastName = JSON.parse(localStorage.getItem('userLN'));
   const userEmail = JSON.parse(localStorage.getItem('userEmail'));
   console.log(localStorage.getItem('userFN'));
   const {
-    // productsAdded,
-    // cartTotal,
-    // totalItemsInCart,
-    // setProductsAdded,
-    // setCartTotal,
-    // setQtyPerItem,
+    productsAdded,
+    cartTotal,
+    totalItemsInCart,
+    setProductsAdded,
+    setCartTotal,
+    setQtyPerItem,
   } = useContext(CartContext);
 
   function placeOrder() {
-    if (userFirstName && userLastName && userEmail) {
-      alert('all good');
-      alert(userLastName, userEmail);
+    if (!userFirstName && !userLastName && !userEmail) {
+      alert('You have to Log in to place an order');
+    } else {
+      createOrderID();
+      createOrderSumary();
+      createMsgUserOrderPlaced();
+      setProductsAdded([]);
+      setCartTotal(0.0);
+      setQtyPerItem(new Map());
     }
-
-    createOrderID();
-    createOrderSumary();
-    // userFirstName,
-    //   userLastName,
-    //   userEmail,
-    // orderID,
-    // productsAdded,
-    // totalItemsInCart,
-    // cartTotal,
-    createMsgUserOrderPlaced();
-    // setProductsAdded([]);
-    // setCartTotal(0.0);
-    // setQtyPerItem(new Map());
   }
 
   function createOrderID(orderID) {
@@ -60,9 +52,6 @@ const BtnPlaceOrder = () => {
 
   function createOrderSumary(
     orderID,
-    // userFirstName,
-    // userLastName,
-    // userEmail,
     productsAdded,
     totalItemsInCart,
     cartTotal,

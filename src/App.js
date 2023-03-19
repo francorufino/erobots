@@ -1,15 +1,15 @@
 import './App.css';
 import ItemListContainer from './components/itemListContainer/ItemListContainer';
 import { Layout } from './components/layout/Layout';
-import { UserContextProvider } from './contexts/UserContext';
+import { CartContextProvider } from './contexts/CartContext';
 
 function App() {
   return (
-    <UserContextProvider>
+    <CartContextProvider>
       <Layout>
         <ItemListContainer />
       </Layout>
-    </UserContextProvider>
+    </CartContextProvider>
   );
 }
 
