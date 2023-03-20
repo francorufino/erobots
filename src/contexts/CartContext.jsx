@@ -84,25 +84,36 @@ export const CartContextProvider = ({ children }) => {
   }
 
   function clearCart() {
-    new Swal({
-      title: 'Delete',
-      text: 'Are you sure you want to delete ALL products from your cart?',
-      icon: 'error',
-      buttons: ['No', 'Yes'],
-    }).then((answer) => {
-      if (answer) {
-        new Swal({
-          text: 'All your items were deleted with success!',
+    Swal.fire({
+      title: 'Are you sure?',
+      text: 'This will delete all products in you cart.',
+      icon: 'warning',
+      iconColor: '#ea58f9',
+      color: 'rgb(110, 237, 237)',
+      background: '#212121',
+      backdrop: `
+      rgb(110, 237, 237))
+  `,
+      showCancelButton: true,
+      confirmButtonColor: 'rgb(110, 237, 237)',
+      cancelButtonColor: '#ea58f9',
+      confirmButtonText: 'Yes, delete it!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          color: 'rgb(110, 237, 237)',
+          background: '#212121',
+          title: 'Deleted!',
+          text: 'Your cart is now empty.',
           icon: 'success',
-          buttons: 'OK',
-          timer: '2000',
+          iconColor: '#ea58f9',
+          // borderColor: '#ea58f9',
         });
+        // setProductsAdded([]);
+        // setCartTotal(0.0);
+        // setQtyPerItem(new Map());
       }
     });
-
-    setProductsAdded([]);
-    setCartTotal(0.0);
-    setQtyPerItem(new Map());
   }
 
   return (

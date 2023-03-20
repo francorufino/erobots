@@ -6,30 +6,55 @@ import Swal from 'sweetalert2';
 function BtnAddToCart({ item }) {
   const { addProduct } = useContext(CartContext);
   const [stock, setStock] = useState(item.stock);
-  const [wantToBuy, setWantToBuy] = useState(1);
+  const [wantToBuy, setWantToBuy] = useState(stock > 0 ? 1 : 0);
 
   function addToWantToBuy() {
-    if (stock >= 1) {
+    if (stock > 0) {
       setWantToBuy(wantToBuy + 1);
+    } else if (stock === 0) {
+      setWantToBuy(0);
     }
   }
 
   function removeFromWantToBuy() {
-    if (wantToBuy > 1) {
+    if (wantToBuy >= 2) {
       setWantToBuy(wantToBuy - 1);
     }
-    // if (wantToBuy === 0) {
-    //   setWantToBuy(1);
-    // }
+    if (wantToBuy === 1) {
+      setWantToBuy(1);
+    }
   }
 
   function productAddedToCartAlert() {
-    new Swal({
-      title: 'Added',
-      text: 'Your product was added to cart',
+    // new Swal({
+    //   title: 'Added',
+    //   text: 'Your product was added to cart',
+    //   icon: 'success',
+    //   iconColor: '#ea58f9',
+    //   color: 'rgb(110, 237, 237)',
+    //   background: '#212121',
+    //   buttons: false,
+    //   timer: '1500',
+    // });
+
+    const Toast = Swal.mixin({
+      background: '#212121',
+      toast: true,
+      position: 'top-end',
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+      didOpen: (toast) => {
+        toast.addEventListener('mouseenter', Swal.stopTimer);
+        toast.addEventListener('mouseleave', Swal.resumeTimer);
+      },
+    });
+
+    Toast.fire({
       icon: 'success',
-      button: 'OK',
-      timer: '1500',
+      iconColor: 'rgb(110, 237, 237)',
+      color: 'rgb(110, 237, 237)',
+      title: 'Your product was added to cart',
     });
   }
 
@@ -61,8 +86,8 @@ function BtnAddToCart({ item }) {
     } else if (wantToBuy >= 1 && stock >= 1) {
       setStock(stock - wantToBuy);
       addProduct(item, wantToBuy);
-      setWantToBuy(1);
       productAddedToCartAlert();
+      setWantToBuy(stock > 0 ? 1 : 0);
 
       //fazer a logica de salvar o item clicado no add to cart no firebase passando o item inteiro e recuperar esses dados no componente CartPage
     }
@@ -81,9 +106,17 @@ function BtnAddToCart({ item }) {
           <button
             id="glow"
             onClick={addToCartFn}
-            className={stock === 0 && wantToBuy === 0 ? 'outOfStock' : 'glow'}
+            className={
+              (stock === 0 && wantToBuy === 1) ||
+              (stock === 0 && wantToBuy === 0)
+                ? 'outOfStock'
+                : 'glow'
+            }
           >
-            {wantToBuy === 0 && stock === 0 ? 'Out of stock' : 'Add to cart'}
+            {(wantToBuy === 1 && stock === 0) ||
+            (stock === 0 && wantToBuy === 0)
+              ? 'Out of stock'
+              : 'Add to cart'}
           </button>
           <div className="qtdeToAddToCart">
             <span className="wantBuyQty">Qtde: </span>
@@ -94,7 +127,9 @@ function BtnAddToCart({ item }) {
             >
               -
             </button>
-            <button className="wantNumber">{wantToBuy}</button>
+            <button className="wantNumber">
+              {stock === 0 ? 0 : wantToBuy}
+            </button>
             <button
               className="wantBuyPlus"
               onClick={addToWantToBuy}

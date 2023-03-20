@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext } from 'react';
 import CartList from '../cartList/CartList';
 import { CartContext, CartContextProvider } from '../../contexts/CartContext';
 import EmptyCart from '../../views/emptyCart/EmptyCart';
@@ -6,7 +6,6 @@ import { Layout } from '../../components/layout/Layout';
 import '../cartList/CartPage.css';
 import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
 import BtnClearCart from '../../components/btn/BtnClearCart';
-import { UserContextProvider } from '../../contexts/UserContext';
 
 const CartListContainer = () => {
   const { productsAdded, cartTotal, qtyPerItem, totalItemsInCart } =

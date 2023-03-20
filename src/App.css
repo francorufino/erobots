@@ -24,4 +24,8 @@ a{
   
 }
 
+.swal2-icon.swal2-error {
+  border-color: red;
+}
+
  
