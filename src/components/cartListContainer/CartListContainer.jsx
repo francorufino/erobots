@@ -32,6 +32,7 @@ const CartListContainer = () => {
                 product={product}
                 sumCart={cartTotal}
                 qty={qtyPerItem.get(product.id)}
+                stock={product.stock}
               />
             );
           })}

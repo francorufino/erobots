@@ -1,9 +1,10 @@
 import React, { useContext } from 'react';
+
 import './CartPage.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 
-const CartList = ({ product, qty }) => {
+const CartList = ({ product, qty, stock }) => {
   const { add1ToCart, remove1FromCart, deleteProductFromCart } =
     useContext(CartContext);
   return (
@@ -20,11 +21,19 @@ const CartList = ({ product, qty }) => {
                 <span className="btnQtdeItem">
                   <span>Qty: </span>
                   <span className="btnsQty">
-                    <button onClick={() => remove1FromCart(product.id)}>
+                    <button
+                      disabled={qty === 0}
+                      onClick={() => remove1FromCart(product.id)}
+                    >
                       -
                     </button>
                     <span className="qtdeEditItem">{qty}</span>
-                    <button onClick={() => add1ToCart(product.id)}>+</button>
+                    <button
+                      disabled={qty >= stock}
+                      onClick={() => add1ToCart(product.id)}
+                    >
+                      +
+                    </button>
                   </span>
                 </span>
                 <span> | </span>

@@ -90,7 +90,7 @@ function BtnAddToCart({ item }) {
       chooseQtyToBuyAlert();
     } else if (wantToBuy >= 1 && stock >= 1) {
       setStock(stock - wantToBuy);
-      addProduct(item, wantToBuy);
+      addProduct(item, wantToBuy, stock);
       productAddedToCartAlert();
 
       //fazer a logica de salvar o item clicado no add to cart no firebase passando o item inteiro e recuperar esses dados no componente CartPage
