@@ -40,7 +40,7 @@ function BtnAddToCart({ item }) {
     const Toast = Swal.mixin({
       background: '#212121',
       toast: true,
-      position: 'top-end',
+      position: 'top-start',
       showConfirmButton: false,
       timer: 3000,
       timerProgressBar: true,
@@ -52,8 +52,8 @@ function BtnAddToCart({ item }) {
 
     Toast.fire({
       icon: 'success',
-      iconColor: 'rgb(110, 237, 237)',
-      color: 'rgb(110, 237, 237)',
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
       title: 'Your product was added to cart',
     });
   }
@@ -63,8 +63,13 @@ function BtnAddToCart({ item }) {
       title: 'Sold out',
       text: 'Sorry, this product is unavailable at this moment, but more is on the way!',
       icon: 'error',
-      button: 'OK',
-      timer: '3000',
+      iconColor: '#ea58f9',
+      // button: 'OK',
+      timer: '4000',
+      color: 'rgb(110, 237, 237)',
+      background: '#212121',
+      showConfirmButton: false,
+      // timer: '1500',
     });
   }
 
@@ -87,10 +92,10 @@ function BtnAddToCart({ item }) {
       setStock(stock - wantToBuy);
       addProduct(item, wantToBuy);
       productAddedToCartAlert();
-      setWantToBuy(stock > 0 ? 1 : 0);
 
       //fazer a logica de salvar o item clicado no add to cart no firebase passando o item inteiro e recuperar esses dados no componente CartPage
     }
+    setWantToBuy(stock > 0 ? 1 : 0);
   }
 
   //qdo add no cart ver se eh o mesmo id,

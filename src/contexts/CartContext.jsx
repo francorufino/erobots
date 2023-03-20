@@ -107,11 +107,10 @@ export const CartContextProvider = ({ children }) => {
           text: 'Your cart is now empty.',
           icon: 'success',
           iconColor: '#ea58f9',
-          // borderColor: '#ea58f9',
         });
-        // setProductsAdded([]);
-        // setCartTotal(0.0);
-        // setQtyPerItem(new Map());
+        setProductsAdded([]);
+        setCartTotal(0.0);
+        setQtyPerItem(new Map());
       }
     });
   }

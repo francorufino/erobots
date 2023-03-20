@@ -2,8 +2,10 @@ import React, { useState, useContext } from 'react';
 import '../btn/BtnPlaceOrder.css';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
+// import { useNavigate } from 'react-router-dom';
 
 const BtnPlaceOrder = () => {
+  // const navigate = useNavigate();
   const [orderID, setOrderID] = useState('IDNumber from Firebase');
   const userFirstName = JSON.parse(localStorage.getItem('userFN'));
   const userLastName = JSON.parse(localStorage.getItem('userLN'));
@@ -28,6 +30,7 @@ const BtnPlaceOrder = () => {
       setProductsAdded([]);
       setCartTotal(0.0);
       setQtyPerItem(new Map());
+      // navigate('/');
     }
   }
 
@@ -38,16 +41,20 @@ const BtnPlaceOrder = () => {
 
   function createMsgUserOrderPlaced() {
     new Swal({
-      tittle: 'Order Placed',
-      text: 'Thank you for shopping at e-robots!',
+      title: 'Order Placed',
+      text: 'A confirmation was sent to you email',
       icon: 'success',
-      buttons: ['OK', 'View order'],
-    }).then((answer) => {
-      if (answer) {
-        //2. navigate to a sumary page with all info of the order
-        //1. call a function that sends an email with all info of the order to the user
-      }
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
+      background: '#212121',
+      showConfirmButton: false,
+      timer: '4000',
+      backdrop: `
+      rgb(110, 237, 237))
+      // })`,
+      padding: '3em',
     });
+    // navigate('/');
   }
 
   function createOrderSumary(
