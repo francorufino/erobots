@@ -4,9 +4,7 @@ import '../itemList/ItemList.css';
 import { Link } from 'react-router-dom';
 
 const BtnSeeDetails = ({ item }) => {
-  function seeDetail() {
-    console.log(item.id);
-  }
+  function seeDetail() {}
   return (
     <div className="robot-tag">
       <Link to={`/item/${item.id}`}>

@@ -1,33 +1,31 @@
-.emptyCart{
-  color: white;
+.outterContainerEC{
+  display: flex;
 }
 
-.outterContainerEmptyCart{
-  position: relative;
+.left-containerEC, .right-containerEC{
+  width: 50%;
 }
 
-.imageEmptyCart{
-  text-align: center;
-  position: relative;
-  z-index: 3
+.left-containerEC{
+  display: flex;
+  justify-content: center;
+  margin-top: 25vh;
 }
 
-.bgForTextEmptyCart{
-position: absolute;
-background-color: transparent;
-height: 100%;
-width: 100%;
-margin-top: 0;
-opacity: 0.5;
+.left-containerEC h2{
+  margin-bottom: 50px;
 }
 
-.emptyCartText{
-  color:rgb(110, 237, 237);
-  position: absolute;
-  z-index: 4;
-  font-weight: 900;
-  font-size: 2rem;
-  top: 40%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
+.right-containerEC{
+  background-image: url("../../assets/images/robotCryingPink.png");
+  background-size: cover;
+  height: 100vh;
+  outline-offset: -30px;
+  outline: 3px solid rgb(110, 237, 237);
 }
+
+.right-containerEC{
+  border-radius: 32px;
+}
+
+

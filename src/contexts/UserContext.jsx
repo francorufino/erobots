@@ -5,7 +5,7 @@ export const UserContextProvider = ({ children }) => {
   const userFirstName = JSON.parse(localStorage.getItem('userFN'));
   const userLastName = JSON.parse(localStorage.getItem('userLN'));
   const userEmail = JSON.parse(localStorage.getItem('userEmail'));
-  console.log(localStorage.getItem('userFN'));
+  localStorage.getItem('userFN');
   return (
     <UserContext.Provider value={{ userFirstName, userLastName, userEmail }}>
       {children}

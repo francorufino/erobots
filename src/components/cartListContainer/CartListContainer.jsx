@@ -1,14 +1,16 @@
 import React, { useContext } from 'react';
 import CartList from '../cartList/CartList';
-import { CartContext, CartContextProvider } from '../../contexts/CartContext';
+import { CartContext } from '../../contexts/CartContext';
 import EmptyCart from '../../views/emptyCart/EmptyCart';
 import { Layout } from '../../components/layout/Layout';
-import '../cartList/CartPage.css';
-import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
-import BtnClearCart from '../../components/btn/BtnClearCart';
+import './CartListContainer.css';
+// import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
+// import BtnClearCart from '../../components/btn/BtnClearCart';
+import BtnGlow from '../btn/BtnGlow';
+import BtnBlack from '../btn/BtnBlack';
 
 const CartListContainer = () => {
-  const { productsAdded, cartTotal, qtyPerItem, totalItemsInCart } =
+  const { productsAdded, cartTotal, handleClickClearCart } =
     useContext(CartContext);
   if (productsAdded.length === 0) {
     return <EmptyCart />;
@@ -17,10 +19,10 @@ const CartListContainer = () => {
   return (
     <div>
       <Layout>
-        <div className="container cartListContainer">
+        <div className="container">
           <div className="header">
             <div className="titleShoppingCart">Shopping Cart</div>
-            <div className="titlePrice priceEBtnClear">
+            <div className="titlePrice">
               <div>Price</div>
             </div>
           </div>
@@ -31,25 +33,29 @@ const CartListContainer = () => {
                 key={product.id}
                 product={product}
                 sumCart={cartTotal}
-                qty={qtyPerItem.get(product.id)}
                 stock={product.stock}
               />
             );
           })}
-          <div className="totalCart">
-            <div className="totalCartInnerDiv">
+          <div>
+            <div>
               <span className="totalProductCart">
-                Subtotal ({totalItemsInCart()} items): U${' '}
+                Subtotal ({productsAdded.length} items): U${' '}
                 {Number(cartTotal).toLocaleString('en')}
               </span>
               <div>
-                <CartContextProvider>
-                  <BtnPlaceOrder />
-                </CartContextProvider>
-              </div>
-
-              <div className="btnClearCart">
-                <BtnClearCart />
+                <div className="container-right">
+                  <div className="btnGlowCLC">
+                    <BtnGlow text="Procced to checkout" />
+                  </div>
+                  <div className="btnBlack">
+                    <BtnBlack
+                      onClick={handleClickClearCart}
+                      className="teste"
+                      text="Clear cart"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>

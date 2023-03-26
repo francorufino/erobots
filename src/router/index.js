@@ -11,7 +11,7 @@ import Faq from '../components/../views/faq/faq';
 import Loading from '../views/loading/Loading';
 import { Layout } from '../components/layout/Layout';
 import Login from '../components/loginAndSignup/Login';
-import { UserContextProvider } from '../contexts/UserContext';
+import CheckOut from '../components/cartCheckout/CheckOut';
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -30,18 +30,13 @@ export const router = createBrowserRouter([
   { path: '/about', element: <About /> },
   { path: '/contact', element: <Contact /> },
   { path: '/cart', element: <CartListContainer /> },
-  { path: '/checkout', element: <CartListContainer /> },
   { path: '/create', element: <Create /> },
   { path: '/continueshopping', element: <App /> },
   { path: '/faq', element: <Faq /> },
   { path: '/loading', element: <Loading /> },
+  { path: '/checkout', element: <CheckOut /> },
   {
     path: '/login',
-    element: (
-      <UserContextProvider>
-        {' '}
-        <Login />
-      </UserContextProvider>
-    ),
+    element: <Login />,
   },
 ]);

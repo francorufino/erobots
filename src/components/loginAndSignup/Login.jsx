@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import { Layout } from '../layout/Layout';
+import '../../components/btn/BtnAddToCart.css';
 
 const Login = () => {
   const [userFName, setUserFName] = useState('');
@@ -23,66 +24,85 @@ const Login = () => {
       localStorage.setItem('userFN', JSON.stringify(userFName));
       localStorage.setItem('userLN', JSON.stringify(userLName));
       localStorage.setItem('userEmail', JSON.stringify(userEmail));
-      console.log('TESTEEEEEE' + userEmail, userFName, userLName);
-      console.log('TESTEEEEEE 2' + localStorage.getItem('userFN'));
       setUserFName(localStorage.getItem('userFN'));
       setUserLName(localStorage.getItem('userLN'));
       setUserEmail(localStorage.getItem('userEmail'));
     }
+    setUserEmail('');
+    setUserFName('');
+    setUserLName('');
+    setUserEmailConfirm('');
   }
 
   return (
     <Layout>
-      <div className="containerHolder">
-        <div className="outter-left">teste</div>
+      <div className="container containerHolder">
+        <div className="outter-left left-column">
+          <h2>Login</h2>
+          <div></div>
+          <div className="containerForm">
+            <form onSubmit={submitUserLocalStorage}>
+              <label>
+                Name:
+                <input
+                  className="imput"
+                  type="text"
+                  value={userFName}
+                  onChange={(e) => setUserFName(e.target.value)}
+                />
+              </label>
+              <br />
+              <label>
+                Last name:
+                <input
+                  className="imput"
+                  type="text"
+                  value={userLName}
+                  onChange={(e) => setUserLName(e.target.value)}
+                />
+              </label>
+              <br />
+              <label>
+                Email:
+                <input
+                  className="imput"
+                  type="email"
+                  value={userEmail}
+                  onChange={(e) => setUserEmail(e.target.value)}
+                />
+              </label>
+              <br />
+              <label>
+                Confirm Email:
+                <input
+                  className="imput"
+                  type="email"
+                  value={userEmailConfirm}
+                  onChange={(e) => setUserEmailConfirm(e.target.value)}
+                />
+              </label>
+              <br />
+              <br />
+              <div className="divBtnLogIn">
+                <button id="btnSubmitFormLogin" className="glow" type="submit">
+                  Submit
+                </button>
+              </div>
+              <br />
+              <br />
+              <br />
+              <br />
+            </form>
+          </div>
+        </div>
         <div className="outter-right">
-          teste2
-          <p>{userFName}</p>
-          <div className="inner-right">testing</div>
-          <form onSubmit={submitUserLocalStorage}>
-            <label>
-              Name:
-              <input
-                type="text"
-                value={userFName}
-                onChange={(e) => setUserFName(e.target.value)}
-              />
-            </label>
-            <br />
-            <label>
-              Last name:
-              <input
-                type="text"
-                value={userLName}
-                onChange={(e) => setUserLName(e.target.value)}
-              />
-            </label>
-            <br />
-            <label>
-              Email:
-              <input
-                type="email"
-                value={userEmail}
-                onChange={(e) => setUserEmail(e.target.value)}
-              />
-            </label>
-            <br />
-            <label>
-              Confirm Email:
-              <input
-                type="email"
-                value={userEmailConfirm}
-                onChange={(e) => setUserEmailConfirm(e.target.value)}
-              />
-            </label>
-            <br />
-            <br />
-            <button type="submit">Submit</button>
-            <br />
-            <br />
-            <br />
-            <br />
-          </form>
+          <div className="inner-right">
+            <img
+              id="img"
+              src={require('../../assets/images/login.png')}
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </Layout>

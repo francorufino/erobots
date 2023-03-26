@@ -1,26 +1,3 @@
-.header{
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
-
-/* .cartListContainer{
-  height: 100vh;
-} */
-
-.titleShoppingCart{
-  font-size: 2rem;
-  margin-top: 45px;
-  color: #E2DDDF;
-}
-
-.titlePrice{
-  display: flex;
-  font-size: 1.3rem;
-  align-items: flex-end;
-  color: #E2DDDF;
-}
-
 .bodyCart{
   display: flex;
   color: #E2DDDF;
@@ -42,16 +19,12 @@
   width: 950px;
 }
 
-.bodyDescription{
+.divLineQtyDetDel{
   display: flex;
+  align-items: baseline;
+  gap: 12px;
 }
 
-.priceItem{
-  text-align: right;
-  font-size: 1.2rem;
-  flex-grow: 2;
-  
-}
 .btnQtdeItem{
   background-color: #cecece;
   padding: 6px 12px;
@@ -59,12 +32,6 @@
   font-size: 0.7rem;
   color: black;
   font-weight: 900;
-}
-
-.btnQtdeItem button{
-  border: none;
-  background-color: transparent;
-  padding: 0 6px;
 }
 
 .btnsQty{
@@ -75,34 +42,14 @@
   padding: 0 8px;
 }
 
-.divLineQtyDetDel{
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
+.btnQtdeItem button{
+  border: none;
+  background-color: transparent;
+  padding: 0 6px;
 }
 
-.containerPrice{
-  display: flex;
-  justify-content: right;
+.priceItem{
   text-align: right;
-}
-
-.totalCartInnerDiv{
-  text-align: right;
-}
-
-.btnClearCart, .btnPlaceOrder{
-  text-align: right;
-  margin-right: 110px;
-  margin-top: 35px;
-}
-
-.btnClearCart{
-  margin-top: 20px;
-  margin-bottom: 50px;
-}
-
-.totalProductCart{
-  color:white;
   font-size: 1.2rem;
+  flex-grow: 2;
 }

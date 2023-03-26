@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BtnAddToCart from '../btn/BtnAddToCart';
 import './ItemDetail.css';
 import BtnCheckOut from '../btn/BtnCheckOut';
@@ -11,26 +11,68 @@ import {
   FaCashRegister,
 } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 const ItemDetail = ({ item }) => {
+  const [images, setImages] = useState([]);
+
+  const storage = getStorage();
+  const imageRefs = [
+    ref(storage, item.image1URL),
+    ref(storage, item.image2URL),
+    ref(storage, item.image3URL),
+  ];
+
+  useEffect(() => {
+    const getImages = async () => {
+      await imageRefs.map((ref) =>
+        getDownloadURL(ref).then((url) => {
+          setImages((prevState) => prevState.concat(url));
+        }),
+      );
+    };
+    getImages();
+  }, []);
+
   return (
     <div>
       <section className="outter container">
         <div className="outterContainerItemDetail">
           <div className="containerItemDetail">
             <div className="content">
-              <div>
+              <div className="slides">
                 <div className="containerMainPic">
-                  <img src={item.image} />
+                  <img src={images[0]} />
                 </div>
                 <div className="containerSmallPics">
                   <div className="containerPhotoSmall">
-                    <img src={item.image2} />
+                    <img src={images[1]} />
                   </div>
                   <div className="containerPhotoSmall">
-                    <img src={item.image3} />
+                    <img src={images[2]} />
                   </div>
                 </div>
+                <div className="containerMainPic">
+                  <iframe
+                    width="500"
+                    height="500"
+                    src="https://player.vimeo.com/video/651929733"
+                  ></iframe>
+                </div>
+
+                {/* <video controls width="250">
+    <source src="/media/cc0-videos/flower.webm" type="video/webm">
+
+    <source src="/media/cc0-videos/flower.mp4" type="video/mp4">
+
+    Download the
+    <a href="/media/cc0-videos/flower.webm">WEBM</a>
+    or
+    <a href="/media/cc0-videos/flower.mp4">MP4</a>
+    video.
+</video> */}
+
+                <video src="https://www.youtube.com/watch?v=CWlbX42uYj8"></video>
               </div>
               <div className="descContainer">
                 <div>

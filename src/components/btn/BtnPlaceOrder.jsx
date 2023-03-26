@@ -2,15 +2,18 @@ import React, { useState, useContext } from 'react';
 import '../btn/BtnPlaceOrder.css';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
-// import { useNavigate } from 'react-router-dom';
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+
+// .then(okay => {
+//   if (okay) {
+//    window.location.href = "URL";
+//  }
+// });
 
 const BtnPlaceOrder = () => {
-  // const navigate = useNavigate();
-  const [orderID, setOrderID] = useState('IDNumber from Firebase');
   const userFirstName = JSON.parse(localStorage.getItem('userFN'));
   const userLastName = JSON.parse(localStorage.getItem('userLN'));
   const userEmail = JSON.parse(localStorage.getItem('userEmail'));
-  console.log(localStorage.getItem('userFN'));
   const {
     productsAdded,
     cartTotal,
@@ -20,23 +23,36 @@ const BtnPlaceOrder = () => {
     setQtyPerItem,
   } = useContext(CartContext);
 
+  console.log(productsAdded);
+
   function placeOrder() {
+    //everytime this btn is pressed a new order is generating containing all the info about the product and then it has to be added to the "My Orders" view page, latest orders always on top
+
     if (!userFirstName && !userLastName && !userEmail) {
-      alert('You have to Log in to place an order');
+      new Swal({
+        title: 'Login',
+        text: 'You must log in in order to place an order',
+        icon: 'warning',
+        iconColor: '#ea58f9',
+        color: '#ea58f9',
+        background: '#212121',
+        showConfirmButton: true,
+        backdrop: `
+        rgb(110, 237, 237))
+        // })`,
+        padding: '3em',
+      }).then((okay) => {
+        if (okay) {
+          window.location.href = '/login';
+        }
+      });
     } else {
-      createOrderID();
       createOrderSumary();
       createMsgUserOrderPlaced();
-      setProductsAdded([]);
-      setCartTotal(0.0);
-      setQtyPerItem(new Map());
-      // navigate('/');
+      // setProductsAdded([]);
+      // setCartTotal(0.0);
+      // setQtyPerItem(new Map());
     }
-  }
-
-  function createOrderID(orderID) {
-    console.log('creating order ID');
-    setOrderID(orderID);
   }
 
   function createMsgUserOrderPlaced() {
@@ -53,26 +69,30 @@ const BtnPlaceOrder = () => {
       rgb(110, 237, 237))
       // })`,
       padding: '3em',
+    }).then(() => {
+      // window.location.href = '/';
     });
-    // navigate('/');
   }
 
-  function createOrderSumary(
-    orderID,
-    productsAdded,
-    totalItemsInCart,
-    cartTotal,
-  ) {
+  function createOrderSumary() {
     const timeStamp = createDateAndTimeOrder();
+    // const order = {
+    //   buyer: {
+    //     firstName: userFirstName,
+    //     lastName: userLastName,
+    //     email: userEmail,
+    //   },
+    //   items: [],
+    //   total: cartTotal,
+    // };
     console.log('Order Sumary Created');
     console.log(
       `ORDER SUMARY:
-      ORDER NUMBER: ${orderID},
       DATE AND TIME: ${timeStamp}
       CUSTOMER: ${userFirstName} ${userLastName}
       EMAIL: ${userEmail}
       PRODUCTS PURCHASED: ${productsAdded}
-      TOTAL ITEMS PURCHASED: ${totalItemsInCart}
+      TOTAL ITEMS PURCHASED: ${totalItemsInCart()}
       TOTAL ORDER: ${cartTotal}`,
     );
     // const ordersCollection = collection(db, 'orders');
@@ -82,34 +102,32 @@ const BtnPlaceOrder = () => {
     //   userName,
     //   email,
     //   productsAdded,
-    //   totalItemsInCart,
     //   cartTotal,
     // );
+  }
 
-    function createDateAndTimeOrder() {
-      console.log('Creating time and date');
-      var currentdate = new Date();
-      var datetime =
-        currentdate.getDate() +
-        '/' +
-        (currentdate.getMonth() + 1) +
-        '/' +
-        currentdate.getFullYear() +
-        ' @ ' +
-        currentdate.getHours() +
-        ':' +
-        currentdate.getMinutes() +
-        ':' +
-        currentdate.getSeconds();
-      return datetime;
-    }
+  function createDateAndTimeOrder() {
+    console.log('Creating time and date');
+    var currentdate = new Date();
+    var datetime =
+      currentdate.getDate() +
+      '/' +
+      (currentdate.getMonth() + 1) +
+      '/' +
+      currentdate.getFullYear() +
+      ' @ ' +
+      currentdate.getHours() +
+      ':' +
+      currentdate.getMinutes() +
+      ':' +
+      currentdate.getSeconds();
+    return datetime;
   }
 
   return (
     <button className="btnPlaceOrder" onClick={placeOrder}>
-      Place Order
+      Procced to checkout
     </button>
   );
 };
-
 export default BtnPlaceOrder;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Layout } from '../../components/layout/Layout';
 import './Contact.css';
+import BtnGlow from '../../components/btn/BtnGlow';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +23,7 @@ const Contact = () => {
 
   return (
     <Layout>
-      <div className="container">
+      <div className="container fatherContainer">
         <div className="outterContainer">
           <div className="left-column">
             <img
@@ -41,7 +42,7 @@ const Contact = () => {
                   <div>
                     <label htmlFor="name">Full Name:</label>
                     <input
-                      className="imputName"
+                      className="imput"
                       type="text"
                       id="name"
                       name="name"
@@ -53,7 +54,7 @@ const Contact = () => {
                   <div>
                     <label htmlFor="email">Email:</label>
                     <input
-                      className="imputEmail"
+                      className="imput"
                       type="email"
                       id="email"
                       name="email"
@@ -74,8 +75,10 @@ const Contact = () => {
                       required
                     ></textarea>
                   </div>
-                  <div id="btnSubmitForm">
-                    <button type="submit">Submit</button>
+                  <div className="btnSubmitFormCtConainer">
+                    <button id="btnSubmitForm" type="submit">
+                      <BtnGlow text={'Submit'} />
+                    </button>
                   </div>
                 </form>
               </div>

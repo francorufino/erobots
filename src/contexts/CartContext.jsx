@@ -1,89 +1,64 @@
-import { createContext, useState } from 'react';
+import { createContext, useState, useEffect } from 'react';
 import Swal from 'sweetalert2';
 
 export const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
   const [productsAdded, setProductsAdded] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
-  const [qtyPerItem, setQtyPerItem] = useState(new Map());
-  const updateQtyPerItem = (key, value) => {
-    setQtyPerItem(new Map(qtyPerItem.set(key, value)));
-  };
 
-  //
-  // const orderSumary = (
-  //   orderID,
-  //   dateAndTime,
-  //   userName,
-  //   emailUser,
-  //   productsBought,
-  //   qtyBought,
-  //   totalInOrder,
-  // ) => {
-  //   return {
-  //     orderID: orderID,
-  //     dateAndTime: dateAndTime,
-  //     userName: userName,
-  //     emailUser: emailUser,
-  //     productsBought: productsBought,
-  //     qtyBought: qtyBought,
-  //     totalInOrder: totalInOrder,
-  //   };
-  // };
+  useEffect(() => {
+    const amount = productsAdded
+      .map((product) => parseInt(product.item.price) * product.quantityAdded)
+      .reduce((partialSum, a) => partialSum + a, 0);
+    setCartTotal(amount);
+  }, [productsAdded]);
 
-  function addProduct(product, qty) {
-    const pID = product.id;
-    if (!isInCart(pID)) {
-      setProductsAdded([...productsAdded, product]);
+  function addProduct(item, quantity) {
+    const isAlreadyAdded = isInCart(item.id);
+    if (isAlreadyAdded) {
+      setProductsAdded((prevState) =>
+        prevState.map((productAdded) =>
+          productAdded.item.id === item.id
+            ? {
+                ...productAdded,
+                quantityAdded: productAdded.quantityAdded + quantity,
+              }
+            : productAdded,
+        ),
+      );
+    } else {
+      setProductsAdded((prevState) =>
+        prevState.concat({ item, quantityAdded: quantity }),
+      );
     }
-    if (!qtyPerItem.has(pID)) {
-      updateQtyPerItem(pID, 0);
-    }
-    updateQtyPerItem(pID, qtyPerItem.get(pID) + qty);
-    updateCartTotal();
   }
 
   function isInCart(id) {
     return productsAdded.some((product) => product.id === id);
   }
 
-  function add1ToCart(id) {
-    updateQtyPerItem(id, qtyPerItem.get(id) + 1);
-    updateCartTotal();
-  }
+  function updateToCart(product, isAdding) {
+    const productQuantityUpdated = productsAdded.map((productAdded) =>
+      productAdded.item.id === product.item.id
+        ? {
+            ...productAdded,
+            quantityAdded: isAdding
+              ? productAdded.quantityAdded + 1
+              : productAdded.quantityAdded - 1,
+          }
+        : productAdded,
+    );
 
-  function remove1FromCart(id) {
-    updateQtyPerItem(id, qtyPerItem.get(id) - 1);
-    updateCartTotal();
+    setProductsAdded(productQuantityUpdated);
   }
 
   function deleteProductFromCart(id) {
-    setProductsAdded(productsAdded.filter((product) => product.id !== id));
-    //qtyPerItem.delete(id);
-    updateCartTotal();
+    setProductsAdded(productsAdded.filter((product) => product.item.id !== id));
   }
 
-  function updateCartTotal() {
-    let newTotal = 0;
-    productsAdded.map((product) => {
-      return (newTotal = newTotal + product.price * qtyPerItem.get(product.id));
-    });
-    setCartTotal(newTotal);
-  }
+  function sendEmailToUserWithOrder() {}
 
-  function totalItemsInCart() {
-    let totalItems = 0;
-    productsAdded.map((p) => {
-      return (totalItems = totalItems + qtyPerItem.get(p.id));
-    });
-    return totalItems;
-  }
-
-  function sendEmailToUserWithOrder() {
-    console.log("Sending order sumary to user's email");
-  }
-
-  function clearCart() {
+  function handleClickClearCart() {
     Swal.fire({
       title: 'Are you sure?',
       text: 'This will delete all products in you cart.',
@@ -109,8 +84,7 @@ export const CartContextProvider = ({ children }) => {
           iconColor: '#ea58f9',
         });
         setProductsAdded([]);
-        setCartTotal(0.0);
-        setQtyPerItem(new Map());
+        setCartTotal(0);
       }
     });
   }
@@ -120,15 +94,13 @@ export const CartContextProvider = ({ children }) => {
       value={{
         productsAdded,
         cartTotal,
-        qtyPerItem,
         addProduct,
         deleteProductFromCart,
-        clearCart,
+        // clearCart,
         isInCart,
-        totalItemsInCart,
-        add1ToCart,
-        remove1FromCart,
+        updateToCart,
         sendEmailToUserWithOrder,
+        handleClickClearCart,
       }}
     >
       {children}

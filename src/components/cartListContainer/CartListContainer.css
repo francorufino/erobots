@@ -1,0 +1,39 @@
+.header{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.titleShoppingCart{
+  font-size: 2rem;
+  margin-top: 45px;
+  color: #E2DDDF;
+}
+
+.titlePrice{
+  display: flex;
+  font-size: 1.3rem;
+  align-items: flex-end;
+  color: #E2DDDF;
+}
+
+.totalProductCart{
+  color:white;
+  font-size: 1.2rem;
+}
+
+.container-right{
+  text-align: right;
+  margin-bottom: 15px;
+ }
+
+ .btnGlowCLC{
+  margin-bottom: 12px;
+ }
+
+
+
+
+
+
+

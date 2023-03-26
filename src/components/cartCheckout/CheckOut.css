@@ -1,0 +1,139 @@
+.outterContainerCheckout{
+  background-color: #212121;
+  color: rgb(44, 157, 157)
+}
+
+.bg-nav{
+  background-color: #212529;
+  width: 100%;
+}
+
+.logo{
+  text-align: center;
+  width:20%;
+}
+
+.checkoutNameNav{
+  flex-grow: 2;
+  text-align: center;
+  font-size: 1.3rem;
+  }
+
+.lockContainer{
+  width: 20%;
+  text-align: center;
+}
+
+.headerContainer{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #212529;
+  color:rgb(110, 237, 237);
+  padding: 25px 0;
+}
+
+p.title{
+  color:rgb(110, 237, 237) ;
+  font-size: 1.2rem;
+}
+
+.orderSumaryTitle{
+  text-align: center;
+}
+
+.bodyContainer{
+  display: flex;
+  padding: 25px;
+}
+
+.reviewOrderTitle{
+  margin-top: 50px;
+  color: rgb(110, 237, 237);
+  text-align: center;
+  font-weight: 700;
+}
+
+.left-container{
+ flex-grow: 2;
+}
+
+.masterCardContainer{
+  display: flex;
+  align-items: center;
+}
+
+.masterCard{
+  border-radius: 5px;
+  width: 60px;
+  margin-right: 8px;
+}
+
+#inputPromoCode{
+  line-height: 3px;
+}
+
+.formPromoCode{
+  margin-top: 8px;
+}
+
+.formCheckoutContainer{
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.fieldPromo{
+  margin-right: 15px;
+  align-items: center; 
+}
+
+.right-container{
+  margin: 0 25px;
+  border: 3px solid rgb(44, 157, 157);
+  border-radius: 12px;
+  padding:0 25px 25px 25px;
+}
+
+.totalBreakDownContainer{
+  display: flex;
+}
+
+.descriptionTBD{
+  flex-grow: 2;
+  margin-right: 25px;
+}
+
+.amountTBD{
+  text-align: right;
+}
+
+.totalCheckout{
+  color:rgb(110, 237, 237);
+  font-weight: 900;
+}
+
+.totalAmount{
+  border-top: 2px solid rgb(44, 157, 157);
+}
+
+.btnPlaceOrderContainer{
+  margin-top: 30px;
+  text-align: center;
+}
+
+.sideContainer{
+  margin: 25px auto;
+}
+
+.totalAmount{
+  border-top: 2px solid rgb(44, 157, 157);
+}
+
+.bg-footer{
+  width: 100%;
+  background-color: #212529;
+}
+
+
+

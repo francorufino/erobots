@@ -1,0 +1,15 @@
+.blackBtn{
+  position: relative;
+  padding: 1em 3em;
+  color: rgb(110, 237, 237);
+  font-size: 0.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0 0 0.5em rgb(110, 237, 237);
+  background: transparent;
+  border: 0.25em solid rgb(110, 237, 237);
+  border-radius: 1em;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}

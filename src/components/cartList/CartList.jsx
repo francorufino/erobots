@@ -5,48 +5,56 @@ import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 
 const CartList = ({ product, qty, stock }) => {
-  const { add1ToCart, remove1FromCart, deleteProductFromCart } =
+  const { updateToCart, deleteProductFromCart, addProduct } =
     useContext(CartContext);
+
+  const isAvailableToAdd = product.quantityAdded < product.item.stock;
+  const isAvailableToAddRemove = product.quantityAdded > 1;
+
   return (
     <div>
       <section id="cartContainer">
         <div className="bodyCart">
           <div>
-            <img className="imgProductCart" src={product.image}></img>
+            <img className="imgProductCart" src={product.item.image}></img>
           </div>
-          <div className="bodyDescription">
+          <div>
             <div className="descriptionProduct">
-              <div>{product.name}</div>
+              <div>{product.item.name}</div>
               <div className="divLineQtyDetDel">
                 <span className="btnQtdeItem">
                   <span>Qty: </span>
                   <span className="btnsQty">
                     <button
-                      disabled={qty === 0}
-                      onClick={() => remove1FromCart(product.id)}
+                      disabled={!isAvailableToAddRemove}
+                      onClick={() => updateToCart(product, false)}
                     >
                       -
                     </button>
-                    <span className="qtdeEditItem">{qty}</span>
+                    <span className="qtdeEditItem">
+                      {product.quantityAdded}
+                    </span>
                     <button
-                      disabled={qty >= stock}
-                      onClick={() => add1ToCart(product.id)}
+                      disabled={!isAvailableToAdd}
+                      onClick={() => updateToCart(product, true)}
                     >
                       +
                     </button>
                   </span>
                 </span>
                 <span> | </span>
-                <Link to={`/item/${product.id}`}>
+                <Link to={`/item/${product.item.id}`}>
                   <span>detail</span>
                 </Link>
                 <span> | </span>
-                <span onClick={deleteProductFromCart}>delete</span>
+                <span onClick={() => deleteProductFromCart(product.item.id)}>
+                  delete
+                </span>
               </div>
             </div>
           </div>
           <span className="priceItem">
-            U$ {Number(product.price).toLocaleString('en')}
+            U$ {Number(product.item.price).toLocaleString('en')}
           </span>
         </div>
         <hr />
