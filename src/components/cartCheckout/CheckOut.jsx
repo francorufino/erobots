@@ -19,11 +19,10 @@ const CheckOut = () => {
   const userCreditCard = JSON.parse(localStorage.getItem('userCreditCart'));
   const [promocode, setPromocode] = useState('');
   const [applyPromoCode, setApplyPromoCode] = useState(0);
-  const [tax, setTax] = useState(0);
+  const [tax, setTax] = useState(cartTotal * (8.875 / 100));
 
   function handleSubmitPromoCode(e) {
     setApplyPromoCode(0);
-    setTax(0);
     e.preventDefault();
     localStorage.setItem('promocode', JSON.stringify(promocode));
     sweetAlertVerifiyngPromoCode();
@@ -32,7 +31,7 @@ const CheckOut = () => {
       sweetAlertWrongPromoCodeMsg();
     } else {
       setApplyPromoCode(Math.floor(Math.random() * 101 + 100));
-      setTax(8.875 / 100);
+
       setTimeout(() => {
         sweetAlertPromoCodeApllied();
       }, 1500);
