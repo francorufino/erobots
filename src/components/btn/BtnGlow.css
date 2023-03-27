@@ -1,8 +1,8 @@
-.glow {
+.glowBtnOfficial{
   position: relative;
   padding: 1em 3em;
   color: black;
-  font-size: 0.5rem;
+  font-size:0.4rem;
   font-weight: bold;
   text-transform: uppercase;
   text-shadow: 0 0 0.5em rgb(110, 237, 237);
@@ -15,7 +15,7 @@
   transition: all 0.3s;
 }
 
-.glow::after{
+.glowBtnOfficial{
   content:"";
   position: absolute;
   top:120%;
@@ -30,12 +30,12 @@
   rotateX(35deg) scale(1, 0.35)
 }
 
-.glow:hover{
+.glowBtnOfficial{
   color: rgb(44, 157,157);
   background-color: rgb(110,237,237);
   box-shadow: 0 0 1em 0.25 rgb(110 237 237), 0 0 4em 2em rgba(65, 243, 243, 0.781), inset 0 0 0.75em 0.25em rgb(110,237,237);
 }
 
-.glow:active{
+.glowBtnOfficial{
   box-shadow: 0 0 0.6em 0.25em rgb(110, 237, 237), 0 0 2.5em rgba(65,243, 243,0.781), inset 0 0 0.5em 0.25em rgb(110, 237, 237);
 }

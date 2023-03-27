@@ -4,6 +4,7 @@ import { CartContext } from '../../contexts/CartContext';
 import EmptyCart from '../../views/emptyCart/EmptyCart';
 import { Layout } from '../../components/layout/Layout';
 import './CartListContainer.css';
+import { Link } from 'react-router-dom';
 // import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
 // import BtnClearCart from '../../components/btn/BtnClearCart';
 import BtnGlow from '../btn/BtnGlow';
@@ -46,14 +47,12 @@ const CartListContainer = () => {
               <div>
                 <div className="container-right">
                   <div className="btnGlowCLC">
-                    <BtnGlow text="Procced to checkout" />
+                    <Link to="/checkout">
+                      <BtnGlow text="Procced to checkout" />
+                    </Link>
                   </div>
                   <div className="btnBlack">
-                    <BtnBlack
-                      onClick={handleClickClearCart}
-                      className="teste"
-                      text="Clear cart"
-                    />
+                    <BtnBlack fn={handleClickClearCart} text="Clear cart" />
                   </div>
                 </div>
               </div>

@@ -1,10 +1,12 @@
 import React from 'react';
 import './BtnBlack.css';
 
-const BtnBlack = ({ text }) => {
+const BtnBlack = ({ text, fn }) => {
   return (
     <div>
-      <button className="blackBtn">{text}</button>
+      <button onClick={fn} id="blackBtn">
+        {text}
+      </button>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import BtnAddToCart from '../btn/BtnAddToCart';
 import './ItemDetail.css';
 import BtnCheckOut from '../btn/BtnCheckOut';
 import BtnContinueShopping from '../btn/BtnContinueShopping';
+import BtnBlack from '../btn/BtnBlack';
 import {
   FaCheck,
   FaClipboard,
@@ -140,7 +141,7 @@ const ItemDetail = ({ item }) => {
                     <div className="btns">
                       <div>
                         <Link to="/cart">
-                          <BtnCheckOut />
+                          <BtnBlack text={'Go to cart'} />
                         </Link>
                       </div>
                       <div>

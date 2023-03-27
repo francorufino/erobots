@@ -1,4 +1,4 @@
-.containerHolder{
+.containerHolderRegister{
 display: flex;
 
 }
@@ -7,28 +7,29 @@ h2{
   margin: 30px auto;
 }
 
-.outter-right{
+.outter-rightRegister{
   width: 50%;
+  height: 100%;
   object-fit: cover;
   overflow:hidden;
   outline-offset: -30px;
   outline: 3px solid rgb(110, 237, 237);
+  border-radius: 18px;
   
 }
 
-.outter-left{
+.outter-leftRegister{
   background-color: #212121;
   color: rgb(110, 237, 237);
   width: 50%;
 }
 
-.inner-left{
-  border: 2px solid red;
+.inner-leftRegister{
   margin: 0 auto;
   width: 100%;
 }
 
-.containerForm{
+.containerFormRegister{
   display: block;
   color:white;
   width: 100%;
@@ -39,7 +40,7 @@ h2{
   margin-left: auto;
 }
 
-.containerForm label{
+.containerFormRegister label{
   margin-top: 18px;
   margin-right: auto;
   margin-left: auto;
@@ -48,7 +49,7 @@ h2{
   
 }
 
-.imput{
+.imputRegister{
   display: block;
   width: 100%;
   border-radius: 12px;
@@ -59,9 +60,7 @@ h2{
   padding: 12px; 
 }
 
-
-
-.imput:focus{
+.imputRegister:focus{
   background-color: #212121;
   outline: rgb(110, 237, 237);
 }
@@ -73,17 +72,17 @@ input:-webkit-autofill:active{
     -webkit-box-shadow: 0 0 0 30px #212121 inset !important;
     -webkit-text-fill-color: rgb(110, 237, 237) !important;}
 
-#btnSubmitFormLogin{
+#btnSubmitFormLoginRegister{
   text-align: center;
   margin: 35px auto;
 }
 
-.divBtnLogIn{
+.divBtnLogInRegister{
   margin: 0 auto;
   text-align: center;
 }
 
-#btnSubmitFormLogin button{
+#btnSubmitFormLoginRegister button{
   padding: 8px 50px;
   border-radius: 25px;
   position: relative;
@@ -103,7 +102,7 @@ input:-webkit-autofill:active{
 }
 
 
-#btnSubmitFormLogin button:hover{
+#btnSubmitFormLoginRegister button:hover{
   color: rgb(44, 157,157);
   background-color: rgb(110,237,237);
   box-shadow: 0 0 1em 0.25 rgb(110 237 237), 0 0 4em 2em rgba(65, 243, 243, 0.781), inset 0 0 0.75em 0.25em rgb(110,237,237);

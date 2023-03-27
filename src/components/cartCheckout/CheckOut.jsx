@@ -4,7 +4,6 @@ import { FaLock } from 'react-icons/fa';
 import Logo from '../navbar/Logo';
 import '../../components/loginAndSignup/Login.css';
 import BtnGlow from '../../components/btn/BtnGlow';
-import BtnBlack from '../../components/btn/BtnBlack';
 import Footer from '../../components/footer/Footer';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
@@ -14,25 +13,79 @@ const CheckOut = () => {
   const userFirstName = JSON.parse(localStorage.getItem('userFN'));
   const userLastName = JSON.parse(localStorage.getItem('userLN'));
   const userEmail = JSON.parse(localStorage.getItem('userEmail'));
+  const userAddress = JSON.parse(localStorage.getItem('userAddress'));
+  const userBorough = JSON.parse(localStorage.getItem('userBorough'));
+  const userZipCode = JSON.parse(localStorage.getItem('userZipCode'));
+  const userCreditCard = JSON.parse(localStorage.getItem('userCreditCart'));
   const [promocode, setPromocode] = useState('');
+  const [applyPromoCode, setApplyPromoCode] = useState(0);
+  const [tax, setTax] = useState(0);
 
   function handleSubmitPromoCode(e) {
+    setApplyPromoCode(0);
     e.preventDefault();
-    if (promocode === '') {
-      return;
+    localStorage.setItem('promocode', JSON.stringify(promocode));
+    sweetAlertVerifiyngPromoCode();
+    const getPromoCode = JSON.parse(localStorage.getItem('promocode'));
+    if (getPromoCode.length < 6) {
+      sweetAlertWrongPromoCodeMsg();
     } else {
-      console.log({ promocode });
-      new Swal({
-        title: 'Wrong code',
-        text: 'The promo code you entered is invalid, please verify and try again',
-        icon: 'warning',
-        iconColor: '#ea58f9',
-        color: 'rgb(110, 237, 237)',
-        background: '#212121',
-      });
-      setPromocode({ promocode: '' });
+      setApplyPromoCode(Math.floor(Math.random() * 101 + 100));
+      setTax(8.875 / 100);
+      setTimeout(() => {
+        sweetAlertPromoCodeApllied();
+      }, 1500);
     }
-    //how do i clear the form?
+  }
+
+  function sweetAlertVerifiyngPromoCode() {
+    new Swal({
+      title: 'Verifying',
+      text: 'Verifying Promo Code',
+      icon: 'warning',
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
+      background: '#212121',
+      showConfirmButton: false,
+      backdrop: `
+      rgb(110, 237, 237))
+      // })`,
+      padding: '3em',
+      timer: 2000,
+    });
+  }
+
+  function sweetAlertPromoCodeApllied() {
+    new Swal({
+      title: 'Applied!',
+      text: 'Your promo code was applied to your order',
+      icon: 'success',
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
+      background: '#212121',
+      showConfirmButton: false,
+      backdrop: `
+      rgb(110, 237, 237))
+      // })`,
+      padding: '3em',
+      timer: 3000,
+    });
+  }
+
+  function sweetAlertWrongPromoCodeMsg() {
+    new Swal({
+      title: 'Wrong Promo Code',
+      text: 'Please verifying your promo code and try again, remember our codes are at least 6 digits long',
+      icon: 'error',
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
+      background: '#212121',
+      showConfirmButton: true,
+      backdrop: `
+      rgb(110, 237, 237))
+      // })`,
+      padding: '3em',
+    });
   }
 
   return (
@@ -67,8 +120,10 @@ const CheckOut = () => {
                 <div>
                   {`${userFirstName.toUpperCase()} ${userLastName.toUpperCase()}`}
                 </div>
-                <div>3445 23st apt 3B</div>
-                <div>Manhattan, NY 10005</div>
+                <div>{userAddress}</div>
+                <div>
+                  {userBorough}, {userZipCode}
+                </div>
               </div>
             </div>
             <hr />
@@ -86,13 +141,13 @@ const CheckOut = () => {
                       alt=""
                     />
                   </div>{' '}
-                  <div> Mastercard ending in 4509</div>
+                  <div> Mastercard ending in {userCreditCard.substr(-4)}</div>
                 </div>
 
                 <div className="formPromoCode">
                   <p>Add a gift card or promotion code (optional)</p>{' '}
                 </div>
-                <form onClick={handleSubmitPromoCode} action="">
+                <form onSubmit={handleSubmitPromoCode} action="">
                   <div className="formCheckoutContainer">
                     <span className="fieldPromo">
                       {' '}
@@ -104,7 +159,7 @@ const CheckOut = () => {
                       />
                     </span>
                     <span>
-                      <BtnBlack text="Apply" className="btnApply" />
+                      <button type="submit">Submit</button>
                     </span>
                   </div>
                 </form>
@@ -139,16 +194,14 @@ const CheckOut = () => {
                   </div>
                   <div>U$ 5.99</div>
                   <div>- U$ 5.99</div>
-                  <div>- U$ 0.00</div>
                   <div>
-                    U${' '}
-                    {Number(cartTotal + 8.875 / 100)
-                      .toFixed(2)
-                      .toLocaleString('en')}{' '}
+                    - U$
+                    {Number(applyPromoCode).toFixed(2).toLocaleString('en')}
                   </div>
+                  <div>U$ {Number(tax).toFixed(2).toLocaleString('en')} </div>
                   <div className="totalCheckout totalAmount">
                     U${' '}
-                    {Number(cartTotal + 8.875 / 100)
+                    {Number(cartTotal + tax - applyPromoCode)
                       .toFixed(2)
                       .toLocaleString('en')}{' '}
                   </div>

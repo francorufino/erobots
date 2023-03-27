@@ -1,9 +1,11 @@
 import React from 'react';
 
-const BtnGlow = ({ text }) => {
+const BtnGlow = ({ text, fn }) => {
   return (
     <div>
-      <button className="glow">{text}</button>
+      <button type="submit" onClick={fn}>
+        {text}
+      </button>
     </div>
   );
 };

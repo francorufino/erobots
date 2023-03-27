@@ -56,7 +56,27 @@ export const CartContextProvider = ({ children }) => {
     setProductsAdded(productsAdded.filter((product) => product.item.id !== id));
   }
 
-  function sendEmailToUserWithOrder() {}
+  function goToCheckout() {
+    alert('rodando funcao go to checkout');
+  }
+
+  function sendEmailToUserWithOrder() {
+    Swal.fire({
+      text: 'The order confirmation was sent to the email you provided',
+      icon: 'success',
+      iconColor: '#ea58f9',
+      color: 'rgb(110, 237, 237)',
+      background: '#212121',
+      backdrop: `
+      rgb(110, 237, 237))`,
+      showConfirmButton: false,
+      timer: 4000,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log('sending an imaginary email to the user');
+      }
+    });
+  }
 
   function handleClickClearCart() {
     Swal.fire({
@@ -96,11 +116,11 @@ export const CartContextProvider = ({ children }) => {
         cartTotal,
         addProduct,
         deleteProductFromCart,
-        // clearCart,
         isInCart,
         updateToCart,
         sendEmailToUserWithOrder,
         handleClickClearCart,
+        goToCheckout,
       }}
     >
       {children}
