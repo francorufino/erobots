@@ -23,6 +23,7 @@ const CheckOut = () => {
 
   function handleSubmitPromoCode(e) {
     setApplyPromoCode(0);
+    setTax(0);
     e.preventDefault();
     localStorage.setItem('promocode', JSON.stringify(promocode));
     sweetAlertVerifiyngPromoCode();
@@ -51,7 +52,7 @@ const CheckOut = () => {
       rgb(110, 237, 237))
       // })`,
       padding: '3em',
-      timer: 2000,
+      timer: 3000,
     });
   }
 
