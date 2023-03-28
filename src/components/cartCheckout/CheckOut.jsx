@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import './CheckOut.css';
 import { FaLock } from 'react-icons/fa';
 import Logo from '../navbar/Logo';
@@ -7,9 +7,12 @@ import BtnGlow from '../../components/btn/BtnGlow';
 import Footer from '../../components/footer/Footer';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const CheckOut = () => {
-  const { cartTotal, productsAdded } = useContext(CartContext);
+  const navigate = useNavigate();
+  const { cartTotal, productsAdded, placeOrder } = useContext(CartContext);
+
   const userFirstName = JSON.parse(localStorage.getItem('userFN'));
   const userLastName = JSON.parse(localStorage.getItem('userLN'));
   const userEmail = JSON.parse(localStorage.getItem('userEmail'));
@@ -17,9 +20,23 @@ const CheckOut = () => {
   const userBorough = JSON.parse(localStorage.getItem('userBorough'));
   const userZipCode = JSON.parse(localStorage.getItem('userZipCode'));
   const userCreditCard = JSON.parse(localStorage.getItem('userCreditCart'));
+
+  useEffect(() => {
+    if (!userFirstName || !userLastName || productsAdded.length === 0) {
+      navigate('/');
+    }
+  }, [userFirstName, userLastName, productsAdded]);
+
   const [promocode, setPromocode] = useState('');
   const [applyPromoCode, setApplyPromoCode] = useState(0);
   const [tax, setTax] = useState(cartTotal * (8.875 / 100));
+  const [shipping, setShipping] = useState(0);
+
+  useEffect(() => {
+    if (shipping === 0) {
+      setShipping(Math.floor(Math.random() * 21 + 10));
+    }
+  }, []);
 
   function handleSubmitPromoCode(e) {
     setApplyPromoCode(0);
@@ -31,11 +48,16 @@ const CheckOut = () => {
       sweetAlertWrongPromoCodeMsg();
     } else {
       setApplyPromoCode(Math.floor(Math.random() * 101 + 100));
-
       setTimeout(() => {
         sweetAlertPromoCodeApllied();
       }, 1500);
     }
+  }
+
+  function clearCheckout() {
+    setApplyPromoCode(0);
+    setShipping(0);
+    setTax(0);
   }
 
   function sweetAlertVerifiyngPromoCode() {
@@ -65,8 +87,8 @@ const CheckOut = () => {
       background: '#212121',
       showConfirmButton: false,
       backdrop: `
-      rgb(110, 237, 237))
-      // })`,
+    rgb(110, 237, 237))
+    // })`,
       padding: '3em',
       timer: 3000,
     });
@@ -75,7 +97,7 @@ const CheckOut = () => {
   function sweetAlertWrongPromoCodeMsg() {
     new Swal({
       title: 'Wrong Promo Code',
-      text: 'Please verifying your promo code and try again, remember our codes are at least 6 digits long',
+      text: 'Please verifying your promo code and try again. Our promo codes are at least 6 digits long',
       icon: 'error',
       iconColor: '#ea58f9',
       color: '#ea58f9',
@@ -118,7 +140,7 @@ const CheckOut = () => {
               </div>
               <div>
                 <div>
-                  {`${userFirstName.toUpperCase()} ${userLastName.toUpperCase()}`}
+                  {`${userFirstName?.toUpperCase()} ${userLastName?.toUpperCase()}`}
                 </div>
                 <div>{userAddress}</div>
                 <div>
@@ -141,7 +163,7 @@ const CheckOut = () => {
                       alt=""
                     />
                   </div>{' '}
-                  <div> Mastercard ending in {userCreditCard.substr(-4)}</div>
+                  <div> Mastercard ending in {userCreditCard?.substr(-4)}</div>
                 </div>
 
                 <div className="formPromoCode">
@@ -192,11 +214,15 @@ const CheckOut = () => {
                   <div>
                     U$ {Number(cartTotal).toFixed(2).toLocaleString('en')}
                   </div>
-                  <div>U$ 5.99</div>
-                  <div>- U$ 5.99</div>
                   <div>
-                    - U$
-                    {Number(applyPromoCode).toFixed(2).toLocaleString('en')}
+                    U$ {Number(shipping).toFixed(2).toLocaleString('en')}
+                  </div>
+                  <div>
+                    - U$ {Number(shipping).toFixed(2).toLocaleString('en')}
+                  </div>
+                  <div>
+                    {'- U$ ' +
+                      Number(applyPromoCode).toFixed(2).toLocaleString('en')}
                   </div>
                   <div>U$ {Number(tax).toFixed(2).toLocaleString('en')} </div>
                   <div className="totalCheckout totalAmount">
@@ -209,7 +235,10 @@ const CheckOut = () => {
               </div>
               <hr />
               <div className="btnPlaceOrderContainer">
-                <BtnGlow text="Place order" />
+                <BtnGlow
+                  text="Place order"
+                  fn={() => placeOrder(cartTotal + tax - applyPromoCode)}
+                />
               </div>
             </div>
           </div>

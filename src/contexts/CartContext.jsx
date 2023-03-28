@@ -1,10 +1,22 @@
 import { createContext, useState, useEffect } from 'react';
+import {
+  collection,
+  getFirestore,
+  addDoc,
+  updateDoc,
+  doc,
+} from 'firebase/firestore';
 import Swal from 'sweetalert2';
 
 export const CartContext = createContext([]);
 export const CartContextProvider = ({ children }) => {
   const [productsAdded, setProductsAdded] = useState([]);
   const [cartTotal, setCartTotal] = useState(0);
+  const userFirstName = JSON.parse(localStorage.getItem('userFN'));
+  const userLastName = JSON.parse(localStorage.getItem('userLN'));
+  const userEmail = JSON.parse(localStorage.getItem('userEmail'));
+  localStorage.getItem('userFN');
+  const orderID = 'NUMBER COMING FROM FIREBASE';
 
   useEffect(() => {
     const amount = productsAdded
@@ -13,7 +25,80 @@ export const CartContextProvider = ({ children }) => {
     setCartTotal(amount);
   }, [productsAdded]);
 
+  function placeOrder(total) {
+    generateDateAndTime();
+
+    saveOrderInDB(total);
+    sendEmailToUserWithOrder();
+    sweetAlertWithOrderPlace();
+    sweetAlertWithOrderNumber();
+    navigateToHome();
+  }
+
+  function saveOrderInDB(total) {
+    const order = {
+      buyer: {
+        firstName: userFirstName,
+        lastName: userLastName,
+        email: userEmail,
+      },
+      items: productsAdded,
+      total,
+    };
+
+    const db = getFirestore();
+    const ordersRef = collection(db, 'orders');
+    addDoc(ordersRef, order).then(async () => {
+      await productsAdded.map((product) =>
+        updateProduct(
+          product.item.id,
+          product.item.stock - product.quantityAdded,
+        ),
+      );
+
+      setProductsAdded([]);
+      setCartTotal(0);
+    });
+  }
+
+  function generateDateAndTime() {
+    var currentdate = new Date();
+    var datetime =
+      currentdate.getDate() +
+      '/' +
+      (currentdate.getMonth() + 1) +
+      '/' +
+      currentdate.getFullYear() +
+      ' @ ' +
+      currentdate.getHours() +
+      ':' +
+      currentdate.getMinutes() +
+      ':' +
+      currentdate.getSeconds();
+    console.log('Order placed on' + datetime);
+    return datetime;
+  }
+
+  function sweetAlertWithOrderPlace() {
+    console.log('Sending sweet alert saying order was placed successfully');
+    Swal.fire({
+      title: 'Order placed successfully',
+      text: 'Check your email with the confirmation order and order sumary',
+      icon: 'success',
+      iconColor: '#ea58f9',
+      color: 'rgb(110, 237, 237)',
+      background: '#212121',
+      backdrop: `
+      rgb(110, 237, 237))`,
+      showConfirmButton: true,
+    });
+  }
+  function sweetAlertWithOrderNumber() {
+    console.log('sending an imagiray order number from Firebase');
+  }
+  function navigateToHome() {}
   function addProduct(item, quantity) {
+    console.log({ item });
     const isAlreadyAdded = isInCart(item.id);
     if (isAlreadyAdded) {
       setProductsAdded((prevState) =>
@@ -34,7 +119,13 @@ export const CartContextProvider = ({ children }) => {
   }
 
   function isInCart(id) {
-    return productsAdded.some((product) => product.id === id);
+    return productsAdded.some((product) => product.item.id === id);
+  }
+
+  function updateProduct(productId, stock) {
+    const db = getFirestore();
+    const productRef = doc(db, 'items', productId);
+    updateDoc(productRef, { stock });
   }
 
   function updateToCart(product, isAdding) {
@@ -56,11 +147,10 @@ export const CartContextProvider = ({ children }) => {
     setProductsAdded(productsAdded.filter((product) => product.item.id !== id));
   }
 
-  function goToCheckout() {
-    alert('rodando funcao go to checkout');
-  }
-
   function sendEmailToUserWithOrder() {
+    console.log(
+      'Sending an imaginary email to the user with the order sumary and confirmation',
+    );
     Swal.fire({
       text: 'The order confirmation was sent to the email you provided',
       icon: 'success',
@@ -120,7 +210,7 @@ export const CartContextProvider = ({ children }) => {
         updateToCart,
         sendEmailToUserWithOrder,
         handleClickClearCart,
-        goToCheckout,
+        placeOrder,
       }}
     >
       {children}

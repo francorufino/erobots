@@ -4,17 +4,43 @@ import { CartContext } from '../../contexts/CartContext';
 import EmptyCart from '../../views/emptyCart/EmptyCart';
 import { Layout } from '../../components/layout/Layout';
 import './CartListContainer.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
 // import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
 // import BtnClearCart from '../../components/btn/BtnClearCart';
 import BtnGlow from '../btn/BtnGlow';
 import BtnBlack from '../btn/BtnBlack';
 
 const CartListContainer = () => {
+  const navigate = useNavigate();
   const { productsAdded, cartTotal, handleClickClearCart } =
     useContext(CartContext);
   if (productsAdded.length === 0) {
     return <EmptyCart />;
+  }
+
+  function messageToUserEmptyCart() {
+    new Swal({
+      title: 'Checkout is empty',
+      text: 'Add something to your cart see the checkout page',
+      icon: 'warning',
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
+      background: '#212121',
+      showConfirmButton: true,
+      backdrop: `
+    rgb(110, 237, 237))
+    // })`,
+      padding: '3em',
+    });
+  }
+
+  function goToCheckout() {
+    if (productsAdded.length > 0) {
+      navigate('/checkout');
+    } else {
+      messageToUserEmptyCart();
+    }
   }
 
   return (
@@ -48,7 +74,7 @@ const CartListContainer = () => {
                 <div className="container-right">
                   <div className="btnGlowCLC">
                     <Link to="/checkout">
-                      <BtnGlow text="Procced to checkout" />
+                      <BtnGlow fn={goToCheckout} text="Procced to checkout" />
                     </Link>
                   </div>
                   <div className="btnBlack">

@@ -74,55 +74,23 @@ const BtnPlaceOrder = () => {
     });
   }
 
-  function createOrderSumary() {
-    const timeStamp = createDateAndTimeOrder();
-    // const order = {
-    //   buyer: {
-    //     firstName: userFirstName,
-    //     lastName: userLastName,
-    //     email: userEmail,
-    //   },
-    //   items: [],
-    //   total: cartTotal,
-    // };
-    console.log('Order Sumary Created');
-    console.log(
-      `ORDER SUMARY:
-      DATE AND TIME: ${timeStamp}
-      CUSTOMER: ${userFirstName} ${userLastName}
-      EMAIL: ${userEmail}
-      PRODUCTS PURCHASED: ${productsAdded}
-      TOTAL ITEMS PURCHASED: ${totalItemsInCart()}
-      TOTAL ORDER: ${cartTotal}`,
-    );
-    // const ordersCollection = collection(db, 'orders');
-    // orderSumary(
-    //   orderIdDB,
-    //   dateAndTimeDB,
-    //   userName,
-    //   email,
-    //   productsAdded,
-    //   cartTotal,
-    // );
-  }
-
-  function createDateAndTimeOrder() {
-    console.log('Creating time and date');
-    var currentdate = new Date();
-    var datetime =
-      currentdate.getDate() +
-      '/' +
-      (currentdate.getMonth() + 1) +
-      '/' +
-      currentdate.getFullYear() +
-      ' @ ' +
-      currentdate.getHours() +
-      ':' +
-      currentdate.getMinutes() +
-      ':' +
-      currentdate.getSeconds();
-    return datetime;
-  }
+  // function createDateAndTimeOrder() {
+  // console.log('Creating time and date');
+  // var currentdate = new Date();
+  // var datetime =
+  //   currentdate.getDate() +
+  //   '/' +
+  //   (currentdate.getMonth() + 1) +
+  //   '/' +
+  //   currentdate.getFullYear() +
+  //   ' @ ' +
+  //   currentdate.getHours() +
+  //   ':' +
+  //   currentdate.getMinutes() +
+  //   ':' +
+  //   currentdate.getSeconds();
+  // return datetime;
+  // }
 
   return (
     <button className="btnPlaceOrder" onClick={placeOrder}>

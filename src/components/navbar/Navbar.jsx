@@ -34,11 +34,11 @@ function Navbarr() {
               <Nav.Link as={Link} to="/create">
                 <div className="links">Create</div>
               </Nav.Link>
-              <Link to="/login">
+              {/* <Link to="/login">
                 <div id="login" className="links">
                   Login
                 </div>
-              </Link>
+              </Link> */}
               <div>
                 <div id="cartWidgetNavBar" className="links">
                   <Link className="cart-container" to="/cart">

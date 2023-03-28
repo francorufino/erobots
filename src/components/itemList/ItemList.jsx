@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './ItemList.css';
 import BtnAddToCart from '../../components/btn/BtnAddToCart';
 import '../btn/BtnAddToCart';
@@ -11,14 +11,28 @@ import {
   FaDog,
   FaCashRegister,
 } from 'react-icons/fa';
+import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 
 const ItemList = ({ item }) => {
+  const [image, setImage] = useState('');
+
+  const storage = getStorage();
+  const imageRef = ref(storage, item.URL3);
+
+  useEffect(() => {
+    getDownloadURL(imageRef)
+      .then((url) => {
+        setImage(url);
+      })
+      .catch((error) => console.log({ error }));
+  }, []);
+
   return (
     <article className="outterContainerItemList">
       <div className="containerInner">
         <div className="containerCard">
           <header>
-            <img className="img" src={item.image} alt={item.name} />
+            <img className="img" src={image} alt={item.name} />
             <BtnSeeDetails item={item} className="robot-tag" />
           </header>
           <main className="mainCard">
@@ -80,67 +94,6 @@ const ItemList = ({ item }) => {
         </div>
       </div>
     </article>
-
-    // <section className="robot">
-    //   <div className="row">
-    //     <div className="column">
-    //       <div className="single-robot">
-    //         <div className="robot-thumb">
-    //           <img className="img" src={item.image} alt="" />
-    //           <BtnSeeDetails item={item} className="robot-tag" />
-    //         </div>
-    //         <div className="robot-content">
-    //           <h3>{item.name}</h3>
-    //           <div className="mark">
-    //             <span>{item.description}</span>
-    //           </div>
-    //           <div className="containerBtns">
-    //             <div className="containerPrice"> U$ {item.price}</div>
-    //             <div>
-    //               <BtnAddToCart item={item} />
-    //             </div>
-    //           </div>
-    //         </div>
-
-    //         <div className="robot-footer">
-    //           <div className="footerImg">
-    //             <span>{item.category === 'business' && <ImgBusiness />}</span>
-    //             <span>
-    //               {item.category === 'house' && <FaHome className="icon" />}
-    //             </span>
-    //             <span>
-    //               {item.category === 'companion' && <FaDog className="icon" />}
-    //             </span>
-    //           </div>
-    //           <div className="footerRight">
-    //             <ul>
-    //               <li className="footerTexts">
-    //                 <span>
-    //                   <FaCheck className="checkMark" />
-    //                 </span>
-    //                 <span className="freeReturnsText">Same Day Delivery</span>
-    //               </li>
-    //               <li className="footerTexts">
-    //                 <span>
-    //                   <FaCheck className="checkMark" />
-    //                 </span>
-    //                 <span className="freeReturnsText">Free returns</span>
-    //               </li>
-    //               <li className="footerTexts">
-    //                 <span>
-    //                   <FaClipboard className="clipboard" />
-    //                 </span>
-    //                 <span className="freeReturnsText">
-    //                   Product Ref: {item.id}
-    //                 </span>
-    //               </li>
-    //             </ul>
-    //           </div>
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </section>
   );
 };
 
