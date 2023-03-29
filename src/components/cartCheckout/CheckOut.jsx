@@ -3,11 +3,12 @@ import './CheckOut.css';
 import { FaLock } from 'react-icons/fa';
 import Logo from '../navbar/Logo';
 import '../../components/loginAndSignup/Login.css';
-import BtnGlowFormSubmit from '../../components/btn/BtnGlowFormSumit';
 import Footer from '../../components/footer/Footer';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
 import { useNavigate } from 'react-router-dom';
+import BtnGlowNOTformSubmit from '../../components/btn/BtnGlowNOTformSubmit';
+import BtnBlackFormSubmit from '../../components/btn/BtnBlackFormSubmit';
 
 const CheckOut = () => {
   const navigate = useNavigate();
@@ -22,10 +23,16 @@ const CheckOut = () => {
   const userCreditCard = JSON.parse(localStorage.getItem('userCreditCart'));
 
   useEffect(() => {
-    if (!userFirstName || !userLastName || productsAdded.length === 0) {
+    if (!userFirstName || !userLastName || !userEmail) {
+      navigate('/login');
+    }
+  }, [userFirstName, userLastName, userEmail]);
+
+  useEffect(() => {
+    if (productsAdded.length == 0) {
       navigate('/');
     }
-  }, [userFirstName, userLastName, productsAdded]);
+  }, [productsAdded]);
 
   const [promocode, setPromocode] = useState('');
   const [applyPromoCode, setApplyPromoCode] = useState(0);
@@ -180,9 +187,10 @@ const CheckOut = () => {
                         onChange={(e) => setPromocode(e.target.value)}
                       />
                     </span>
-                    <span>
-                      <button type="submit">Submit</button>
-                    </span>
+                    <BtnBlackFormSubmit
+                      text="Submit"
+                      fn={handleSubmitPromoCode}
+                    />
                   </div>
                 </form>
                 <hr />
@@ -235,7 +243,7 @@ const CheckOut = () => {
               </div>
               <hr />
               <div className="btnPlaceOrderContainer">
-                <BtnGlowFormSubmit
+                <BtnGlowNOTformSubmit
                   text="Place order"
                   fn={() => placeOrder(cartTotal + tax - applyPromoCode)}
                 />

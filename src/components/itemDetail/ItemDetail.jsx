@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import BtnAddToCart from '../btn/BtnAddToCart';
 import './ItemDetail.css';
-import BtnContinueShopping from '../btn/BtnContinueShopping';
 import BtnBlack from '../btn/BtnBlack';
 import {
   FaCheck,
-  FaClipboard,
+  // FaClipboard,
   FaHome,
   FaDog,
   FaCashRegister,
@@ -83,14 +82,17 @@ const ItemDetail = ({ item }) => {
                       </span>
                       <span className="itemDetailAdvantages">Free returns</span>{' '}
                     </div>
-                    <div>
-                      <span className="itemDetailIcon">
+                    {/* <div> */}
+                    {/* <span className="itemDetailIcon">
                         <FaClipboard className="checkMark" />{' '}
-                      </span>{' '}
-                      <span className="itemDetailAdvantages">
+                      </span>{' '} */}
+                    {/* <span
+                        id="productRefNumber"
+                        className="itemDetailAdvantages"
+                      >
                         Product Ref: {item.id}{' '}
-                      </span>{' '}
-                    </div>
+                      </span>{' '} */}
+                    {/* </div> */}
                   </div>
                   <div>
                     <div>
@@ -125,14 +127,15 @@ const ItemDetail = ({ item }) => {
                         <BtnBlack text={'Go to cart'} />
                       </Link>
                     </div>
-                    <div>
+                    <div className="continueShoppingLinkBtn">
                       <Link
                         to="/"
                         style={{
+                          color: 'rgb(110, 237, 237)',
                           textDecoration: 'underline rgb(44, 157, 157)',
                         }}
                       >
-                        <BtnContinueShopping />
+                        Continue Shopping
                       </Link>
                     </div>
                   </div>

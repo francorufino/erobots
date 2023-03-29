@@ -31,7 +31,6 @@ export const CartContextProvider = ({ children }) => {
     sendEmailToUserWithOrder();
     sweetAlertWithOrderPlaced();
     sweetAlertWithOrderNumber();
-    navigateToHome();
   }
 
   function saveOrderInDB(dateTime, total) {
@@ -87,7 +86,7 @@ export const CartContextProvider = ({ children }) => {
     );
     Swal.fire({
       title: 'Order placed successfully',
-      text: 'testeeeeeeeee' + orderID,
+      text: 'We sent you an email with your order confirmation. Thank you for shopping at e-robots',
       icon: 'success',
       iconColor: '#ea58f9',
       color: 'rgb(110, 237, 237)',
@@ -101,8 +100,6 @@ export const CartContextProvider = ({ children }) => {
   function sweetAlertWithOrderNumber() {
     console.log('sending an imagiray order number from Firebase');
   }
-
-  function navigateToHome() {}
 
   function addProduct(item, quantity) {
     console.log({ item });

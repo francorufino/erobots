@@ -117,3 +117,20 @@ color: rgb(110, 237, 237);
   font-size: 1.1rem;
   margin: 24px; 
 }
+
+.continueShoppingLinkBtn{
+  margin-top: 8px;
+  font-size: 0.6rem;
+  color: rgb(110, 237, 237);
+  
+}
+
+.continueShoppingLinkBtn a {
+  color: #0060B6;
+  text-decoration: none;
+}
+
+.continueShoppingLinkBtn a:hover {
+  color:#00A0C6; 
+  text-decoration:none; 
+}
