@@ -4,6 +4,7 @@ e-robots
 #Description: e-robots is an e-commerce (online store) that sells commercial, around the house and companion robots to make life easier and to have "someone" to talk to or play games if making human friends is not a possibilitiy for any reason
 
 #Instalation
+
 In order to run the application you have to
 
 1. Download the source code
@@ -21,6 +22,7 @@ In order to run the application you have to
 No license was used in this project
 
 #Dependecies
+
 "@headlessui/react": "^1.7.7",
 "@heroicons/react": "^2.0.14",
 "@testing-library/jest-dom": "^5.16.5",
