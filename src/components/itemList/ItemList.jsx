@@ -17,7 +17,7 @@ const ItemList = ({ item }) => {
   const [image, setImage] = useState('');
 
   const storage = getStorage();
-  const imageRef = ref(storage, item.URL3);
+  const imageRef = ref(storage, item.image1URL);
 
   useEffect(() => {
     getDownloadURL(imageRef)

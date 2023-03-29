@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { Layout } from '../../components/layout/Layout';
 import './Contact.css';
-import BtnGlow from '../../components/btn/BtnGlow';
+import BtnGlowFormSubmit from '../../components/btn/BtnGlowFormSumit';
 
 const Contact = () => {
+  function submitMsgContactForm() {
+    console.log('sending message from the contact form');
+  }
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -77,7 +81,10 @@ const Contact = () => {
                   </div>
                   <div className="btnSubmitFormCtConainer">
                     <button id="btnSubmitForm" type="submit">
-                      <BtnGlow text={'Submit'} />
+                      <BtnGlowFormSubmit
+                        fn={submitMsgContactForm}
+                        text={'Submit'}
+                      />
                     </button>
                   </div>
                 </form>

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BtnAddToCart from '../btn/BtnAddToCart';
 import './ItemDetail.css';
-import BtnCheckOut from '../btn/BtnCheckOut';
 import BtnContinueShopping from '../btn/BtnContinueShopping';
 import BtnBlack from '../btn/BtnBlack';
 import {
@@ -37,118 +36,104 @@ const ItemDetail = ({ item }) => {
 
   return (
     <div>
-      <section className="outter container">
-        <div className="outterContainerItemDetail">
-          <div className="containerItemDetail">
-            <div className="content">
-              <div className="slides">
-                <div className="containerMainPic">
-                  <img src={images[0]} />
-                </div>
-                <div className="containerSmallPics">
-                  <div className="containerPhotoSmall">
-                    <img src={images[1]} />
-                  </div>
-                  <div className="containerPhotoSmall">
-                    <img src={images[2]} />
-                  </div>
-                </div>
-                <div className="containerMainPic">
-                  <iframe
-                    width="500"
-                    height="500"
-                    src="https://player.vimeo.com/video/651929733"
-                  ></iframe>
-                </div>
-
-                {/* <video controls width="250">
-    <source src="/media/cc0-videos/flower.webm" type="video/webm">
-
-    <source src="/media/cc0-videos/flower.mp4" type="video/mp4">
-
-    Download the
-    <a href="/media/cc0-videos/flower.webm">WEBM</a>
-    or
-    <a href="/media/cc0-videos/flower.mp4">MP4</a>
-    video.
-</video> */}
-
-                <video src="https://www.youtube.com/watch?v=CWlbX42uYj8"></video>
+      <section className="container itemDetailContainerHolder">
+        <div className="itemDetailLeftColumn">
+          <div className="slides">
+            <div className="containerMainPic">
+              <img src={images[0]} />
+            </div>
+            <div className="containerSmallPics">
+              <div className="containerPhotoSmallLeft">
+                <img id="sm-pic-left" src={images[1]} />
               </div>
-              <div className="descContainer">
-                <div>
-                  <hr id="hrTop" />
-                  <h2 className="title">{item.name}</h2>
-                  <hr />
-                  <hr />
-                </div>
-                <div className="productDescriptionDetail">
-                  {item.description}
-                </div>
-                <div id="outterContainer" className="outterContainer">
-                  <div className="containerPriceEList">
-                    <div className="priceContainer">
-                      <div className="price">
-                        U$ {Number(item.price).toLocaleString('en')}
-                      </div>
-                      <div className="list">
-                        {' '}
-                        <div>
-                          <span>
-                            <FaCheck className="checkMark" />{' '}
-                          </span>
-                          <span>Same Day Delivery</span>{' '}
-                        </div>
-                        <div>
-                          <span>
-                            <FaCheck className="checkMark" />{' '}
-                          </span>
-                          <span>Free returns</span>{' '}
-                        </div>
-                        <div>
-                          <span>
-                            <FaClipboard className="checkMark" />{' '}
-                          </span>{' '}
-                          <span>Product Ref: {item.id} </span>{' '}
-                        </div>
-                      </div>
-                      <div>
-                        <div>
-                          <span className="categoryImage">
-                            {item.category === 'business' && (
-                              <FaCashRegister className="icon" />
-                            )}
-                          </span>{' '}
-                          <span>
-                            {item.category === 'house' && (
-                              <FaHome className="icon" />
-                            )}{' '}
-                          </span>{' '}
-                          <span>
-                            {item.category === 'companion' && (
-                              <FaDog className="icon" />
-                            )}{' '}
-                          </span>
-                        </div>
-                      </div>
+              <div className="containerPhotoSmallRight">
+                <img id="sm-pic-right" src={images[2]} />
+              </div>
+            </div>
+            {/* <div className="videoContainerHolder">
+              <iframe width="500" height="500" src={item.video}></iframe>
+            </div> */}
+          </div>
+        </div>
+        <div className="itemDetailRightColumn">
+          <div className="descContainer">
+            <hr id="hrTop" />
+            <p className="title">{item.name}</p>
+            <hr />
+            <div className="productDescriptionDetail">{item.description}</div>
+            <div className="descriptionSmallerContainerHolder">
+              <div className="containerPriceEListItemDetail">
+                <div className="priceContainerItemDetail">
+                  <p className="price">
+                    U$ {Number(item.price).toLocaleString('en')}
+                  </p>
+                  <div className="list">
+                    {' '}
+                    <div>
+                      <span className="itemDetailIcon">
+                        <FaCheck className="checkMark" />{' '}
+                      </span>
+                      <span className="itemDetailAdvantages">
+                        Same Day Delivery
+                      </span>{' '}
+                    </div>
+                    <div>
+                      <span className="itemDetailIcon">
+                        <FaCheck className="checkMark" />{' '}
+                      </span>
+                      <span className="itemDetailAdvantages">Free returns</span>{' '}
+                    </div>
+                    <div>
+                      <span className="itemDetailIcon">
+                        <FaClipboard className="checkMark" />{' '}
+                      </span>{' '}
+                      <span className="itemDetailAdvantages">
+                        Product Ref: {item.id}{' '}
+                      </span>{' '}
                     </div>
                   </div>
-
-                  <div className="btnAddCart">
+                  <div>
                     <div>
-                      <BtnAddToCart item={item} />
+                      <span>
+                        {item.category === 'business' && (
+                          <FaCashRegister className="itemDetailcategoryIcon" />
+                        )}
+                      </span>{' '}
+                      <span>
+                        {item.category === 'house' && (
+                          <FaHome className="itemDetailcategoryIcon" />
+                        )}{' '}
+                      </span>{' '}
+                      <span>
+                        {item.category === 'companion' && (
+                          <FaDog className="itemDetailcategoryIcon" />
+                        )}{' '}
+                      </span>
                     </div>
-                    <div className="btns">
-                      <div>
-                        <Link to="/cart">
-                          <BtnBlack text={'Go to cart'} />
-                        </Link>
-                      </div>
-                      <div>
-                        <Link to="/">
-                          <BtnContinueShopping />
-                        </Link>
-                      </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="containerBtnsItemDetail">
+                <div>
+                  <div className="itemDetailBtnQtyContainer">
+                    <BtnAddToCart item={item} />
+                  </div>
+                  <div className="btns">
+                    <div>
+                      <Link to="/cart">
+                        <BtnBlack text={'Go to cart'} />
+                      </Link>
+                    </div>
+                    <div>
+                      <Link
+                        to="/"
+                        style={{
+                          textDecoration: 'underline rgb(44, 157, 157)',
+                        }}
+                      >
+                        <BtnContinueShopping />
+                      </Link>
                     </div>
                   </div>
                 </div>

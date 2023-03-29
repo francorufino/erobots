@@ -16,7 +16,7 @@ export const CartContextProvider = ({ children }) => {
   const userLastName = JSON.parse(localStorage.getItem('userLN'));
   const userEmail = JSON.parse(localStorage.getItem('userEmail'));
   localStorage.getItem('userFN');
-  const orderID = 'NUMBER COMING FROM FIREBASE';
+  let orderID = '';
 
   useEffect(() => {
     const amount = productsAdded
@@ -26,17 +26,17 @@ export const CartContextProvider = ({ children }) => {
   }, [productsAdded]);
 
   function placeOrder(total) {
-    generateDateAndTime();
-
-    saveOrderInDB(total);
+    const dateTime = generateDateAndTime();
+    saveOrderInDB(dateTime, total);
     sendEmailToUserWithOrder();
     sweetAlertWithOrderPlace();
     sweetAlertWithOrderNumber();
     navigateToHome();
   }
 
-  function saveOrderInDB(total) {
+  function saveOrderInDB(dateTime, total) {
     const order = {
+      dateTime,
       buyer: {
         firstName: userFirstName,
         lastName: userLastName,
@@ -48,7 +48,9 @@ export const CartContextProvider = ({ children }) => {
 
     const db = getFirestore();
     const ordersRef = collection(db, 'orders');
-    addDoc(ordersRef, order).then(async () => {
+    addDoc(ordersRef, order).then(async (ordersRef) => {
+      orderID = ordersRef.id;
+      console.log(orderID);
       await productsAdded.map((product) =>
         updateProduct(
           product.item.id,
@@ -93,10 +95,13 @@ export const CartContextProvider = ({ children }) => {
       showConfirmButton: true,
     });
   }
+
   function sweetAlertWithOrderNumber() {
     console.log('sending an imagiray order number from Firebase');
   }
+
   function navigateToHome() {}
+
   function addProduct(item, quantity) {
     console.log({ item });
     const isAlreadyAdded = isInCart(item.id);

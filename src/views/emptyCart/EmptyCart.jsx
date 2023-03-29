@@ -1,5 +1,5 @@
 import React from 'react';
-import BtnGlow from '../../components/btn/BtnGlow';
+import BtnGlowNOTformSubmit from '../../components/btn/BtnGlowNOTformSubmit';
 import { Layout } from '../../components/layout/Layout';
 import './EmptyCart.css';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,7 @@ const EmptyCart = () => {
               <h2>Your cart is empty</h2>
               <Link to={'/'}>
                 {' '}
-                <BtnGlow text="Start shopping" />
+                <BtnGlowNOTformSubmit text="Start shopping" />
               </Link>
             </div>
           </div>

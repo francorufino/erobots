@@ -26,17 +26,6 @@ function BtnAddToCart({ item }) {
   }
 
   function productAddedToCartAlert() {
-    // new Swal({
-    //   title: 'Added',
-    //   text: 'Your product was added to cart',
-    //   icon: 'success',
-    //   iconColor: '#ea58f9',
-    //   color: 'rgb(110, 237, 237)',
-    //   background: '#212121',
-    //   buttons: false,
-    //   timer: '1500',
-    // });
-
     const Toast = Swal.mixin({
       background: '#212121',
       toast: true,
@@ -61,7 +50,7 @@ function BtnAddToCart({ item }) {
   function productOutOfStockAlert() {
     new Swal({
       title: 'Sold out',
-      text: 'Sorry, this product is unavailable at this moment, but more is on the way!',
+      text: 'Sorry, this product is unavailable at this moment, but there is more on the way!',
       icon: 'error',
       iconColor: '#ea58f9',
       // button: 'OK',
@@ -69,7 +58,7 @@ function BtnAddToCart({ item }) {
       color: 'rgb(110, 237, 237)',
       background: '#212121',
       showConfirmButton: false,
-      // timer: '1500',
+      timer: '1500',
     });
   }
 
@@ -92,17 +81,9 @@ function BtnAddToCart({ item }) {
       setStock(stock - wantToBuy);
       addProduct(item, wantToBuy);
       productAddedToCartAlert();
-
-      //fazer a logica de salvar o item clicado no add to cart no firebase passando o item inteiro e recuperar esses dados no componente CartPage
     }
     setWantToBuy(stock > 0 ? 1 : 0);
   }
-
-  //qdo add no cart ver se eh o mesmo id,
-  //se for nao add no cart
-  //mas atualizar a +qtde want to buy no cartpage
-  //e update o total final
-  //colocar o botao de wanttobuy no cartpage
 
   return (
     <div>
@@ -124,7 +105,7 @@ function BtnAddToCart({ item }) {
               : 'Add to cart'}
           </button>
           <div className="qtdeToAddToCart">
-            <span className="wantBuyQty">Qtde: </span>
+            <span className="wantBuyQty">Qty: </span>
             <button
               className="wantBuyMinus"
               onClick={removeFromWantToBuy}

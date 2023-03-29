@@ -14,7 +14,7 @@ import {
 const ItemListContainer = () => {
   const { category } = useParams();
   const [allProducts, setAllProducts] = useState([]);
-  ç;
+
   useEffect(() => {
     const db = getFirestore();
     const collectionRef = collection(db, 'items');

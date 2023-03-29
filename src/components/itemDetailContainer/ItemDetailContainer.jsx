@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import ItemDetail from '../../components/itemDetail/ItemDetail';
-import { Item as Items } from '../../mocks/item/Item.mock';
 import { useParams } from 'react-router-dom';
 import Loading from '../../views/loading/Loading';
 import { doc, getDoc, getFirestore } from 'firebase/firestore';
@@ -11,7 +10,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   useEffect(() => {
     const db = getFirestore();
-    const itemRef = doc(db, 'items', '2x3YZq7ynCtwVH8haf8U');
+    const itemRef = doc(db, 'items', id);
     getDoc(itemRef).then((resolve) => {
       if (resolve.exists()) {
         setItem({
@@ -20,15 +19,6 @@ const ItemDetailContainer = () => {
         });
       }
     });
-    // new Promise((resolve) =>
-    //   // Simulation of a call to an api
-    //   setTimeout(() => {
-    //     const itemFiltered = Items.find((item) => {
-    //       return item.id == id;
-    //     });
-    //     resolve(itemFiltered);
-    //   }, 1000),
-    // ).then((data) => setItem(data));
   }, [id]);
 
   if (!item) {

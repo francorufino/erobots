@@ -3,7 +3,7 @@ import './CheckOut.css';
 import { FaLock } from 'react-icons/fa';
 import Logo from '../navbar/Logo';
 import '../../components/loginAndSignup/Login.css';
-import BtnGlow from '../../components/btn/BtnGlow';
+import BtnGlowFormSubmit from '../../components/btn/BtnGlowFormSumit';
 import Footer from '../../components/footer/Footer';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
@@ -235,7 +235,7 @@ const CheckOut = () => {
               </div>
               <hr />
               <div className="btnPlaceOrderContainer">
-                <BtnGlow
+                <BtnGlowFormSubmit
                   text="Place order"
                   fn={() => placeOrder(cartTotal + tax - applyPromoCode)}
                 />

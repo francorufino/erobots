@@ -1,4 +1,36 @@
-/* .glow {
+.textUnderAddToCartBtn{
+  text-align: center;
+  margin-top: -10px;
+  
+  }
+
+  .qtdeToAddToCart{
+    font-size: 0.5rem;
+    text-align: center;
+    margin-top: 8px;
+  }
+  
+  .qtdeToAddToCart button{
+    height: 20px;
+    width: 20px;
+    border-radius: 5px;
+    border: none;
+    margin: 2px;
+  }
+  
+  .inStockTextNumber{
+    font-size: 10px;
+  }
+  
+  
+  
+  .lowStock{
+    color: red;
+  }
+
+
+
+/* /* .glow {
   position: relative;
   padding: 1em 3em;
   color: black;
@@ -40,33 +72,7 @@
   box-shadow: 0 0 0.6em 0.25em rgb(110, 237, 237), 0 0 2.5em rgba(65,243, 243,0.781), inset 0 0 0.5em 0.25em rgb(110, 237, 237);
 }
 
-.qtdeToAddToCart{
-  font-size: 0.5rem;
-  text-align: center;
-  margin-top: 8px;
-}
 
-.qtdeToAddToCart button{
-  height: 20px;
-  width: 20px;
-  border-radius: 5px;
-  border: none;
-  margin: 2px;
-}
-
-.inStockTextNumber{
-  font-size: 10px;
-}
-
-.textUnderAddToCartBtn{
-text-align: center;
-margin-top: -10px;
-
-}
-
-.lowStock{
-  color: red;
-}
 .outOfStock{
   position: relative;
   padding: 1em 3em;
@@ -96,6 +102,6 @@ color: white;
 .wantBuyPlus, .wantBuyMinus, .wantBuyQtde, .wantBuyQtyNumber, .qtdeToAddToCart, .wantNumber{
   font-weight: 900;
 } */
-
+ 
 
 
