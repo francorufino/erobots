@@ -29,7 +29,7 @@ export const CartContextProvider = ({ children }) => {
     const dateTime = generateDateAndTime();
     saveOrderInDB(dateTime, total);
     sendEmailToUserWithOrder();
-    sweetAlertWithOrderPlace();
+    sweetAlertWithOrderPlaced();
     sweetAlertWithOrderNumber();
     navigateToHome();
   }
@@ -81,11 +81,13 @@ export const CartContextProvider = ({ children }) => {
     return datetime;
   }
 
-  function sweetAlertWithOrderPlace() {
-    console.log('Sending sweet alert saying order was placed successfully');
+  function sweetAlertWithOrderPlaced() {
+    console.log(
+      'Sending sweet alert saying order was placed successfully' + orderID,
+    );
     Swal.fire({
       title: 'Order placed successfully',
-      text: 'Check your email with the confirmation order and order sumary',
+      text: 'testeeeeeeeee' + orderID,
       icon: 'success',
       iconColor: '#ea58f9',
       color: 'rgb(110, 237, 237)',
@@ -216,6 +218,7 @@ export const CartContextProvider = ({ children }) => {
         sendEmailToUserWithOrder,
         handleClickClearCart,
         placeOrder,
+        orderID,
       }}
     >
       {children}

@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import './BtnAddToCart.css';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
+import BtnBlack from './BtnBlack';
+import BtnGlowNOTformSubmit from '../btn/BtnGlowNOTformSubmit';
 
 function BtnAddToCart({ item }) {
   const { addProduct } = useContext(CartContext);
@@ -89,21 +91,13 @@ function BtnAddToCart({ item }) {
     <div>
       <div>
         <div className="btnAddToCart">
-          <button
-            id="glow"
-            onClick={addToCartFn}
-            className={
-              (stock === 0 && wantToBuy === 1) ||
-              (stock === 0 && wantToBuy === 0)
-                ? 'outOfStock'
-                : 'glow'
-            }
-          >
-            {(wantToBuy === 1 && stock === 0) ||
-            (stock === 0 && wantToBuy === 0)
-              ? 'Out of stock'
-              : 'Add to cart'}
-          </button>
+          {(stock === 0 && wantToBuy === 1) ||
+          (stock === 0 && wantToBuy === 0) ? (
+            <BtnBlack text="Out of stock" />
+          ) : (
+            <BtnGlowNOTformSubmit fn={addToCartFn} text="Add to cart" />
+          )}
+
           <div className="qtdeToAddToCart">
             <span className="wantBuyQty">Qty: </span>
             <button
