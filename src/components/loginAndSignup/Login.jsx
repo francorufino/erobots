@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Login.css';
 import { Layout } from '../layout/Layout';
 import { useNavigate } from 'react-router-dom';
+import BtnGlowFormSubit from '../../components/btn/BtnGlowFormSumit';
+import Swal from 'sweetalert2';
 
 const Login = () => {
   const [userFName, setUserFName] = useState('');
@@ -26,19 +28,57 @@ const Login = () => {
       userBorough === '' ||
       userCreditCard === ''
     ) {
-      alert('The fields cannot be empty');
+      sweetAlertFieldsCannotBeEmpty();
     } else if (userEmail !== userEmailConfirm) {
-      alert('your emails do not match');
+      sweetAlertEmailsDoNotMatch();
     } else {
-      localStorage.setItem('userFN', JSON.stringify(userFName));
-      localStorage.setItem('userLN', JSON.stringify(userLName));
-      localStorage.setItem('userEmail', JSON.stringify(userEmail));
-      localStorage.setItem('userAddress', JSON.stringify(userAddress));
-      localStorage.setItem('userZipCode', JSON.stringify(userZipCode));
-      localStorage.setItem('userBorough', JSON.stringify(userBorough));
-      localStorage.setItem('userCreditCart', JSON.stringify(userCreditCard));
+      saveUserInfoInLocalStorage();
       navigate('/checkout');
     }
+  }
+
+  function sweetAlertFieldsCannotBeEmpty() {
+    new Swal({
+      title: 'Oops...',
+      text: 'All fieds must be completed',
+      icon: 'error',
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
+      background: '#212121',
+      showConfirmButton: false,
+      backdrop: `
+      rgb(110, 237, 237))
+      // })`,
+      padding: '3em',
+      timer: 3000,
+    });
+  }
+
+  function sweetAlertEmailsDoNotMatch() {
+    new Swal({
+      title: 'Do not match',
+      text: 'Your emails do not match, please try again',
+      icon: 'error',
+      iconColor: '#ea58f9',
+      color: '#ea58f9',
+      background: '#212121',
+      showConfirmButton: false,
+      backdrop: `
+      rgb(110, 237, 237))
+      // })`,
+      padding: '3em',
+      timer: 3000,
+    });
+  }
+
+  function saveUserInfoInLocalStorage() {
+    localStorage.setItem('userFN', JSON.stringify(userFName));
+    localStorage.setItem('userLN', JSON.stringify(userLName));
+    localStorage.setItem('userEmail', JSON.stringify(userEmail));
+    localStorage.setItem('userAddress', JSON.stringify(userAddress));
+    localStorage.setItem('userZipCode', JSON.stringify(userZipCode));
+    localStorage.setItem('userBorough', JSON.stringify(userBorough));
+    localStorage.setItem('userCreditCart', JSON.stringify(userCreditCard));
   }
 
   return (
@@ -48,7 +88,7 @@ const Login = () => {
           <h2>Guest Checkout</h2>
           <div></div>
           <div className="containerFormRegister">
-            <form onSubmit={submitUserLocalStorage}>
+            <form>
               <label>
                 What is your first name?
                 <input
@@ -130,9 +170,7 @@ const Login = () => {
               </label>
               <br />
               <div className="divBtnLogInRegister">
-                <button id="btnSubmitFormLogin" className="glow" type="submit">
-                  Submit
-                </button>
+                <BtnGlowFormSubit text="Submit" fn={submitUserLocalStorage} />
               </div>
               <br />
               <br />

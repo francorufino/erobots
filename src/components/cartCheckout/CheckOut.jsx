@@ -61,12 +61,6 @@ const CheckOut = () => {
     }
   }
 
-  function clearCheckout() {
-    setApplyPromoCode(0);
-    setShipping(0);
-    setTax(0);
-  }
-
   function sweetAlertVerifiyngPromoCode() {
     new Swal({
       title: 'Verifying',

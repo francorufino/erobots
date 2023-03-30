@@ -4,30 +4,30 @@ import './CartPage.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
 
-const CartList = ({ product, qty, stock }) => {
+const CartList = ({ product }) => {
   const { updateToCart, deleteProductFromCart, addProduct } =
     useContext(CartContext);
   const [image, setImage] = useState('');
-  // const storage = getStorage();
-  // const imageRef = ref(storage, product.image1URL);
-  // useEffect(() => {
-  //   getDownloadURL(imageRef)
-  //     .then((url) => {
-  //       setImage(url);
-  //     })
-  //     .catch((error) => console.log({ error }));
-  // }, []);
+  const storage = getStorage();
+  const imageRef = ref(storage, product.item.image1URL);
+  useEffect(() => {
+    getDownloadURL(imageRef)
+      .then((url) => {
+        setImage(url);
+      })
+      .catch((error) => console.log({ error }));
+  }, []);
 
   const isAvailableToAdd = product.quantityAdded < product.item.stock;
   const isAvailableToAddRemove = product.quantityAdded > 1;
 
   return (
     <div>
-      {console.log('image1URL' + product.item.image)}
+      {console.log('imageref' + image)}
       <section id="cartContainer">
         <div className="bodyCart">
           <div>
-            <img className="imgProductCart" src={product.item.image}></img>
+            <img className="imgProductCart" src={image}></img>
           </div>
           <div>
             <div className="descriptionProduct">

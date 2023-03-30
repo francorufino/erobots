@@ -66,22 +66,25 @@ const CartListContainer = () => {
           })}
           <div>
             <div>
-              <span className="totalProductCart">
+              <div className="totalProductCart">
                 Subtotal ({productsAdded.length} items): U${' '}
                 {Number(cartTotal).toLocaleString('en')}
-              </span>
-              <div>
-                <div className="container-right">
-                  <div className="btnGlowCLC">
-                    <Link to="/checkout">
-                      <BtnGlowNOTformSubmit
-                        fn={goToCheckout}
-                        text="Procced to checkout"
-                      />
-                    </Link>
-                  </div>
-                  <div className="btnBlack">
-                    <BtnBlack fn={handleClickClearCart} text="Clear cart" />
+              </div>
+              <div className="clcBtnsContainerHolder">
+                <div className="clcLeftColumn"></div>
+                <div>
+                  <div className="clcRightColumn">
+                    <div className="btnGlowCLC">
+                      <Link to="/checkout">
+                        <BtnGlowNOTformSubmit
+                          fn={goToCheckout}
+                          text="Procced to checkout"
+                        />
+                      </Link>
+                    </div>
+                    <div className="btnBlack">
+                      <BtnBlack fn={handleClickClearCart} text="Clear cart" />
+                    </div>
                   </div>
                 </div>
               </div>

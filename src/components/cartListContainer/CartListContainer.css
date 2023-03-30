@@ -20,15 +20,27 @@
 .totalProductCart{
   color:white;
   font-size: 1.2rem;
+  text-align: right;
+}
+.clcBtnsContainerHolder{
+  display: flex;
 }
 
-.container-right{
-  text-align: right;
-  margin-bottom: 15px;
- }
+.clcLeftColumn{
+  flex-grow: 2;
+}
+
+.clcRightColumn{
+  margin-top: 25px;
+}
 
  .btnGlowCLC{
   margin-bottom: 12px;
+ }
+
+ .btnBlack{
+  display: flex;
+  align-items: stretch;
  }
 
 
