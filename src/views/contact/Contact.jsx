@@ -2,12 +2,9 @@ import React, { useState } from 'react';
 import { Layout } from '../../components/layout/Layout';
 import './Contact.css';
 import BtnGlowFormSubmit from '../../components/btn/BtnGlowFormSumit';
+import Swal from 'sweetalert2';
 
 const Contact = () => {
-  function submitMsgContactForm() {
-    console.log('sending message from the contact form');
-  }
-
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,11 +16,44 @@ const Contact = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log(formData); // Or you can send this data to your backend API here
-    setFormData({ name: '', email: '', message: '' }); // Reset the form data
+  const handleSubmitMsgContactForm = (event) => {
+    event.preventDefault(event);
+    if (
+      formData.name.length > 0 &&
+      formData.email.length > 0 &&
+      formData.message.length > 0
+    ) {
+      sweetAlertMsgSent();
+    } else {
+      sweetAlerEmptyFields();
+    }
   };
+
+  function sweetAlerEmptyFields() {
+    new Swal({
+      title: 'Error',
+      text: 'You must complete the fields to submit a message',
+      icon: 'error',
+      iconColor: '#ea58f9',
+      color: 'rgb(110, 237, 237)',
+      background: '#212121',
+      showConfirmButton: true,
+      confirmButtonColor: ' rgb(44, 157, 157)',
+    });
+  }
+
+  function sweetAlertMsgSent() {
+    new Swal({
+      title: 'Sent!',
+      text: 'Your message was sent and we will contact you back within 48 hours. If you need immediate attention please call us, we take calls 24/7',
+      icon: 'success',
+      iconColor: '#ea58f9',
+      color: 'rgb(110, 237, 237)',
+      background: '#212121',
+      showConfirmButton: true,
+      confirmButtonColor: ' rgb(44, 157, 157)',
+    });
+  }
 
   return (
     <Layout>
@@ -42,7 +72,7 @@ const Contact = () => {
             </div>
             <div className="containerForm">
               <div>
-                <form onSubmit={handleSubmit}>
+                <form>
                   <div>
                     <label htmlFor="name">Full Name:</label>
                     <input
@@ -82,7 +112,7 @@ const Contact = () => {
                   <div className="btnSubmitFormCtConainer">
                     <button id="btnSubmitForm" type="submit">
                       <BtnGlowFormSubmit
-                        fn={submitMsgContactForm}
+                        fn={handleSubmitMsgContactForm}
                         text={'Submit'}
                       />
                     </button>
