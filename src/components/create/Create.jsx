@@ -8,6 +8,11 @@ const Create = () => {
       <div className="create">
         <div>
           <div>
+            <br />
+            <br />
+            <h1>Coming soon... (for real!) Stay tuned!!!</h1>
+            <br />
+            <br />
             <h2>Create your own company robot!</h2>
             <h5>Shipped to you in 2 business days!</h5>
           </div>

@@ -103,7 +103,7 @@ const Footer = () => {
       <div className="footerNavLinks">
         <div>
           <Nav.Link as={Link} to="/about">
-            <div className="links">About</div>
+            <div className="links">About us</div>
           </Nav.Link>
           <Nav.Link
             active
