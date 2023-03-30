@@ -8,17 +8,19 @@ const EmptyCart = () => {
   return (
     <div>
       <Layout>
-        <div className="outterContainerEC">
-          <div className="left-containerEC">
-            <div>
-              <h2>Your cart is empty</h2>
-              <Link to={'/'}>
-                {' '}
-                <BtnGlowNOTformSubmit text="Start shopping" />
-              </Link>
+        <div className="container">
+          <div className="outterContainerEC">
+            <div className="left-containerEC">
+              <div>
+                <h2>Your cart is empty</h2>
+                <Link to={'/'}>
+                  {' '}
+                  <BtnGlowNOTformSubmit text="Start shopping" />
+                </Link>
+              </div>
             </div>
+            <div className="right-containerEC"></div>
           </div>
-          <div className="right-containerEC"></div>
         </div>
       </Layout>
     </div>

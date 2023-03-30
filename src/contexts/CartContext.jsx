@@ -102,6 +102,14 @@ export const CartContextProvider = ({ children }) => {
     console.log('sending an imagiray order number from Firebase');
   }
 
+  function getTotalQtyOfItems() {
+    let count = 0;
+    productsAdded.forEach((product) => {
+      count = count + product.quantityAdded;
+    });
+    return count;
+  }
+
   function addProduct(item, quantity) {
     console.log({ item });
     const isAlreadyAdded = isInCart(item.id);
@@ -217,6 +225,7 @@ export const CartContextProvider = ({ children }) => {
         handleClickClearCart,
         placeOrder,
         orderID,
+        getTotalQtyOfItems,
       }}
     >
       {children}
