@@ -30,6 +30,10 @@ const faq = () => {
                   alt=""
                 />
                 <img
+                  src={require('../../assets/images/robotCreditCard.png')}
+                  alt=""
+                />
+                <img
                   src={require('../../assets/images/robotSmiling.png')}
                   alt=""
                 />
