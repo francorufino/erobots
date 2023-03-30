@@ -114,6 +114,7 @@ const CheckOut = () => {
       rgb(110, 237, 237))
       // })`,
       padding: '3em',
+      confirmButtonColor: 'rgb(44, 157, 157)',
     });
   }
 

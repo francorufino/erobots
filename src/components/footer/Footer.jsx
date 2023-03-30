@@ -5,30 +5,92 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const Footer = () => {
+  const userFirstName = JSON.parse(localStorage.getItem('userFN'));
+  const userLastName = JSON.parse(localStorage.getItem('userLN'));
+  const userEmail = JSON.parse(localStorage.getItem('userEmail'));
+  const userAddress = JSON.parse(localStorage.getItem('userAddress'));
+  const userBorough = JSON.parse(localStorage.getItem('userBorough'));
+  const userZipCode = JSON.parse(localStorage.getItem('userZipCode'));
+  const userCreditCard = JSON.parse(localStorage.getItem('userCreditCart'));
+
   function logout() {
     sweetAlertLogoutMsg();
-    localStorage.removeItem('userFN');
-    localStorage.removeItem('userLN');
-    localStorage.removeItem('userEmail');
   }
 
   function sweetAlertLogoutMsg() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: 'If you logout you will have to type all your checkout information again in order to go to checkout page',
-      showDenyButton: true,
-      showCancelButton: true,
-      confirmButtonText: 'Yes, delete all my information',
-      denyButtonText: `Don't delete it, keep me signed in`,
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        localStorage.clear();
-        Swal.fire('Deleted!', '', 'success');
-      } else if (result.isDenied) {
-        Swal.fire('Your credentials are safe', '', 'success');
-      }
-    });
+    if (
+      (userFirstName,
+      userLastName,
+      userEmail,
+      userAddress,
+      userBorough,
+      userZipCode,
+      userCreditCard)
+    ) {
+      Swal.fire({
+        className: 'sweetAlertBtnTextColor',
+        title: 'Are you sure?',
+        text: 'If you logout you will have to type all your information again to place a new order',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'Yes, delete all my information',
+        confirmButtonColor: '#ea58f9',
+        denyButtonText: `Don't delete it, keep me signed in`,
+        denyButtonColor: 'rgb(44, 157, 157)',
+        icon: 'warning',
+        iconColor: '#ea58f9',
+        color: 'rgb(110, 237, 237)',
+        background: '#212121',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.clear();
+          new Swal({
+            title: 'Deleted!',
+            text: 'All your information was deleted successfully',
+            icon: 'success',
+            iconColor: '#ea58f9',
+            color: '#ea58f9',
+            background: '#212121',
+            showConfirmButton: false,
+            backdrop: `
+        rgb(110, 237, 237))
+        // })`,
+            padding: '3em',
+            timer: 3000,
+          });
+        } else if (result.isDenied) {
+          new Swal({
+            title: 'Saved',
+            text: 'Your information was saved successfully',
+            icon: 'success',
+            iconColor: '#ea58f9',
+            color: '#ea58f9',
+            background: '#212121',
+            showConfirmButton: false,
+            backdrop: `
+        rgb(110, 237, 237))
+        // })`,
+            padding: '3em',
+            timer: 3000,
+          });
+        }
+      });
+    } else {
+      new Swal({
+        title: 'Not found',
+        text: 'It looks like you do not have any information saved',
+        icon: 'error',
+        iconColor: '#ea58f9',
+        color: '#ea58f9',
+        background: '#212121',
+        showConfirmButton: false,
+        backdrop: `
+    rgb(110, 237, 237))
+    // })`,
+        padding: '3em',
+        timer: 5000,
+      });
+    }
   }
 
   return (

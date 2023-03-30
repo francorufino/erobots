@@ -60,7 +60,7 @@ function BtnAddToCart({ item }) {
       color: 'rgb(110, 237, 237)',
       background: '#212121',
       showConfirmButton: false,
-      timer: '1500',
+      timer: '4000',
     });
   }
 
@@ -93,7 +93,7 @@ function BtnAddToCart({ item }) {
         <div className="btnAddToCart">
           {(stock === 0 && wantToBuy === 1) ||
           (stock === 0 && wantToBuy === 0) ? (
-            <BtnBlack text="Out of stock" />
+            <BtnBlack text="Out of stock" fn={productOutOfStockAlert} />
           ) : (
             <BtnGlowNOTformSubmit fn={addToCartFn} text="Add to cart" />
           )}

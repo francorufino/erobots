@@ -90,6 +90,7 @@ export const CartContextProvider = ({ children }) => {
       icon: 'success',
       iconColor: '#ea58f9',
       color: 'rgb(110, 237, 237)',
+      confirmButtonColor: 'rgb(44, 157, 157)',
       background: '#212121',
       backdrop: `
       rgb(110, 237, 237))`,
