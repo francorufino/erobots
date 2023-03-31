@@ -1,6 +1,6 @@
 .bodyCart{
   display: flex;
-  color: #E2DDDF;
+  color: rgb(44, 157, 157);
 }
 
 .imgProductCart{
@@ -16,7 +16,10 @@
   margin-left: 25px;
   text-align: left;
   font-size: 1.1rem;
-  
+}
+
+.cartListTitle{
+  font-size: 1.4rem;
 }
 
 .divLineQtyDetDel{
@@ -46,6 +49,16 @@
   border: none;
   background-color: transparent;
   padding: 0 6px;
+}
+
+.cartListLinkDetailBtn{
+  color: rgb(44, 157, 157);
+}
+
+
+.cartListDeleteBtn{
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .priceItem{

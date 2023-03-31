@@ -1,5 +1,6 @@
 .outterContainerEC{
   display: flex;
+  margin: 50px auto;
 }
 
 .left-containerEC, .right-containerEC{

@@ -47,43 +47,45 @@ const CartListContainer = () => {
     <div>
       <Layout>
         <div className="container">
-          <div className="header">
-            <div className="titleShoppingCart">Shopping Cart</div>
-            <div className="titlePrice">
-              <div>Price</div>
-            </div>
-          </div>
-          <hr />
-          {productsAdded.map((product) => {
-            return (
-              <CartList
-                key={product.id}
-                product={product}
-                sumCart={cartTotal}
-                stock={product.stock}
-              />
-            );
-          })}
-          <div>
-            <div>
-              <div className="totalProductCart">
-                Subtotal ({productsAdded.length} items): U${' '}
-                {Number(cartTotal).toLocaleString('en')}
+          <div className="cartListContainerHolder">
+            <div className="header">
+              <div className="titleShoppingCart">Shopping Cart</div>
+              <div className="titlePrice">
+                <div>Price</div>
               </div>
-              <div className="clcBtnsContainerHolder">
-                <div className="clcLeftColumn"></div>
-                <div>
-                  <div className="clcRightColumn">
-                    <div className="btnGlowCLC">
-                      <Link to="/checkout">
-                        <BtnGlowNOTformSubmit
-                          fn={goToCheckout}
-                          text="Procced to checkout"
-                        />
-                      </Link>
-                    </div>
-                    <div className="btnBlack">
-                      <BtnBlack fn={handleClickClearCart} text="Clear cart" />
+            </div>
+            <hr />
+            {productsAdded.map((product) => {
+              return (
+                <CartList
+                  key={product.id}
+                  product={product}
+                  sumCart={cartTotal}
+                  stock={product.stock}
+                />
+              );
+            })}
+            <div>
+              <div>
+                <div className="totalProductCart">
+                  Subtotal ({productsAdded.length} items): U${' '}
+                  {Number(cartTotal).toLocaleString('en')}
+                </div>
+                <div className="clcBtnsContainerHolder">
+                  <div className="clcLeftColumn"></div>
+                  <div>
+                    <div className="clcRightColumn">
+                      <div className="btnGlowCLC">
+                        <Link to="/checkout">
+                          <BtnGlowNOTformSubmit
+                            fn={goToCheckout}
+                            text="Procced to checkout"
+                          />
+                        </Link>
+                      </div>
+                      <div className="btnBlack">
+                        <BtnBlack fn={handleClickClearCart} text="Clear cart" />
+                      </div>
                     </div>
                   </div>
                 </div>

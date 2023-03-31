@@ -56,11 +56,17 @@ const CartList = ({ product }) => {
                   </span>
                 </span>
                 <span> | </span>
-                <Link to={`/item/${product.item.id}`}>
-                  <span>detail</span>
+                <Link
+                  className="cartListLinkDetailBtn"
+                  to={`/item/${product.item.id}`}
+                >
+                  <span className="cartListDetailBtn">detail</span>
                 </Link>
                 <span> | </span>
-                <span onClick={() => deleteProductFromCart(product.item.id)}>
+                <span
+                  className="cartListDeleteBtn"
+                  onClick={() => deleteProductFromCart(product.item.id)}
+                >
                   delete
                 </span>
               </div>

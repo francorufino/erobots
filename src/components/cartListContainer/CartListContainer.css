@@ -1,3 +1,7 @@
+.cartListContainerHolder{
+  margin: 50px auto;
+}
+
 .header{
   display: flex;
   flex-wrap: wrap;
@@ -6,22 +10,23 @@
 
 .titleShoppingCart{
   font-size: 2rem;
-  margin-top: 45px;
-  color: #E2DDDF;
+  color: rgb(110, 237, 237);
 }
 
 .titlePrice{
   display: flex;
   font-size: 1.3rem;
   align-items: flex-end;
-  color: #E2DDDF;
+  color: rgb(110, 237, 237);
 }
 
 .totalProductCart{
   color:white;
   font-size: 1.2rem;
   text-align: right;
+  color: rgb(110, 237, 237);
 }
+
 .clcBtnsContainerHolder{
   display: flex;
 }
@@ -39,8 +44,8 @@
  }
 
  .btnBlack{
-  display: flex;
-  align-items: stretch;
+  text-align: center;
+  margin-top: 25px;
  }
 
 
