@@ -13,6 +13,7 @@ import {
   FaCashRegister,
 } from 'react-icons/fa';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
+import BtnGlowNOTformSubmit from '../btn/BtnGlowNOTformSubmit';
 
 const ItemList = ({ item }) => {
   const [image, setImage] = useState('');
@@ -41,7 +42,7 @@ const ItemList = ({ item }) => {
             <p className="productDescription">{item.description}</p>
             <div className="containerPriceEAddToCartBtn">
               <div id="itemPrice" className="itemPrice">
-                U$ {Number(item.price).toLocaleString('en')}
+                U$ {Number(item.price.toFixed(2)).toLocaleString('en')}
               </div>
               <div>
                 <BtnAddToCart item={item} />

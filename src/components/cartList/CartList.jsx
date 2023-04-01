@@ -3,6 +3,7 @@ import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import './CartPage.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
+import BtnEditQtyToBuy from '../btn/BtnEditQtyToBuyCartPage';
 
 const CartList = ({ product }) => {
   const { updateToCart, deleteProductFromCart, addProduct } =
@@ -39,6 +40,7 @@ const CartList = ({ product }) => {
                   <span>Qty: </span>
                   <span className="btnsQty">
                     <button
+                      className="clcMathSign"
                       disabled={!isAvailableToAddRemove}
                       onClick={() => updateToCart(product, false)}
                     >
@@ -48,6 +50,7 @@ const CartList = ({ product }) => {
                       {product.quantityAdded}
                     </span>
                     <button
+                      className="clcMathSign"
                       disabled={!isAvailableToAdd}
                       onClick={() => updateToCart(product, true)}
                     >

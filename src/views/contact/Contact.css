@@ -47,9 +47,11 @@ h2{
   padding: 12px; 
 }
 
-.imput:focus{
+.imput:focus, textarea:focus { 
+  outline: rgb(110, 237, 237) !important;
   background-color: #212121;
-  outline: rgb(110, 237, 237);
+  border-color: rgb(110, 237, 237);
+  box-shadow: 0 0 10px rgb(110, 237, 237);
 }
 
 input:-webkit-autofill,
@@ -61,7 +63,6 @@ input:-webkit-autofill:active{
 
 #btnSubmitForm{
   text-align: center;
-  margin: 35px auto;
   border-radius: 25px;
 }
 

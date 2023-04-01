@@ -102,8 +102,30 @@ const Footer = () => {
       </div>
       <div className="footerNavLinks">
         <div>
+          <Nav.Link className="navbarNames" as={Link} to="/">
+            <div className="links">Home</div>
+          </Nav.Link>
+          <Nav.Link className="navbarNames" as={Link} to="/category/business">
+            <div className="links">Business</div>
+          </Nav.Link>
+          <Nav.Link className="navbarNames" as={Link} to="/category/house">
+            <div className="links">Housekeeper</div>
+          </Nav.Link>
+        </div>{' '}
+        <div>
+          <Nav.Link className="navbarNames" as={Link} to="/category/companion">
+            <div className="links">Companion</div>
+          </Nav.Link>
+          <Nav.Link className="navbarNames" as={Link} to="/create">
+            <div className="links">Create</div>
+          </Nav.Link>
           <Nav.Link as={Link} to="/about">
             <div className="links">About us</div>
+          </Nav.Link>
+        </div>{' '}
+        <div>
+          <Nav.Link className="navbarNames" as={Link} to="/cart">
+            <div className="links">Cart</div>
           </Nav.Link>
           <Nav.Link
             active

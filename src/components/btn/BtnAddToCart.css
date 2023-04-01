@@ -1,7 +1,6 @@
 .textUnderAddToCartBtn{
   text-align: center;
   margin-top: -10px;
-  
   }
 
   .qtdeToAddToCart{
@@ -41,67 +40,4 @@
   .lowStock{
     color: red;
   }
-
-
-
-/* /* .glow {
-  position: relative;
-  padding: 1em 3em;
-  color: black;
-  font-size: 0.5rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  text-shadow: 0 0 0.5em rgb(110, 237, 237);
-  background: rgb(44, 157, 157);
-  border: 0.25em solid rgb(110, 237, 237);
-  border-radius: 1em;
-  box-shadow: 0 0 1em 0.25em rgb(110, 237, 237), 0 0 4em 1em rgba( 65, 243, 243, 0.781), inset 0 0 0.75em 0.25em rgb(110, 237, 237);
-  outline: none;
-  cursor: pointer;
-  transition: all 0.3s;
-}
-
-.glow::after{
-  content:"";
-  position: absolute;
-  top:120%;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(65, 243,243, 0.781);
-  filter: blur(2em);
-  opacity: 0.7;
-  pointer-events: none;
-  transform: perspective(1.5em)
-  rotateX(35deg) scale(1, 0.35)
-}
-
-.glow:hover{
-  color: rgb(44, 157,157);
-  background-color: rgb(110,237,237);
-  box-shadow: 0 0 1em 0.25 rgb(110 237 237), 0 0 4em 2em rgba(65, 243, 243, 0.781), inset 0 0 0.75em 0.25em rgb(110,237,237);
-}
-
-.glow:active{
-  box-shadow: 0 0 0.6em 0.25em rgb(110, 237, 237), 0 0 2.5em rgba(65,243, 243,0.781), inset 0 0 0.5em 0.25em rgb(110, 237, 237);
-}
-
-
-
-
-.qtdeToAddToCart{
-margin-top: 20px;
-color: white;
-}
-
-.inStockTextNumber{
-  color: white;
-  font-weight: 900;
-}
-
-.wantBuyPlus, .wantBuyMinus, .wantBuyQtde, .wantBuyQtyNumber, .qtdeToAddToCart, .wantNumber{
-  font-weight: 900;
-} */
- 
-
 
