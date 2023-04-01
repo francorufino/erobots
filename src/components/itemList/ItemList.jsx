@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './ItemList.css';
-import BtnBlack from '../btn/BtnBlack';
 import BtnAddToCart from '../../components/btn/BtnAddToCart';
 import '../btn/BtnAddToCart';
 import BtnSeeDetails from '../../components/btn/BtnSeeDetails';
@@ -13,7 +12,6 @@ import {
   FaCashRegister,
 } from 'react-icons/fa';
 import { getStorage, ref, getDownloadURL } from 'firebase/storage';
-import BtnGlowNOTformSubmit from '../btn/BtnGlowNOTformSubmit';
 
 const ItemList = ({ item }) => {
   const [image, setImage] = useState('');
@@ -39,6 +37,7 @@ const ItemList = ({ item }) => {
           </header>
           <main className="mainCard">
             <p className="productTitle">{item.name}</p>
+            <hr />
             <p className="productDescription">{item.description}</p>
             <div className="containerPriceEAddToCartBtn">
               <div id="itemPrice" className="itemPrice">
@@ -49,50 +48,51 @@ const ItemList = ({ item }) => {
               </div>
             </div>
             <hr />
+
+            <footer className="footerContainer">
+              <div className="icon">
+                <span className="categoryImage">
+                  {item.category === 'business' && (
+                    <FaCashRegister className="icon" />
+                  )}
+                </span>{' '}
+                <span>
+                  {item.category === 'house' && <FaHome className="icon" />}{' '}
+                </span>{' '}
+                <span>
+                  {item.category === 'companion' && <FaDog className="icon" />}{' '}
+                </span>
+              </div>
+              <div>
+                <ul>
+                  {' '}
+                  <li className="footerTexts">
+                    {' '}
+                    <span>
+                      <FaCheck className="checkMark" />{' '}
+                    </span>
+                    <span className="freeReturnsText">Same Day Delivery</span>{' '}
+                  </li>{' '}
+                  <li className="footerTexts">
+                    {' '}
+                    <span>
+                      <FaCheck className="checkMark" />{' '}
+                    </span>
+                    <span className="freeReturnsText">Free returns</span>{' '}
+                  </li>{' '}
+                  <li className="footerTexts">
+                    {' '}
+                    <span>
+                      <FaClipboard className="clipboard" />{' '}
+                    </span>{' '}
+                    <span className="freeReturnsText">
+                      Product Ref: {item.id}{' '}
+                    </span>{' '}
+                  </li>{' '}
+                </ul>
+              </div>
+            </footer>
           </main>
-          <footer className="footerContainer">
-            <div className="icon">
-              <span className="categoryImage">
-                {item.category === 'business' && (
-                  <FaCashRegister className="icon" />
-                )}
-              </span>{' '}
-              <span>
-                {item.category === 'house' && <FaHome className="icon" />}{' '}
-              </span>{' '}
-              <span>
-                {item.category === 'companion' && <FaDog className="icon" />}{' '}
-              </span>
-            </div>
-            <div>
-              <ul>
-                {' '}
-                <li className="footerTexts">
-                  {' '}
-                  <span>
-                    <FaCheck className="checkMark" />{' '}
-                  </span>
-                  <span className="freeReturnsText">Same Day Delivery</span>{' '}
-                </li>{' '}
-                <li className="footerTexts">
-                  {' '}
-                  <span>
-                    <FaCheck className="checkMark" />{' '}
-                  </span>
-                  <span className="freeReturnsText">Free returns</span>{' '}
-                </li>{' '}
-                <li className="footerTexts">
-                  {' '}
-                  <span>
-                    <FaClipboard className="clipboard" />{' '}
-                  </span>{' '}
-                  <span className="freeReturnsText">
-                    Product Ref: {item.id}{' '}
-                  </span>{' '}
-                </li>{' '}
-              </ul>
-            </div>
-          </footer>
         </div>
       </div>
     </article>

@@ -55,7 +55,6 @@ function BtnAddToCart({ item }) {
       text: 'Sorry, this product is unavailable at this moment, but there is more on the way!',
       icon: 'error',
       iconColor: '#ea58f9',
-      // button: 'OK',
       timer: '4000',
       color: 'rgb(110, 237, 237)',
       background: '#212121',
@@ -121,7 +120,9 @@ function BtnAddToCart({ item }) {
         </div>
       </div>
       <div className="textUnderAddToCartBtn">
-        <span className="inStockTextNumber">Only {stock} left in stock </span>
+        <span className="inStockTextNumber">
+          <span id="inStockNumber">{stock} </span>left in stock{' '}
+        </span>
       </div>
     </div>
   );
