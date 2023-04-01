@@ -14,7 +14,7 @@ function Navbarr() {
       <article id="outterContainerNavbar">
         <div className="navLinks container">
           <div className="logoContainer">
-            <div>
+            <div id="navbarLogoContainer">
               <Nav.Link as={Link} to="/">
                 <Logo />
               </Nav.Link>

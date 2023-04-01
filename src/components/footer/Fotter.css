@@ -10,13 +10,15 @@
 }
 
 .footerBrand{
-  width: 50%;
+  width: 40%;
+  text-align: center;
 }
 
 .footerNavLinks{
   display: flex;
   width: 50%;
   text-align: left;
+  flex-grow: 2;
 }
 
 .links{

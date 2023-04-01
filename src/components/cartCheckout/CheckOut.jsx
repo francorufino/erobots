@@ -6,7 +6,7 @@ import '../../components/loginAndSignup/Login.css';
 import Footer from '../../components/footer/Footer';
 import { CartContext } from '../../contexts/CartContext';
 import Swal from 'sweetalert2';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import BtnGlowNOTformSubmit from '../../components/btn/BtnGlowNOTformSubmit';
 import BtnBlackFormSubmit from '../../components/btn/BtnBlackFormSubmit';
 
@@ -119,7 +119,9 @@ const CheckOut = () => {
           <div className="container">
             <div className="headerContainer">
               <div className="logo">
-                <Logo />
+                <Link className="link" to={'/'}>
+                  <Logo />
+                </Link>
               </div>
               <div className="checkoutNameNav">
                 <div>{`Checkout (${productsAdded.length} items) `}</div>

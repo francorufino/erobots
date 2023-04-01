@@ -80,15 +80,6 @@ const ItemList = ({ item }) => {
                     </span>
                     <span className="freeReturnsText">Free returns</span>{' '}
                   </li>{' '}
-                  <li className="footerTexts">
-                    {' '}
-                    <span>
-                      <FaClipboard className="clipboard" />{' '}
-                    </span>{' '}
-                    <span className="freeReturnsText">
-                      Product Ref: {item.id}{' '}
-                    </span>{' '}
-                  </li>{' '}
                 </ul>
               </div>
             </footer>

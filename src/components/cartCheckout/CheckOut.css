@@ -13,6 +13,10 @@
   width:20%;
 }
 
+.link{
+  text-decoration: none;
+}
+
 .checkoutNameNav{
   flex-grow: 2;
   text-align: center;

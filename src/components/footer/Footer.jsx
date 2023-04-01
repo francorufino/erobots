@@ -137,7 +137,7 @@ const Footer = () => {
           </Nav.Link>
 
           <Nav.Link className="navbarNames" as={Link} to="/contact">
-            <div className="links">Contact Us</div>
+            <div className="links">Contact us</div>
           </Nav.Link>
         </div>
         <div>

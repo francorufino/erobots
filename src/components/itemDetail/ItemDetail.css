@@ -49,7 +49,6 @@
   outline-offset: -20px;
   overflow: hidden;
 }
-/* description: */
 
 .descContainer{
 margin: 0 25px;
@@ -61,8 +60,11 @@ margin: 0 25px;
   color: rgb(44, 157, 157);
 }
 
-.title{
+#itemDetailTitle{
   text-align: center;
+  color:rgb(110, 237, 237);
+  font-weight: 900;
+  font-size:2rem;
 }
 
 .descriptionSmallerContainerHolder{
@@ -71,11 +73,12 @@ margin: 0 25px;
 
 .containerPriceEListItemDetail, .containerBtnsItemDetail{
   width: 50%;
-  color: red;
+  text-align: center;
 }
 
 .priceContainerItemDetail{
-  color: rgb(110, 237, 237)
+  color: rgb(110, 237, 237);
+  margin-top: 30px;
 }
 
 .price{
@@ -96,14 +99,15 @@ margin: 0 25px;
   margin-left: 20px;
 }
 
-.itemDetailAdvantages{
-color: rgb(110, 237, 237);
+.itemDetailCategoryIconContainer{
+  text-align: center;
 }
 
 .itemDetailcategoryIcon{
-  margin-top: 30px;
+  margin: 30px auto 15px;
   color: rgb(110, 237, 237);
   font-size: 3rem;
+  text-align: center;
 }
 
 .containerBtnsItemDetail{
@@ -133,4 +137,24 @@ color: rgb(110, 237, 237);
 .continueShoppingLinkBtn a:hover {
   color:#00A0C6; 
   text-decoration:none; 
+}
+
+.clipboard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7rem;
+
+}
+
+#productRefNumber{
+  color: rgb(44, 157, 157);
+  font-size: 0.7rem;
+}
+
+.itemDetailRefNumberContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }

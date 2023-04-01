@@ -4,7 +4,7 @@ import './ItemDetail.css';
 import BtnBlack from '../btn/BtnBlack';
 import {
   FaCheck,
-  // FaClipboard,
+  FaClipboard,
   FaHome,
   FaDog,
   FaCashRegister,
@@ -57,7 +57,7 @@ const ItemDetail = ({ item }) => {
         <div className="itemDetailRightColumn">
           <div className="descContainer">
             <hr id="hrTop" />
-            <p className="title">{item.name}</p>
+            <p id="itemDetailTitle">{item.name}</p>
             <hr />
             <div className="productDescriptionDetail">{item.description}</div>
             <div className="descriptionSmallerContainerHolder">
@@ -82,20 +82,9 @@ const ItemDetail = ({ item }) => {
                       </span>
                       <span className="itemDetailAdvantages">Free returns</span>{' '}
                     </div>
-                    {/* <div> */}
-                    {/* <span className="itemDetailIcon">
-                        <FaClipboard className="checkMark" />{' '}
-                      </span>{' '} */}
-                    {/* <span
-                        id="productRefNumber"
-                        className="itemDetailAdvantages"
-                      >
-                        Product Ref: {item.id}{' '}
-                      </span>{' '} */}
-                    {/* </div> */}
                   </div>
                   <div>
-                    <div>
+                    <div className="itemDetailCategoryIconContainer">
                       <span>
                         {item.category === 'business' && (
                           <FaCashRegister className="itemDetailcategoryIcon" />
@@ -121,7 +110,7 @@ const ItemDetail = ({ item }) => {
                   <div className="itemDetailBtnQtyContainer">
                     <BtnAddToCart item={item} />
                   </div>
-                  <div className="btns">
+                  <div>
                     <div>
                       <Link to="/cart">
                         <BtnBlack text={'Go to cart'} />
@@ -141,6 +130,15 @@ const ItemDetail = ({ item }) => {
                   </div>
                 </div>
               </div>
+            </div>
+            <hr />
+            <div className="itemDetailRefNumberContainer">
+              <span className="itemDetailIcon clipboard">
+                <FaClipboard className="checkMark" />{' '}
+              </span>{' '}
+              <span id="productRefNumber" className="itemDetailAdvantages">
+                Product Ref: {item.id}{' '}
+              </span>{' '}
             </div>
           </div>
         </div>
