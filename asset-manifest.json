@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/erobots/static/css/main.3b8bfaf1.css",
+    "main.js": "/erobots/static/js/main.70a511eb.js",
+    "static/media/404.png": "/erobots/static/media/404.5170add2c2889661f11a.png",
+    "static/media/login.png": "/erobots/static/media/login.2a0f1e32281686f41b26.png",
+    "static/media/robotBuidingRobot.png": "/erobots/static/media/robotBuidingRobot.9950d8b70cf3baa7e1ab.png",
+    "static/media/robotSmiling.png": "/erobots/static/media/robotSmiling.e6c6dabba24145ec2aec.png",
+    "static/media/robotOnThePhone.png": "/erobots/static/media/robotOnThePhone.97bb89ac9098385fd25e.png",
+    "static/media/robotCryingPink.png": "/erobots/static/media/robotCryingPink.141d55ec6d4600623363.png",
+    "static/media/robotCarryBox.png": "/erobots/static/media/robotCarryBox.7eaa711bb25282be08ca.png",
+    "static/media/robotCreditCard.png": "/erobots/static/media/robotCreditCard.5ed53367b09c5b3fcb91.png",
+    "static/media/robotdarkbg.png": "/erobots/static/media/robotdarkbg.9fd6a5794ccebfbb614d.png",
+    "static/media/robotQuestion.png": "/erobots/static/media/robotQuestion.cbee38f63782648c827e.png",
+    "static/media/mastercard.png": "/erobots/static/media/mastercard.ddcf44ca3bb330bc3a76.png",
+    "index.html": "/erobots/index.html",
+    "main.3b8bfaf1.css.map": "/erobots/static/css/main.3b8bfaf1.css.map",
+    "main.70a511eb.js.map": "/erobots/static/js/main.70a511eb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3b8bfaf1.css",
+    "static/js/main.70a511eb.js"
+  ]
+}
