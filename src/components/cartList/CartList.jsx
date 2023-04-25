@@ -3,7 +3,6 @@ import { getStorage, ref, getDownloadURL } from 'firebase/storage';
 import './CartPage.css';
 import { Link } from 'react-router-dom';
 import { CartContext } from '../../contexts/CartContext';
-import BtnEditQtyToBuy from '../btn/BtnEditQtyToBuyCartPage';
 
 const CartList = ({ product }) => {
   const { updateToCart, deleteProductFromCart, addProduct } =

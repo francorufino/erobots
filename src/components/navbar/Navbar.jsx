@@ -31,14 +31,6 @@ function Navbarr() {
               <Nav.Link as={Link} to="/category/companion">
                 <div className="links">Companion</div>
               </Nav.Link>
-              <Nav.Link as={Link} to="/create">
-                <div className="links">Create</div>
-              </Nav.Link>
-              {/* <Link to="/login">
-                <div id="login" className="links">
-                  Login
-                </div>
-              </Link> */}
               <div>
                 <div id="cartWidgetNavBar" className="links">
                   <Link className="cart-container" to="/cart">
@@ -49,29 +41,6 @@ function Navbarr() {
             </div>
           </div>
         </div>
-
-        {/* 
-
-                
-                
-               
-        {/*  */}
-        {/* <Nav.Link className="navbarNames" as={Link} to="/about">
-                About
-              </Nav.Link>
-              <Nav.Link
-                active
-                className="navbarNames"
-                as={Link}
-                to="/category/industry"
-              >
-                Fun fact
-              </Nav.Link>
-              <Nav.Link className="navbarNames" as={Link} to="/contact">
-                Contact
-              </Nav.Link> */}
-        {/* </div>
-        </div> */}
       </article>
     </>
   );

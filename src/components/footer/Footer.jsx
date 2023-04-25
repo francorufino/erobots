@@ -116,35 +116,23 @@ const Footer = () => {
           <Nav.Link className="navbarNames" as={Link} to="/category/companion">
             <div className="links">Companion</div>
           </Nav.Link>
-          <Nav.Link className="navbarNames" as={Link} to="/create">
+          {/* <Nav.Link className="navbarNames" as={Link} to="/create">
             <div className="links">Create</div>
-          </Nav.Link>
+          </Nav.Link> */}
           <Nav.Link as={Link} to="/about">
             <div className="links">About us</div>
           </Nav.Link>
-        </div>{' '}
-        <div>
           <Nav.Link className="navbarNames" as={Link} to="/cart">
             <div className="links">Cart</div>
           </Nav.Link>
-          <Nav.Link
-            active
-            className="navbarNames"
-            as={Link}
-            to="/category/industry"
-          >
-            <div className="links">Fun fact</div>
-          </Nav.Link>
-
+        </div>{' '}
+        <div>
           <Nav.Link className="navbarNames" as={Link} to="/contact">
             <div className="links">Contact us</div>
           </Nav.Link>
-        </div>
-        <div>
           <Nav.Link className="navbarNames" as={Link} to="/faq">
             <div className="links">FAQ</div>
           </Nav.Link>
-          <div className="links">My Orders</div>
           <div className="links logout" onClick={logout}>
             Log out
           </div>

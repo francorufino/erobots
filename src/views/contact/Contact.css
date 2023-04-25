@@ -15,8 +15,12 @@
 
 .right-column{
   width: 50%;
-  background-color: #212121;}
+  background-color: #212121;
+}
 
+.cLetsChatTitle{
+  text-align: center;
+}
 
 h2{
   color: rgb(110, 237, 237);

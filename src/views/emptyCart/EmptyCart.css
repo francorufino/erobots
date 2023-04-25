@@ -17,6 +17,10 @@
   margin-bottom: 50px;
 }
 
+.ecBtnStartShopping{
+  text-align: center;
+}
+
 .right-containerEC{
   background-image: url("../../assets/images/robotCryingPink.png");
   background-size: cover;

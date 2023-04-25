@@ -55,7 +55,6 @@ function BtnAddToCart({ item }) {
       text: 'Sorry, this product is unavailable at this moment, but there is more on the way!',
       icon: 'error',
       iconColor: '#ea58f9',
-      timer: '4000',
       color: 'rgb(110, 237, 237)',
       background: '#212121',
       showConfirmButton: false,
@@ -98,7 +97,6 @@ function BtnAddToCart({ item }) {
           )}
 
           <div className="qtdeToAddToCart">
-            <span className="wantBuyQty">Qty: </span>
             <button
               className="wantBuyMinus"
               onClick={removeFromWantToBuy}

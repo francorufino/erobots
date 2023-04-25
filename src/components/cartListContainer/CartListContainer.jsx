@@ -6,8 +6,6 @@ import { Layout } from '../../components/layout/Layout';
 import './CartListContainer.css';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
-// import BtnPlaceOrder from '../../components/btn/BtnPlaceOrder';
-// import BtnClearCart from '../../components/btn/BtnClearCart';
 import BtnGlowNOTformSubmit from '../../components/btn/BtnGlowNOTformSubmit';
 import BtnBlack from '../btn/BtnBlack';
 

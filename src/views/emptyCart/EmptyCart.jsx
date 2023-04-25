@@ -13,10 +13,12 @@ const EmptyCart = () => {
             <div className="left-containerEC">
               <div>
                 <h2>Your cart is empty</h2>
-                <Link to={'/'}>
-                  {' '}
-                  <BtnGlowNOTformSubmit text="Start shopping" />
-                </Link>
+                <div className="ecBtnStartShopping">
+                  <Link to={'/'}>
+                    {' '}
+                    <BtnGlowNOTformSubmit text="Start shopping" />
+                  </Link>
+                </div>
               </div>
             </div>
             <div className="right-containerEC"></div>
