@@ -11,6 +11,7 @@ import Loading from '../views/loading/Loading';
 import { Layout } from '../components/layout/Layout';
 import Login from '../components/loginAndSignup/Login';
 import CheckOut from '../components/cartCheckout/CheckOut';
+import OpenAIChatGPTLanguage from '../components/openAI/language/OpenAIChatGPTLanguage';
 export const router = createBrowserRouter([
   {
     path: '/',
@@ -37,4 +38,5 @@ export const router = createBrowserRouter([
     path: '/login',
     element: <Login />,
   },
+  { path: '/openailanguage', element: <OpenAIChatGPTLanguage /> },
 ]);
